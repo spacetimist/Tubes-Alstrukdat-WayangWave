@@ -11,10 +11,10 @@
 
 #define Nil NULL
 
-typedef int infotype;
+typedef char* infotype;
 typedef struct tElmtlist *address;
 typedef struct tElmtlist { 
-	Word info; // judul lagu
+	infotype info; // judul lagu
 	address next;
 } ElmtList;
 typedef struct {

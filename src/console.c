@@ -1,18 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #include "./ADT/queue/queue.h"
+#include "console.h"
 
-void QueueSong(Queue *queue) {
+void QueueSong() {
 
-    // yang dimasukkin parameter itu album secara keseluruhan
     char penyanyi[100], album[100], lagu[100];
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
    
+
     // input nama penyanyi pakai mesin kata
-    STARTWORD();
+    startInputWord();
 
     while (!isEndWord()) {
 
@@ -71,4 +71,23 @@ void QueueClear(Queue *queue) {
     IDX_TAIL(*queue) = IDX_UNDEF;
 
     printf("Queue berhasil dikosongkan.");
+}
+
+
+void createPlaylist(List *playlist){
+    printf(">> PLAYLIST CREATE;\n\n");
+    printf("Masukkan nama playlist yang ingin dibuat : ");
+    startInputWord();
+    Word namaplaylist = currentWord;
+    // printWord(namaplaylist);
+    printf("\n");
+    printf("Playlist %s berhasil dibuat!\n", wordToString(namaplaylist));
+
+    InsVFirst(playlist, wordToString(namaplaylist));
+    
+    printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n");
+    printf("\n");
+    /* kalo salah input */
+    printf("Minimal terdapat 3 karakter selain whitespace dalam nama playlist. Silakan coba lagi.");
+
 }
