@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "./ADT/queue/queue.h"
 #include "console.h"
 
-void QueueSong() {
+void QueueSong(Queue *queue) {
 
     char penyanyi[100], album[100], lagu[100];
 
@@ -45,7 +44,7 @@ void QueueSong() {
     printf("ke queue.");
 }
 
-void QueuePlaylist() {
+void QueuePlaylist(Queue *queue) {
 
     char playlist[100];
     
@@ -56,11 +55,11 @@ void QueuePlaylist() {
     printf("Berhasil menambahkan playlist %s ke queue.", playlist);
 }
 
-void QueueSwap() {
+void QueueSwap(Queue *queue, int id1, int id2) {
 
 }
 
-void QueueRemove(int id) {
+void QueueRemove(Queue *queue, int id) {
 
     
 }
