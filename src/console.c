@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "queue.h"
 
-void QueueSong() {
+#include "./ADT/queue/queue.h"
 
+void QueueSong(Queue *queue) {
+
+    // yang dimasukkin parameter itu album secara keseluruhan
     char penyanyi[100], album[100], lagu[100];
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
    
-
     // input nama penyanyi pakai mesin kata
     STARTWORD();
 
@@ -64,6 +65,10 @@ void QueueRemove(int id) {
     
 }
 
-void QueueClear() {
+void QueueClear(Queue *queue) {
+    
+    IDX_HEAD(*queue) = IDX_UNDEF;
+    IDX_TAIL(*queue) = IDX_UNDEF;
+
     printf("Queue berhasil dikosongkan.");
 }
