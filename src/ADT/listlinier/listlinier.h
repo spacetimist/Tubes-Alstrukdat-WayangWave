@@ -7,13 +7,14 @@
 #define listlinier_H
 
 #include "boolean.h"
+#include "../word/word.h"
 
 #define Nil NULL
 
 typedef int infotype;
 typedef struct tElmtlist *address;
 typedef struct tElmtlist { 
-	infotype info;
+	Word info; // judul lagu
 	address next;
 } ElmtList;
 typedef struct {
