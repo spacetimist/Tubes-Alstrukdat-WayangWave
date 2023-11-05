@@ -75,9 +75,11 @@ void QueueClear(Queue *queue) {
 
 void createPlaylist(List *playlist){
     printf(">> PLAYLIST CREATE;\n\n");
+    
     printf("Masukkan nama playlist yang ingin dibuat : ");
     startInputWord();
     Word namaplaylist = currentWord;
+
     // printWord(namaplaylist);
     printf("\n");
     printf("Playlist %s berhasil dibuat!\n", wordToString(namaplaylist));

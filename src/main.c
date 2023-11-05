@@ -1,12 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "queue.h"
 #include "console.h"
 
 int main() {
-    // Queue queue;
-    // CreateQueue(&queue);
-    createPlaylist();
+
+    // create queue
+    Queue queue;
+    CreateQueue(&queue);
+
+    // create list playlist
+    List playlist;
+    createPlaylist(&playlist);
     
     return 0;
 }
