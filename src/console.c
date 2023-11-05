@@ -71,13 +71,19 @@ void QueueClear() {
 }
 
 
-void createPlaylist(){
+void createPlaylist(List *playlist){
     printf(">> PLAYLIST CREATE;\n\n");
-    printf("Masukkan nama playlist yang ingin dibuat : \n\n");
+    printf("Masukkan nama playlist yang ingin dibuat : ");
     startInputWord();
-    printf("Playlist " "berhasil dibuat!\n");
+    Word namaplaylist = currentWord;
+    // printWord(namaplaylist);
+    printf("\n");
+    printf("Playlist %s berhasil dibuat!\n", wordToString(namaplaylist));
+
+    InsVFirst(playlist, wordToString(namaplaylist));
+    
     printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n");
-    printWord(currentWord);
+    printf("\n");
     /* kalo salah input */
     printf("Minimal terdapat 3 karakter selain whitespace dalam nama playlist. Silakan coba lagi.");
 

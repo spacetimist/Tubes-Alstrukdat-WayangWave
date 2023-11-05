@@ -23,7 +23,7 @@ void ADV()
     {
         retval = fscanf(pita, "%c", &currentChar);
 
-        EOP = (feof(pita));
+        EOP = currentChar == ';';
         if (IsEOP())
         {
             fclose(pita);
