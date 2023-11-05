@@ -13,4 +13,8 @@ void QueueClear(Queue *queue);
 // playlist
 void createPlaylist(List *playlist);
 
+// help
+void HelpBeforeStart();
+void HelpAfterStart();
+
 
