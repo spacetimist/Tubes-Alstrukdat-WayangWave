@@ -8,7 +8,7 @@
 #include "mesinkarakter.h"
 #include "../word/word.h"
 
-#define BLANK '\n'
+#define BLANK ';'
 
 /* State Mesin Kata */
 extern boolean EndWord;
