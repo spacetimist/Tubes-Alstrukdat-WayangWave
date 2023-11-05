@@ -1,4 +1,7 @@
 #include "word.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
 Word CreateWord()
 {
@@ -46,11 +49,11 @@ Word stringToWord(char* s)
     Word w;
 
     int i;
-    for (i = 0; i < stringLength(s); i++)
+    for (i = 0; i < strlen(s); i++)
     {
         w.TabWord[i] = s[i];
     }
-    w.Length = stringLength(s);
+    w.Length = strlen(s);
 
     return w;
 }
@@ -67,7 +70,7 @@ void CopyWord(Word *w1, Word w2)
 boolean stringEQWord(Word w, char* c)
 {
     boolean eq = false;
-    if (w.Length == stringLength(c))
+    if (w.Length == strlen(c))
     {
         eq = true;
         int i = 0;
