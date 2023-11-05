@@ -47,14 +47,14 @@ void printWord(Word w)
 Word stringToWord(char* s)
 {
     Word w;
-
+    w.Length = 0 ;
     int i;
-    for (i = 0; i < strlen(s); i++)
-    {
-        w.TabWord[i] = s[i];
-    }
-    w.Length = strlen(s);
-
+	while (s[i] != '\0')
+	{
+		w.TabWord[i] = s[i];
+		w.Length++;
+		i++;
+	}
     return w;
 }
 
