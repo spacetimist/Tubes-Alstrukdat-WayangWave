@@ -5,7 +5,7 @@
 #include "mesinkarakter.h"
 #include "mesinkata.h"
 
-#define NMaks 450
+#define NMaks 400
 #define NEWLINE '\n'
 #define MARK2 '\0'
 
@@ -16,7 +16,7 @@ typedef struct {
 
 /* State Mesin Kalimat */
 extern boolean EndKalimat;
-extern Kalimat CLine;
+extern Kalimat Line;
 
 void IgnoreNewline();
 
@@ -36,6 +36,5 @@ void copyKalimat (Kalimat k1, Kalimat *k2);
 
 void ResetKalimat();
 
-boolean isKalimatEqual(Kalimat K1, Kalimat K2);
 
 #endif

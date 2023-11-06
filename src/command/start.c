@@ -1,9 +1,10 @@
 #include <stdio.h>
-#include "./mesin/mesinkata.h"
-#include "./mesin/mesinkarakter.h"
-#include "./mesin/mesinkata.h"
-#include "./map2/map2.h"
 #include "start.h"
+#include "../ADT/mesin/mesinkata.h"
+#include "../ADT/mesin/mesinkarakter.h"
+#include "../ADT/mesin/mesinkalimat.h"
+#include "../ADT/map2/map2.h"
+
 
 void STARTREAD(ListPenyanyi * LP){
   STARTKALIMATFILE("config.txt");
@@ -59,3 +60,15 @@ void STARTREAD(ListPenyanyi * LP){
 
 }
 
+int main () {
+  printf(">>");
+  STARTWORD() ;
+  ListPenyanyi ls ;
+  CreateListPenyanyi (&ls) ;
+
+  if (IsKataEqual(currentWord, "START")) {
+    STARTREAD(&ls) ;
+  } else {
+    return 0 ;
+  }
+}

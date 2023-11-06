@@ -36,7 +36,7 @@ void ADVWORD(){
 
 void CopyWord(){
     currentWord.Length = 0;
-    while (CC != BLANK && CC != MARK && CC != '\n'){
+    while (CC != MARK && CC != BLANK && CC != '\n'){
         if (currentWord.Length < NMax){
             currentWord.TabWord[currentWord.Length] = CC;
             currentWord.Length++;
@@ -53,12 +53,12 @@ void printWord(){
     printf("\n");
 }
 
-void WordToString (Word K, char *S){
-    for (int i = 0; i < K.Length; i++)
+void WordToString (Word w, char *S){
+    for (int i = 0; i < w.Length; i++)
     {
-        S[i] = K.TabWord[i];
+        S[i] = w.TabWord[i];
     }
-    for (int i = K.Length; i < Length(S); i++) 
+    for (int i = w.Length; i < Length(S); i++) 
     {
         if (S[i] != '\0') {
             S[i] = '\0';
@@ -66,13 +66,13 @@ void WordToString (Word K, char *S){
     }
 }
 
-boolean IsKataEqual(Word S1, char * S2){
+boolean IsKataEqual(Word w1, char * S2){
     boolean equal = true;
     int i = 0;
     
-    if (S1.Length == Length(S2)){
+    if (w1.Length == Length(S2)){
         while (i < Length(S2) && equal){
-            if (S1.TabWord[i] != S2[i])
+            if (w1.TabWord[i] != S2[i])
             {
                 equal = false;
             }
@@ -91,11 +91,9 @@ boolean IsKataEqual(Word S1, char * S2){
 
 int Length(char * S2){
     int i = 0;
-
     while (S2[i] != '\0'){
         i++;
     }
-
     return i;
 }
 

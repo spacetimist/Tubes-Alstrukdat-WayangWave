@@ -2,7 +2,7 @@
 #include "mesinkalimat.h"
 
 boolean EndKalimat;
-Kalimat CLine;
+Kalimat Line;
 
 void Ignoreblanks()
 /* Mengabaikan satu atau beberapa BLANK
@@ -27,28 +27,27 @@ void IgnoreNewline()
 }
 
 void SalinKalimat() {
-    ResetKalimat();  // Reset array
+    ResetKalimat();  
     int i = 0;
-    while ((CC != MARK) && (CC != NEWLINE) && (CC != EOF))
+    while ((CC != NEWLINE) && (CC != EOF) && (CC != MARK))
     {
-        CLine.TabLine[i] = CC;
-        // printf("%c", CC);
+        Line.TabLine[i] = CC;
         i+= 1;
         ADV();
     }
-    CLine.Length = i;
+    Line.Length = i;
 }
 
 void SalinSatuKata() {
-    ResetKalimat();  // Reset array
+    ResetKalimat(); 
     int i = 0;
     while ((CC != BLANK) && (CC != MARK))
     {
-        CLine.TabLine[i] = CC;
+        Line.TabLine[i] = CC;
         i += 1;
         ADV();
     }
-    CLine.Length = i;
+    Line.Length = i;
 }
 
 void STARTKALIMATFILE(char filename[]) {
@@ -92,33 +91,10 @@ void copyKalimat (Kalimat k1, Kalimat *k2){
 }
 
 void ResetKalimat() {
-    for (int i = 0; i < sizeof(CLine.TabLine); i++) {
-        CLine.TabLine[i] = '\0';
-        CLine.Length = 0;
+    for (int i = 0; i < sizeof(Line.TabLine); i++) {
+        Line.TabLine[i] = '\0';
+        Line.Length = 0;
     }
 }
-boolean isKalimatEqual(Kalimat K1, Kalimat K2) // belum dites
-{   
-    boolean equal = true;
-    if (K1.Length == K2.Length)
-    {
-        int i = 0;
-        while (i < K1.Length && equal)
-        {
-            if (K1.TabLine[i] != K2.TabLine[i])
-            {
-                equal = false;
-            }
-            else
-            {
-                i++;
-            }
-        }
-        return equal;
-    }
-    else
-    {
-        return false;
-    }
-}
+
 

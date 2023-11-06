@@ -25,10 +25,6 @@ void STARTFILE(char filename[]) {
 
 void ADV() {
     retval = fscanf(pita,"%c",&CC);
-    // EOP = (CC == MARK);
-    // if (EOP) {
-    //    fclose(pita);
-    // }
 }
 
 void ADVFILE() {
