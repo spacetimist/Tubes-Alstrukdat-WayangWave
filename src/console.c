@@ -113,11 +113,36 @@ void playlistAdd(){
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
     startInputWord();
+    // kalau nama penyanyi benar
+    // menampilkan daftar album
+    printf("Daftar Album oleh %s : \n", wordToString(namapenyanyi));
+    for (int i = 0; i <= lengthlist; i++) {
+        printf("    %d. %s", i, (list).buffer[i]);
+    }
     printf("\n\n");
-    
+
+    // kalau nama penyanyi salah
+    printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.");
+
+    printf("Masukkan Judul Album yang dipilih : %s", wordToString(judulalbum));
+    startInputWord();
+    // kalau judul album benar
+    // menampilkan daftar lagu
+    printf("Daftar Lagu Album %s oleh %s : \n", wordToString(namapenyanyi), wordToString(judulalbum));
+    for (int i = 0; i <= lengthlist; i++) {
+        printf("    %d. %s", i, (list).buffer[i]);
+    }
+    printf("\n\n");
+
+    // kalau salah judul
+    printf("Album ... tidak ada dalam daftar. Silakan coba lagi.\n");
+
+    if (//ADDSONG) {
+        printf("Masukkan ID Lagu yang dipilih : ");
+        startInputWord();
 
 /* kalo salah input */
-    printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.");
+    printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.")
 } 
 
 
