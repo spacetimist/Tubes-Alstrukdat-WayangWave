@@ -4,7 +4,7 @@
 
 void QueueSong(Queue *queue, List *singer) {
 
-//     char penyanyi[00], album[00], lagu[00];
+    char penyanyi[00], album[00], lagu[00];
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
@@ -15,64 +15,63 @@ void QueueSong(Queue *queue, List *singer) {
     // input nama penyanyi pakai mesin kata
     startInputWord();
 
-//     while (!isEndWord()) {
+    while (!isEndWord()) {
 
-//     }
+    }
 
-//     printf("Masukkan Nama Penyanyi: ");
+    printf("Masukkan Nama Penyanyi: ");
 
 
-//     // output daftar album (set)
-//     printf("Daftar Album oleh %s :\n", penyanyi);
-//     // output isi set daftar album
+    // output daftar album (set)
+    printf("Daftar Album oleh %s :\n", penyanyi);
+    // output isi set daftar album
 
-//     // input nama album yang dipilih
-//     printf("Masukkan Nama Album yang dipilih : ");
-//     // input pakai mesin kata
+    // input nama album yang dipilih
+    printf("Masukkan Nama Album yang dipilih : ");
+    // input pakai mesin kata
 
-//     // output daftar lagu album (set)
-//     printf("Daftar Lagu Album %s oleh %s :\n", album, penyanyi);
-//     // output isi set daftar lagu album
+    // output daftar lagu album (set)
+    printf("Daftar Lagu Album %s oleh %s :\n", album, penyanyi);
+    // output isi set daftar lagu album
 
-//     // input ID lagu
-//     printf("Masukkan ID Lagu yang dipilih: ");
-//     // input pakai mesin kata
+    // input ID lagu
+    printf("Masukkan ID Lagu yang dipilih: ");
+    // input pakai mesin kata
 
-//     // output kalau berhasil menambahkan lagu
-//     printf("Berhasil menambahkann lagu");
-//     printf("%s", lagu);
-//     printf("oleh");
-//     printf("%s", penyanyi);
-//     printf("ke queue.");
-// }
+    // output kalau berhasil menambahkan lagu
+    printf("Berhasil menambahkann lagu");
+    printf("%s", lagu);
+    printf("oleh");
+    printf("%s", penyanyi);
+    printf("ke queue.");
+}
 
-// void QueuePlaylist(Queue *queue) {
+void QueuePlaylist(Queue *queue) {
 
-//     char playlist[00];
+    char playlist[00];
     
-//     // input masukkan ID playlist
-//     printf("Masukkan ID Playlist: ");
-//     // input pakai mesin kata
+    // input masukkan ID playlist
+    printf("Masukkan ID Playlist: ");
+    // input pakai mesin kata
 
-//     printf("Berhasil menambahkan playlist %s ke queue.", playlist);
-// }
+    printf("Berhasil menambahkan playlist %s ke queue.", playlist);
+}
 
-// void QueueSwap(Queue *queue, int id, int id2) {
+void QueueSwap(Queue *queue, int id, int id2) {
 
-// }
+}
 
-// void QueueRemove(Queue *queue, int id) {
+void QueueRemove(Queue *queue, int id) {
 
+}
+
+void QueueClear(Queue *queue) {
     
-// }
+    IDX_HEAD(*queue) = IDX_UNDEF;
+    IDX_TAIL(*queue) = IDX_UNDEF;
 
-// void QueueClear(Queue *queue) {
-    
-//     IDX_HEAD(*queue) = IDX_UNDEF;
-//     IDX_TAIL(*queue) = IDX_UNDEF;
-
-//     printf("Queue berhasil dikosongkan.");
-// }
+    printf("Queue berhasil dikosongkan.");
+}
 
 
 void createPlaylist(List *playlist){
@@ -107,10 +106,10 @@ void createPlaylist(List *playlist){
 }
 
 void playlistAdd(){
-    printf("Daftar Penyanyi :\n");
-    for (int i = 0; i <= lengthlist; i++) {
-        printf("    %d. %s", i, (list).buffer[i]);
-    }
+    // printf("Daftar Penyanyi :\n");
+    // for (int i = 0; i <= lengthlist; i++) {
+    //     printf("    %d. %s", i, (list).buffer[i]);
+    // }
 
     printf("Masukkan Nama Penyanyi yang dipilih : ");
     startInputWord();
@@ -118,7 +117,7 @@ void playlistAdd(){
     
 
 /* kalo salah input */
-    printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.")
+    printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.");
 } 
 
 
