@@ -2,14 +2,16 @@
 #include <stdlib.h>
 #include "console.h"
 
-void QueueSong(Queue *queue) {
+void QueueSong(Queue *queue, List *singer) {
 
     char penyanyi[00], album[00], lagu[00];
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
+    for (int i = 0; i < Length(*singer); i++) {
+        printf("    %d. %s\n", i+1, Get(*singer, i));
+    }
    
-
     // input nama penyanyi pakai mesin kata
     startInputWord();
 
@@ -108,5 +110,5 @@ void HelpAfterStart() {
     printf("5. PLAYLIST -> Untuk membuat dan menghapus playlist, menambahkan, menukar, dan menghapus lagu dalam playlist");
     printf("6. STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta queue song");
     printf("7. SAVE -> Untuk menyimpan state aplikasi WayangWave terbaru");
-    printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave")
+    printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave");
 }
