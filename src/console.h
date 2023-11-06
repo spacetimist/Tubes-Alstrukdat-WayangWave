@@ -17,4 +17,5 @@ void createPlaylist(List *playlist);
 void HelpBeforeStart();
 void HelpAfterStart();
 
-
+//invalid comment
+void invalidComment();
