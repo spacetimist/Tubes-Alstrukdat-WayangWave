@@ -4,7 +4,7 @@
 #include "./ADT/queue/queue.h"
 
 // queue
-void QueueSong(Queue *queue);
+void QueueSong(Queue *queue, List *singer);
 void QueuePlaylist(Queue *queue);
 void QueueSwap(Queue *queue, int id1, int id2);
 void QueueRemove(Queue *queue, int id);
