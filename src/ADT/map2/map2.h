@@ -4,9 +4,6 @@
 #include "../mesin/mesinkalimat.h"
 #include "boolean.h"
 
-/* MODUL MapAlbum
-Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri
-*/
 
 // #define false 0
 // #define true 1
@@ -21,7 +18,7 @@ typedef int address;
 
 typedef struct
 {   
-  Kalimat JudulLagu[20];
+  Kalimat JudulLagu[25];
   address Count;
 } SetLagu;
 

@@ -13,17 +13,17 @@ void STARTREAD(ListPenyanyi * LP){
   Kalimat NamaAlbum;
   Kalimat NamaLagu;
 
-  int loop = CLine.TabLine[0] - 48;
-  printf("\nJumlah Penyanyi: %d\n", loop);
+  int jumlah = Line.TabLine[0] - 48;
+  printf("\nJumlah Penyanyi: %d\n", jumlah);
 
 
-  for (int i = 0; i < loop; i++){
+  for (int i = 0; i < jumlah; i++){
     ADVSATUKATA();
-    int album = CLine.TabLine[0] - 48;
+    int album = Line.TabLine[0] - 48;
     
     ADVKALIMAT();
     
-    AddPenyanyi(LP, CLine);
+    AddPenyanyi(LP, Line);
     NamaPenyanyi = NamaPenyanyiNow(LP);
 
     printf("\nNama Penyanyi ke-%d: %s\n", i+1, NamaPenyanyi.TabLine);
@@ -34,11 +34,11 @@ void STARTREAD(ListPenyanyi * LP){
 
     for (int j = 0; j < album; j++){
       ADVSATUKATA();
-      int lagu = CLine.TabLine[0] - 48;
+      int lagu = Line.TabLine[0] - 48;
 
       ADVKALIMAT();
 
-      AddAlbum(LP, CLine);
+      AddAlbum(LP, Line);
       NamaAlbum = NamaAlbumNow(LP);
 
       printf("Nama Album: %s\n", NamaAlbum.TabLine);
@@ -47,7 +47,7 @@ void STARTREAD(ListPenyanyi * LP){
       {
         ADVKALIMAT();
 
-        AddLagu(LP, CLine);
+        AddLagu(LP, Line);
         NamaLagu = NamaLaguNow(LP);
 
         printf("Nama Lagu %d: %s\n", k+1, NamaLagu.TabLine);
