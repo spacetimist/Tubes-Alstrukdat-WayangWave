@@ -1,118 +1,105 @@
 #include "mesinkata.h"
 #include <stdio.h>
-#include <stdlib.h>
 
+
+/* State Mesin Word */
 boolean EndWord;
 Word currentWord;
 
-void IgnoreBlanks()
-{
-    while (currentChar == BLANK && !IsEOP())
-    {
+void IgnoreBlanks(){
+    while (CC == BLANK){
         ADV();
     }
 }
 
-void STARTWORD(char* file)
-{
-    START(file);
+void STARTWORD(){
+    START();
     IgnoreBlanks();
-    if (IsEOP())
-    {
+    if (CC == MARK){
         EndWord = true;
-    }
-    else
-    {
+    } else {
         EndWord = false;
-        ADVWORD();
+        CopyWord();
     }
 }
 
-void ADVWORD()
-{
-    if (IsEOP())
-    {
+void ADVWORD(){
+    IgnoreBlanks();
+    if(CC == MARK){
         EndWord = true;
-    }
-    else
-    {
-        UpdateCurrentWord();
+    } else{
+        CopyWord();
         IgnoreBlanks();
     }
 }
 
-void UpdateCurrentWord()
-{
-    int i = 0;
-    while ((currentChar != BLANK) && i < NMax && !IsEOP())
-    {
-        currentWord.TabWord[i] = currentChar;
+
+void CopyWord(){
+    currentWord.Length = 0;
+    while (CC != BLANK && CC != MARK && CC != '\n'){
+        if (currentWord.Length < NMax){
+            currentWord.TabWord[currentWord.Length] = CC;
+            currentWord.Length++;
+        }
         ADV();
-
-        i += 1;
-    }
-    currentWord.Length = i;
-}
-
-void startInputWord()
-{
-    startInput();
-    IgnoreBlanks();
-    if (IsEOP())
-    {
-        EndWord = true;
-    }
-    else
-    {
-        EndWord = false;
-        UpdateCurrentWord();
     }
 }
 
-void akuisisiCommandWord(Word *w, Word command, int kataKe)
-{
-    int i = 0, counter = 0, length = 0;
-    boolean stop;
-
-    while (counter != kataKe - 1 && i < command.Length)
+void printWord(){
+    for (int i = 0; i < currentWord.Length; i++)
     {
-        stop = false;
-        if (command.TabWord[i] == ' ')
-        {
-            counter++;
-            while (i < command.Length && !stop)
+        printf("%c", currentWord.TabWord[i]);
+    }
+    printf("\n");
+}
+
+void WordToString (Word K, char *S){
+    for (int i = 0; i < K.Length; i++)
+    {
+        S[i] = K.TabWord[i];
+    }
+    for (int i = K.Length; i < Length(S); i++) 
+    {
+        if (S[i] != '\0') {
+            S[i] = '\0';
+        }
+    }
+}
+
+boolean IsKataEqual(Word S1, char * S2){
+    boolean equal = true;
+    int i = 0;
+    
+    if (S1.Length == Length(S2)){
+        while (i < Length(S2) && equal){
+            if (S1.TabWord[i] != S2[i])
+            {
+                equal = false;
+            }
+            else
             {
                 i++;
-                if (command.TabWord[i] != ' ')
-                {
-                    stop = true;
-                }
             }
         }
-        else
-        {
-            i++;
-        }
-
-        if (i == command.Length)
-        {
-            counter++;
-        }
+    }
+    else{
+        equal = false;
     }
 
-    stop = false;
-    while (!stop && i < command.Length)
-    {
-        if (command.TabWord[i] == ' ')
-        {
-            stop = true;
-        }
-        else
-        {
-            w->TabWord[length] = command.TabWord[i];
-            i++;
-            length++;
-        }
+    return equal;
+}
+
+int Length(char * S2){
+    int i = 0;
+
+    while (S2[i] != '\0'){
+        i++;
     }
-    w->Length = length;
+
+    return i;
+}
+
+void resetWord()
+{
+    currentWord.Length = 0;
 }

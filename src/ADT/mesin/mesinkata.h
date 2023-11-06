@@ -1,55 +1,62 @@
-/* File: mesinkata.h */
-/* Definisi Mesin Kata: Model Akuisisi Versi I */
+/* File: wordmachine.h */
+/* Definisi Mesin Word: Model Akuisisi Versi I */
 
 #ifndef __MESINKATA_H__
 #define __MESINKATA_H__
 
-#include "boolean.h"
 #include "mesinkarakter.h"
-#include "../word/word.h"
+#include "boolean.h"
 
-#define BLANK ';'
+#define NMax 500
+#define BLANK ' '
 
-/* State Mesin Kata */
+typedef struct
+{
+   char TabWord[NMax]; /* container penyimpan kata, indeks yang dipakai [0..NMax-1] */
+   int Length;
+} Word;
+
+/* State Mesin Word */
 extern boolean EndWord;
 extern Word currentWord;
 
+void IgnoreBlanks();
 /* Mengabaikan satu atau beberapa BLANK
    I.S. : currentChar sembarang
-   F.S. : currentChar ≠ BLANK ('\n') dan currentChar != EOP */
-void IgnoreBlanks();
+   F.S. : currentChar ≠ BLANK atau currentChar = MARK */
 
+void STARTWORD();
 /* I.S. : currentChar sembarang
-   F.S. : EndWord = true, dan EOP;
+   F.S. : EndWord = true, dan currentChar = MARK;
           atau EndWord = false, currentWord adalah kata yang sudah diakuisisi,
           currentChar karakter pertama sesudah karakter terakhir kata */
-void STARTWORD(char* file);
 
+void ADVWORD();
 /* I.S. : currentChar adalah karakter pertama kata yang akan diakuisisi
    F.S. : currentWord adalah kata terakhir yang sudah diakuisisi,
           currentChar adalah karakter pertama dari kata berikutnya, mungkin MARK
-          Jika EOP, EndWord = true.
-   Proses : Akuisisi kata menggunakan procedure UpdateCurrentWord */
-void ADVWORD();
+          Jika currentChar = MARK, EndWord = true.
+   Proses : Akuisisi kata menggunakan procedure SalinWord */
 
+void CopyWord();
 /* Mengakuisisi kata, menyimpan dalam currentWord
    I.S. : currentChar adalah karakter pertama dari kata
    F.S. : currentWord berisi kata yang sudah diakuisisi;
-          currentChar = BLANK ('\n');
+          currentChar = BLANK atau currentChar = MARK;
           currentChar adalah karakter sesudah karakter terakhir yang diakuisisi.
           Jika panjang kata melebihi NMax, maka sisa kata "dipotong" */
-void UpdateCurrentWord();
 
-/*Melakukan pengisian pita oleh input user
-    I.S pita kosong
-    F.S pita diisi oleh user dan dilakukan pemrosesan oleh mesin kata
-*/
-void startInputWord();
+void printWord();
 
-/* Mengakuisisi kata  ke- pada sebuah command
-    I.S pita tidak kosong
-    F.S kata ke- diakuisi dan disimpan ke dalam w
-*/
-void akuisisiCommandWord(Word *w, Word command, int kataKe);
+int wordToInt(Word x);
+/* Mengembalikan Word angka dalam bentuk integer */
+
+void WordToString (Word K, char *S);
+
+boolean IsKataEqual(Word S1, char *S2);
+
+int Length(char *S2);
+
+void resetWord();
 
 #endif

@@ -18,33 +18,33 @@ Deklarasi stack yang dengan implementasi array eksplisit-statik rata kiri
 typedef int idAlbum;
 typedef int address;
 
-// 5
+
 typedef struct
 {   
   Kalimat JudulLagu[20];
   address Count;
 } SetLagu;
 
-// 4
+
 typedef struct {
 	Kalimat NamaAlbum;
 	SetLagu IsiLagu; // set Lagu dari suatu album
 } MapLagu;
 
-// 3
+
 typedef struct
 {
 	MapLagu AlbumLagu[10];
 	int NEff;
 } ListAlbum;
 
-// 2
+
 typedef struct {
 	Kalimat NamaPenyanyi;
 	ListAlbum ListAlbum; // array of ListAlbum yang dimiliki penyanyi
 } MapAlbum;
 
-// 1
+
 typedef struct {
 	MapAlbum PenyanyiAlbum[20];
 	int NEff;

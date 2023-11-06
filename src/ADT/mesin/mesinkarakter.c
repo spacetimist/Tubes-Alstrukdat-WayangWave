@@ -1,48 +1,39 @@
-#include <stdio.h>
 #include "mesinkarakter.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-char currentChar;
+char CC;
 boolean EOP;
 
-static FILE *pita;
+static FILE * pita;
 static int retval;
 
-void START(char* file)
-{
-    pita = fopen(file, "r");
-    ADV();
-}
-
-void ADV()
-{
-    if (pita == NULL)
-    {
-        EOP = true;
-    }
-    else
-    {
-        retval = fscanf(pita, "%c", &currentChar);
-
-        EOP = currentChar == ';';
-        if (IsEOP())
-        {
-            fclose(pita);
-        }
-    }
-}
-
-char GetCC()
-{
-    return currentChar;
-}
-
-boolean IsEOP()
-{
-    return EOP;
-}
-
-void startInput()
-{
+void START() {
     pita = stdin;
     ADV();
+}
+
+void STARTFILE(char filename[]) {
+    pita = fopen(filename, "r");
+    if (pita != NULL) {
+        ADVFILE();
+    } else {
+        printf("\nFile tidak ditemukan!\n");
+        exit(0);
+    }
+}
+
+void ADV() {
+    retval = fscanf(pita,"%c",&CC);
+    // EOP = (CC == MARK);
+    // if (EOP) {
+    //    fclose(pita);
+    // }
+}
+
+void ADVFILE() {
+    retval = fscanf(pita,"%c",&CC);
+    if (feof(pita)) {
+       fclose(pita);
+    }
 }

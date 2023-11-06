@@ -19,17 +19,21 @@ extern boolean EndKalimat;
 extern Kalimat CLine;
 
 void IgnoreNewline();
+
 void Ignoreblanks();
 
 void SalinKalimat();
+
 void SalinSatuKata();
 
 void STARTKALIMATFILE(char filename[]);
 
 void ADVKALIMAT();
+
 void ADVSATUKATA();
 
 void copyKalimat (Kalimat k1, Kalimat *k2);
+
 void ResetKalimat();
 
 boolean isKalimatEqual(Kalimat K1, Kalimat K2);
