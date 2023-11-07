@@ -12,6 +12,10 @@ int main() {
     Queue queue;
     CreateQueue(&queue);
 
+    // create set untuk menyimpan lagu dari suatu album
+    Set SongAlbum;
+    CreateEmpty(&SongAlbum);
+
     // create list playlist
     List playlist;
     createPlaylist(&playlist);

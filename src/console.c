@@ -12,14 +12,7 @@ void QueueSong(Queue *queue, List *singer) {
     }
    
     // input nama penyanyi pakai mesin kata
-    startInputWord();
-
-    while (!isEndWord()) {
-
-    }
-
     printf("Masukkan Nama Penyanyi: ");
-
 
     // output daftar album (set)
     printf("Daftar Album oleh %s :\n");

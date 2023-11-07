@@ -5,6 +5,7 @@
 #include "./ADT/word/word.h"
 #include "./ADT/listlinier/listlinier.h"
 #include "./ADT/queue/queue.h"
+#include "./ADT/set/set.h"
 
 // queue
 void QueueSong(Queue *queue, List *singer);
