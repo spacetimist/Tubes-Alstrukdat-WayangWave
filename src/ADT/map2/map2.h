@@ -1,12 +1,11 @@
-#ifndef MAPSETLIST_H
-#define MAPSETLIST_H
+#ifndef MAPLIST_H
+#define MAPLIST_H
 #include <stdio.h>
 #include "../mesin/mesinkalimat.h"
 #include "boolean.h"
 
 
-// #define false 0
-// #define true 1
+
 #define Nil 0
 #define AlbumMax 100
 #define Undefined -999
@@ -53,12 +52,9 @@ void CreateListPenyanyi(ListPenyanyi * LP);
 
 void AddPenyanyi(ListPenyanyi * LP, Kalimat NamaPenyanyi);
 
-
 Kalimat NamaPenyanyiNow(ListPenyanyi * LP);
 
-
 void AddAlbum(ListPenyanyi * LP, Kalimat NamaAlbum);
-
 
 Kalimat NamaAlbumNow(ListPenyanyi * LP);
 
