@@ -9,8 +9,8 @@ int main() {
     MakeList(&singer);
     
     // create queue
-    // Queue queue;
-    // CreateQueue(&queue);
+    Queue queue;
+    CreateQueue(&queue);
 
     // create list playlist
     List playlist;

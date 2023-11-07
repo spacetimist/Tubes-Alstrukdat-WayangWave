@@ -2,13 +2,12 @@
 #include <stdlib.h>
 #include "console.h"
 
+// ------------------------------------------------- QUEUE -----------------------------------------------------------
 void QueueSong(Queue *queue, List *singer) {
-
-    char penyanyi[00], album[00], lagu[00];
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(*singer); i++) {
+    for (int i = 0; i < Length(singer); i++) {
         printf("    %d. %s\n", i+1, Get(*singer, i));
     }
    
@@ -23,7 +22,7 @@ void QueueSong(Queue *queue, List *singer) {
 
 
     // output daftar album (set)
-    printf("Daftar Album oleh %s :\n", penyanyi);
+    printf("Daftar Album oleh %s :\n");
     // output isi set daftar album
 
     // input nama album yang dipilih
@@ -31,7 +30,7 @@ void QueueSong(Queue *queue, List *singer) {
     // input pakai mesin kata
 
     // output daftar lagu album (set)
-    printf("Daftar Lagu Album %s oleh %s :\n", album, penyanyi);
+    printf("Daftar Lagu Album %s oleh %s :\n",);
     // output isi set daftar lagu album
 
     // input ID lagu
@@ -40,9 +39,9 @@ void QueueSong(Queue *queue, List *singer) {
 
     // output kalau berhasil menambahkan lagu
     printf("Berhasil menambahkann lagu");
-    printf("%s", lagu);
+    printf("%s");
     printf("oleh");
-    printf("%s", penyanyi);
+    printf("%s");
     printf("ke queue.");
 }
 
@@ -73,7 +72,7 @@ void QueueClear(Queue *queue) {
     printf("Queue berhasil dikosongkan.");
 }
 
-
+// ---------------------------------------------- PLAYLIST ------------------------------------------------------------
 void createPlaylist(List *playlist){
     printf(">> PLAYLIST CREATE;\n\n");
     
@@ -149,7 +148,7 @@ void playlistAdd(List *singer){
     printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.");
 } 
 
-
+// -------------------------------------------------- HELP -----------------------------------------------------------
 void HelpBeforeStart() {
     printf("-------------------- [ Menu Help WayangWave ] --------------------");
     printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave");
@@ -168,7 +167,7 @@ void HelpAfterStart() {
     printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave");;
 }
 
-void invalidComment(){
+void InvalidCommand(){
     printf("Command tidak diketahui!");
     printf("Command tidak bisa dieksekusi!");
 }
