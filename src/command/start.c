@@ -7,7 +7,7 @@
 
 
 void STARTREAD(ListPenyanyi * LP){
-  STARTKALIMATFILE("config.txt");
+  STARTKALIMATFILE("../save/config.txt");
 
   Kalimat NamaPenyanyi;
   Kalimat NamaAlbum;
@@ -57,18 +57,19 @@ void STARTREAD(ListPenyanyi * LP){
     }
 
   }
+  printf("File konfigurasi aplikasi berhasil dibaca. WayangWave berhasil dijalankan.\n");
 
 }
 
-int main () {
-  printf(">>");
-  STARTWORD() ;
-  ListPenyanyi ls ;
-  CreateListPenyanyi (&ls) ;
+// int main () {
+//   printf(">> ");
+//   STARTWORD() ;
+//   ListPenyanyi ls ;
+//   CreateListPenyanyi (&ls) ;
 
-  if (IsKataEqual(currentWord, "START")) {
-    STARTREAD(&ls) ;
-  } else {
-    return 0 ;
-  }
-}
+//   if (IsKataEqual(currentWord, "START")) {
+//     STARTREAD(&ls) ;
+//   } else {
+//     return 0 ;
+//   }
+// }

@@ -3,7 +3,6 @@
 #include "console.h"
 
 int main() {
-
     // create list daftar penyanyi
     List singer;
     MakeList(&singer);

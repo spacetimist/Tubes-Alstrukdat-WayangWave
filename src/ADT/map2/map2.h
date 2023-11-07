@@ -46,7 +46,9 @@ typedef struct {
 	int NEff;
 } ListPenyanyi;
 
+boolean IsMember2(ListPenyanyi LP, char NP[]);
 
+ListAlbum Value2(ListPenyanyi LP, char NP[]);
 
 void CreateListPenyanyi(ListPenyanyi * LP);
 
