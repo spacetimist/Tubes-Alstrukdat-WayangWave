@@ -30,7 +30,7 @@ void QueueSong(Queue *queue, List *singer) {
     // input pakai mesin kata
 
     // output daftar lagu album (set)
-    printf("Daftar Lagu Album %s oleh %s :\n",);
+    printf("Daftar Lagu Album %s oleh %s :\n");
     // output isi set daftar lagu album
 
     // input ID lagu
@@ -94,8 +94,9 @@ void createPlaylist(List *playlist){
         else sesuai = true;
     }
 
-    Word namaplaylist = currentWord;
-    // printWord(namaplaylist);
+    Word namaplaylist;
+    // = currentWord
+    // printWord(namaplaylist)
     // playlist bisa dibuat
     printf("\n");
     printf("Playlist %s berhasil dibuat!\n", wordToString(namaplaylist));
@@ -108,7 +109,7 @@ void playlistAdd(List *singer){
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(*singer); i++) {
+    for (int i = 0; i < Length(singer); i++) {
         printf("    %d. %s\n", i+1, Get(*singer, i));
     }
 
