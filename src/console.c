@@ -145,7 +145,7 @@ void playlistAdd(List *singer){
     //     startInputWord();
     // }
 
-/* kalo salah input */
+    /* kalo salah input */
     printf("Penyanyi ... tidak ada dalam daftar. Silakan coba lagi.");
 } 
 
