@@ -8,6 +8,6 @@
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
 
-void ListDefault(ListPenyanyi * LP);
+void ListDefault(ListPenyanyi LP);
 
 #endif

@@ -2,27 +2,31 @@
 #include <stdlib.h>
 #include "console2.h"
 
+// baru bisa yang START
 int main() {
-    printf(">> ");
-    STARTWORD() ;
     ListPenyanyi ls ;
     CreateListPenyanyi (&ls) ;
-    boolean valid = false;
+    boolean valid = true;
 
-    if (IsKataEqual(currentWord, "START")) {
-        STARTREAD(&ls) ;
-        valid = true;
-        while(valid){
-            printf(">> ");
-            STARTWORD() ;
-            if (IsKataEqual(currentWord, "LIST DEFAULT")){
-                ListDefault(&ls);
-            }
+    while(valid){
+        printf(">> ");
+        STARTWORD() ;   
+        if (IsKataEqual(currentWord, "START")) {
+            STARTREAD(&ls) ;
+            valid = false;
+        } else {
+            printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }
-    } else {
-        valid = false;
-        return 0 ;
     }
-    
+    valid = true;
+    while(valid){
+        printf(">> ");
+        STARTWORD() ; 
+        if (IsKataEqual(currentWord, "LIST DEFAULT")) {
+            ListDefault(ls) ;
+
+        }
+    }
+
     return 0;
 }
