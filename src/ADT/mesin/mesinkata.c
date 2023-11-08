@@ -89,13 +89,7 @@ boolean IsKataEqual(Word w1, char * S2){
     return equal;
 }
 
-int Length(char * S2){
-    int i = 0;
-    while (S2[i] != '\0'){
-        i++;
-    }
-    return i;
-}
+
 
 void resetWord()
 {
