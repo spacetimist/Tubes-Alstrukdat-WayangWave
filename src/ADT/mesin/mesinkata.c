@@ -58,7 +58,7 @@ void WordToString (Word w, char *S){
     {
         S[i] = w.TabWord[i];
     }
-    for (int i = w.Length; i < Length(S); i++) 
+    for (int i = w.Length; i < length(S); i++) 
     {
         if (S[i] != '\0') {
             S[i] = '\0';
@@ -70,8 +70,8 @@ boolean IsKataEqual(Word w1, char * S2){
     boolean equal = true;
     int i = 0;
     
-    if (w1.Length == Length(S2)){
-        while (i < Length(S2) && equal){
+    if (w1.Length == length(S2)){
+        while (i < length(S2) && equal){
             if (w1.TabWord[i] != S2[i])
             {
                 equal = false;

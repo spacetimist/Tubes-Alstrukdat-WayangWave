@@ -194,7 +194,7 @@ void ResetIn() {
 }
 
 void ResetKalimat() {
-    for (int i = 0; i < sizeof(CLine.TabLine); i++) {
+    for (int i = 0; i < sizeof(Line.TabLine); i++) {
         Line.TabLine[i] = '\0';
         Line.Length = 0;
     }
