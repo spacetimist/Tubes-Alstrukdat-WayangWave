@@ -10,8 +10,8 @@ int main() {
 
     while(valid){
         printf(">> ");
-        STARTWORD() ;   
-        if (IsKataEqual(currentWord, "START")) {
+        StartInput() ;   /* pakai ini untuk nerima inputnya.*/
+        if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ;
             valid = false;
         } else {
@@ -21,8 +21,8 @@ int main() {
     valid = true;
     while(valid){
         printf(">> ");
-        STARTWORD() ; 
-        if (IsKataEqual(currentWord, "LIST DEFAULT")) {
+        StartInput() ; 
+        if (isInputEqual(Input, "LIST DEFAULT")) {
             ListDefault(ls) ;
 
         }
