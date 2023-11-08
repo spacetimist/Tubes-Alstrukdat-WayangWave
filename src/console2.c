@@ -24,7 +24,6 @@ int main() {
         StartInput() ; 
         if (isInputEqual(Input, "LIST DEFAULT")) {
             ListDefault(ls) ;
-
         }
     }
 
