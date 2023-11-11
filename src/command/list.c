@@ -27,14 +27,13 @@ void ListDefault(ListPenyanyi LP){
             if (isKalimatEqual(Input, Penyanyi)){
                 indexPenyanyi = i;
                 ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
-                printf("Daftar Album oleh %s :\n", Penyanyi.TabLine);
+                printf("\nDaftar Album oleh %s :\n", Input.TabLine);
                 for(int j=0; j<DaftarAlbum.NEff; j++){
                     MapLagu album = DaftarAlbum.AlbumLagu[j];
                     printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
                 }
 		    }
         }
-        printf("%d\n", indexPenyanyi);
         printf("\nIngin melihat lagu yang ada? (Y/N): ");
         StartInput();
         if(isInputEqual(Input, "Y")){
@@ -49,8 +48,8 @@ void ListDefault(ListPenyanyi LP){
                 // printf("%d\n",Input.Length);
                 if (isKalimatEqual(Input, album)){
                     SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
-                    printf("Daftar Lagu di");
-                    printf(" %s :\n", album.TabLine);
+                    printf("\nDaftar Lagu di");
+                    printf(" %s :\n", Input.TabLine);
                     for(int k=0; k<DaftarLagu.Count;k++){
                     Kalimat lagu = DaftarLagu.JudulLagu[k];
                         printf("    %d. %s\n", k+1, lagu.TabLine);
