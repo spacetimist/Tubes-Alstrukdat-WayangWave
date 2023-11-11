@@ -58,24 +58,25 @@ Kalimat NamaLaguNow(ListPenyanyi * LP)
 	return LP->PenyanyiAlbum[indeksPenyanyi].ListAlbum.AlbumLagu[indeksAlbum].IsiLagu.JudulLagu[indekSLagu];
 }
 
-boolean IsMember2(ListPenyanyi LP, char NP[])
+boolean IsMemberLP(ListPenyanyi LP, Kalimat NP)
 /* Mengembalikan true jika k adalah member dari M */
 {
     for (int i = 0; i < LP.NEff; i++)
     {
-        if (LP.PenyanyiAlbum[i].NamaPenyanyi.TabLine == NP) return true;
+        if (isKalimatEqual(LP.PenyanyiAlbum[i].NamaPenyanyi, NP)) return true;
     }
-
     return false;
 }
 
-ListAlbum Value2(ListPenyanyi LP, char NP[])
+ListAlbum ValueLP(ListPenyanyi LP, Kalimat NP)
 /* Mengembalikan nilai value dengan key k dari M */
 /* Jika tidak ada key k pada M, akan mengembalikan Undefined */
 {
     for (int i = 0; i < LP.NEff; i++)
     {
-        if (LP.PenyanyiAlbum[i].NamaPenyanyi.TabLine == NP){return LP.PenyanyiAlbum[i].ListAlbum;}
+        if (isKalimatEqual(LP.PenyanyiAlbum[i].NamaPenyanyi, NP)){
+			return LP.PenyanyiAlbum[i].ListAlbum;
+		}
     }
 }
 

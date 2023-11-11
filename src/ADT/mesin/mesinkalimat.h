@@ -57,7 +57,7 @@ void StartInput () ;
 /*meminta input pita karakter lalu menyalin pita kedalam kalimat hingga NEWLINE/MARK/EOF
 I.S. : Kalimat sembarang
 F.S. : Kalimat berisi yang di input hingga menemukan NEWLINE/MARK/EOF*/
-
+boolean isInputEqual(Kalimat Input, char *kata);
 void ADVKALIMAT();
 /*melanjutkan ke kalimat selanjutnya*/
 void ADVSATUKATA();

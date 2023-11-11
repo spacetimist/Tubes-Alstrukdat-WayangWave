@@ -15,22 +15,23 @@ void ListDefault(ListPenyanyi LP){
         printf("    %d. %s\n", i+1, LP.PenyanyiAlbum[i].NamaPenyanyi.TabLine);
     }
 
-    char YN[1];
-    char input[NMaks]; //mesin kalimat
-    ListAlbum DaftarAlbum = Value2(LP, input);
-
     printf("\nIngin melihat album yang ada? (Y/N): ");
-    scanf("%s", YN);
-    if(strcmp(YN, "Y")==0){
+    StartInput();
+    if(isInputEqual(Input, "Y")){
         printf("\nPilih penyanyi untuk melihat album mereka: ");
-        scanf("%[^\n]s", input);
-        if(IsMember2(LP, input)){
-            printf("\nDaftar Album oleh %s :\n", input);
+        StartInput();
+        if(IsMemberLP(LP, Input)){
+            ListAlbum DaftarAlbum = ValueLP(LP, Input);
             for(int i=0; i<DaftarAlbum.NEff; i++){
-                printf("    %d. %s\n", i+1, DaftarAlbum.AlbumLagu[i].NamaAlbum.TabLine);
+                MapLagu album = DaftarAlbum.AlbumLagu[i];
+                printf("    %d. %s\n", i+1, album.NamaAlbum.TabLine);
             }
         }
-    }
+    }else if(isInputEqual(Input, "N")){
+        return;
+    }else{
+        printf("Input tidak valid.");
+    } 
 }
 
 // int main(){
