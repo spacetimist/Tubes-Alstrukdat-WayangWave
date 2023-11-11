@@ -63,11 +63,11 @@ void STARTREAD(ListPenyanyi * LP){
 
 // int main () {
 //   printf(">> ");
-//   STARTWORD() ;
+//   StartInput() ;
 //   ListPenyanyi ls ;
 //   CreateListPenyanyi (&ls) ;
 
-//   if (IsKataEqual(currentWord, "START")) {
+//   if (isInputEqual(Input, "START")) {
 //     STARTREAD(&ls) ;
 //   } else {
 //     return 0 ;
