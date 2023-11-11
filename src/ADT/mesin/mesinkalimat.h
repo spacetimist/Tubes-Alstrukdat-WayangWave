@@ -1,7 +1,7 @@
 #ifndef __MESIN_KALIMAT_H__
 #define __MESIN_KALIMAT_H__
 
-#include "./boolean.h"
+#include "../boolean.h"
 #include "mesinkarakter.h"
 #include "mesinkata.h"
 
@@ -58,6 +58,7 @@ void StartInput () ;
 I.S. : Kalimat sembarang
 F.S. : Kalimat berisi yang di input hingga menemukan NEWLINE/MARK/EOF*/
 
+boolean isInputEqual(Kalimat Input, char *kata);
 void ADVKALIMAT();
 /*melanjutkan ke kalimat selanjutnya*/
 void ADVSATUKATA();

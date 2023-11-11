@@ -2,7 +2,7 @@
 #define MAPLIST_H
 #include <stdio.h>
 #include "../mesin/mesinkalimat.h"
-#include "./boolean.h"
+#include "../boolean.h"
 
 
 
@@ -46,9 +46,9 @@ typedef struct {
 	int NEff;
 } ListPenyanyi;
 
-boolean IsMember2(ListPenyanyi LP, char NP[]);
+boolean IsMemberLP(ListPenyanyi LP, Kalimat NP);
 
-ListAlbum Value2(ListPenyanyi LP, char NP[]);
+ListAlbum ValueLP(ListPenyanyi LP, Kalimat NP);
 
 void CreateListPenyanyi(ListPenyanyi * LP);
 

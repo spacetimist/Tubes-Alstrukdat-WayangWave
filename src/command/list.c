@@ -20,13 +20,28 @@ void ListDefault(ListPenyanyi LP){
     if(isInputEqual(Input, "Y")){
         printf("\nPilih penyanyi untuk melihat album mereka: ");
         StartInput();
-        if(IsMemberLP(LP, Input)){
-            ListAlbum DaftarAlbum = ValueLP(LP, Input);
-            for(int i=0; i<DaftarAlbum.NEff; i++){
-                MapLagu album = DaftarAlbum.AlbumLagu[i];
-                printf("    %d. %s\n", i+1, album.NamaAlbum.TabLine);
-            }
+        ListAlbum DaftarAlbum = ValueLP(LP, Input);
+        for(int i=0; i<DaftarAlbum.NEff; i++){
+            MapLagu album = DaftarAlbum.AlbumLagu[i];
+            printf("    %d. %s\n", i+1, album.NamaAlbum.TabLine);
         }
+        printf("\nIngin melihat lagu yang ada? (Y/N): ");
+        StartInput();
+        if(isInputEqual(Input, "Y")){
+            printf("\nPilih album untuk melihat lagu yang ada: ");
+            StartInput();
+            if(IsMemberLP(LP, Input)){
+                ListAlbum DaftarAlbum = ValueLP(LP, Input);
+                for(int i=0; i<DaftarAlbum.NEff; i++){
+                    MapLagu album = DaftarAlbum.AlbumLagu[i];
+                    printf("    %d. %s\n", i+1, album.NamaAlbum.TabLine);
+                }
+            }
+        }else if(isInputEqual(Input, "N")){
+            return;
+        }else{
+            printf("Input tidak valid.");
+        } 
     }else if(isInputEqual(Input, "N")){
         return;
     }else{

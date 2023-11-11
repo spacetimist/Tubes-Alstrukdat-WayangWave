@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "boolean.h"
+#include "../boolean.h"
 #include "map2.h"
 
 /* *** Konstruktor/Kreator *** */
