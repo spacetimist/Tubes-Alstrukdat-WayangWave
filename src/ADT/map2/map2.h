@@ -2,7 +2,7 @@
 #define MAPLIST_H
 #include <stdio.h>
 #include "../mesin/mesinkalimat.h"
-#include "boolean.h"
+#include "./boolean.h"
 
 
 

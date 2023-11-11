@@ -1,7 +1,7 @@
 #ifndef hashHashMap_H
 #define hashHashMap_H
 #include <stdio.h>
-#include "boolean.h"
+#include "./boolean.h"
 
 /**
  * Modul Hash HashMap

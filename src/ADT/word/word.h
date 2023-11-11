@@ -3,7 +3,7 @@
 
 #define NMax 100
 
-#include "boolean.h"
+#include "./boolean.h"
 
 typedef struct
 {

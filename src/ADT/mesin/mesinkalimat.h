@@ -1,7 +1,7 @@
 #ifndef __MESIN_KALIMAT_H__
 #define __MESIN_KALIMAT_H__
 
-#include "boolean.h"
+#include "./boolean.h"
 #include "mesinkarakter.h"
 #include "mesinkata.h"
 

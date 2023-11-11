@@ -8,6 +8,7 @@
 
 #include "boolean.h"
 #include "../word/word.h"
+#include "./boolean.h"
 
 #define Nil NULL
 
