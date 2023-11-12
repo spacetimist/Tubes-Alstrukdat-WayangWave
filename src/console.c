@@ -133,7 +133,7 @@ void playlistAdd(List *singer){
     // kalau salah judul
     printf("Album ... tidak ada dalam daftar. Silakan coba lagi.\n");
 
-    if (//ADDSONG) {
+    if () {
         printf("Masukkan ID Lagu yang dipilih : ");
         startInputWord();
 
@@ -159,7 +159,7 @@ void playlistAdd(List *singer){
         printf("ID Playlist ... tidak ada dalam daftar. Silakan coba lagi.");
 
     }
-    else if (//ADDSONG){
+    else if () {
         printf("Daftar Playlist Pengguna : \n");
         for (int i = 0; i <= lengthlist; i++) {
             printf("    %d. %s", i, (list).buffer[i]);
