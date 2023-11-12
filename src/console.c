@@ -1,18 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "console.h"
+#include "console2.h"
 
 // ------------------------------------------------- QUEUE -----------------------------------------------------------
-void QueueSong(Queue *queue, List *singer) {
+void QueueSong(Queue *queue, ListPenyanyi *ls) {
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(singer); i++) {
-        printf("    %d. %s\n", i+1, Get(*singer, i));
+    for (int i = 0; i < Length(ls); i++) {
+        printf("    %d. %s\n", i+1, Get(*ls, i));
     }
    
     // input nama penyanyi pakai mesin kata
     printf("Masukkan Nama Penyanyi: ");
+    StartInput();
 
     // output daftar album (set)
     printf("Daftar Album oleh %s :\n");

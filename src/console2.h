@@ -4,3 +4,5 @@
 #include "./ADT/map2/map2.h"
 #include "./command/start.h"
 #include "./command/list.h"
+
+void banner();
