@@ -18,4 +18,4 @@ void playlistSwap(a, b, c);
 
 void playlistRemove(a, b);
 
-void playlistDelete() {
+void playlistDelete();
