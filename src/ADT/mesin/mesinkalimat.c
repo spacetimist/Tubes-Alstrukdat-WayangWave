@@ -94,6 +94,7 @@ void STARTKALIMATFILE(char NamaFile[]) {
 
 void StartInput() {
     START() ;
+    IgnoreNewline() ;
     if (CC == ';') {
         EndKalimat = true ;
     } else {EndKalimat = false ;  SalinInput() ;}
