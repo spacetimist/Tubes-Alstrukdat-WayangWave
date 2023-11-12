@@ -24,6 +24,8 @@ int main() {
         StartInput() ; 
         if (isInputEqual(Input, "LIST DEFAULT")) {
             ListDefault(ls) ;
+        }else{
+            printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }
     }
 

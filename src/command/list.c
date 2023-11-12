@@ -6,8 +6,6 @@
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
 
-//MASIH ERROR YANG LIST LAGU
-
 void ListDefault(ListPenyanyi LP){
     printf("\nDaftar Penyanyi :\n");
 
@@ -23,7 +21,9 @@ void ListDefault(ListPenyanyi LP){
         int indexPenyanyi;
         for (int i = 0; i < LP.NEff; i++){
             Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-            Penyanyi.Length -= 2;
+            Penyanyi.Length--;
+            // printf("%d\n",Penyanyi.Length);
+            // printf("%d\n",Input.Length);
             if (isKalimatEqual(Input, Penyanyi)){
                 indexPenyanyi = i;
                 ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
@@ -34,6 +34,7 @@ void ListDefault(ListPenyanyi LP){
                 }
 		    }
         }
+        // printf("%d\n", indexPenyanyi);
         printf("\nIngin melihat lagu yang ada? (Y/N): ");
         StartInput();
         if(isInputEqual(Input, "Y")){
@@ -43,7 +44,7 @@ void ListDefault(ListPenyanyi LP){
 
             for(int j=0; j<DaftarAlbum.NEff; j++){
                 Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-                album.Length -= 2;
+                album.Length--;
                 // printf("%d\n",album.Length);
                 // printf("%d\n",Input.Length);
                 if (isKalimatEqual(Input, album)){
@@ -56,8 +57,6 @@ void ListDefault(ListPenyanyi LP){
                     }
                 }
             }
-        }else{
-            return;
         }
     }else if(isInputEqual(Input, "N")){
         return;
@@ -66,15 +65,15 @@ void ListDefault(ListPenyanyi LP){
     } 
 }
 
-int main(){
-    ListPenyanyi ls ;
-    CreateListPenyanyi (&ls) ;
-    printf(">> ");
-    StartInput() ;   /* pakai ini untuk nerima inputnya.*/
-    if (isInputEqual(Input, "START")) {
-        STARTREAD(&ls) ;
-        ListDefault(ls);
-    } else {
-        printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
-    }
-}
+// int main(){
+//     ListPenyanyi ls ;
+//     CreateListPenyanyi (&ls) ;
+//     printf(">> ");
+//     StartInput() ;   /* pakai ini untuk nerima inputnya.*/
+//     if (isInputEqual(Input, "START")) {
+//         STARTREAD(&ls) ;
+//         ListDefault(ls);
+//     } else {
+//         printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
+//     }
+// }
