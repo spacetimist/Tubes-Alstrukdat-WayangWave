@@ -69,7 +69,21 @@ void QueueSwap(Queue *queue, int id1, int id2) {
 }
 
 void QueueRemove(Queue *queue, int id) {
+    if (isEmpty(*queue)) return;
+    else if (id < 0 || id >= length(*queue)) printf("Lagu dengan urutan ke %d tidak ada.");
+    else {
 
+        int idToRemove = (IDX_HEAD(*queue) + id) % CAPACITY;
+        ElType songToRemove = (*queue).buffer[idToRemove];
+
+        for (int i = idToRemove; i < length(*queue) - 1; i++) {
+            (*queue).buffer[i] = (*queue).buffer[i + 1];
+        }
+
+        (*queue).idxTail = ((*queue).idxTail - 1 + CAPACITY) & CAPACITY;
+
+        printf("Lagu '%s' oleh '%s' telah dihapus dari queue!", songToRemove);
+    }
 }
 
 void QueueClear(Queue *queue) {
