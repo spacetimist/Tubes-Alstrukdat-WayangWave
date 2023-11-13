@@ -49,8 +49,23 @@ void QueuePlaylist(Queue *queue) {
     printf("Berhasil menambahkan playlist %s ke queue.", playlist);
 }
 
-void QueueSwap(Queue *queue, int id, int id2) {
+void QueueSwap(Queue *queue, int id1, int id2) {
+    if (isEmpty(*queue)) printf("Queue kosong!");
+    else if ((id1 < 0 || id1 >= CAPACITY) && (id2 < 0 || id2 >= CAPACITY)) printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!", id1, id2);
+    else if (id1 < 0 || id1 >= CAPACITY) printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1);
+    else if (id2 < 0 || id2 >= CAPACITY) printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1);
+    else {
 
+        int idx1 = (IDX_HEAD(*queue) + id1) % CAPACITY;
+        int idx2 = (IDX_HEAD(*queue) + id2) % CAPACITY;
+
+        ElType song1 = (*queue).buffer[idx1];
+        (*queue).buffer[idx1] = (*queue).buffer[idx2];
+        (*queue).buffer[idx2] = song1; 
+        ElType song2 = (*queue).buffer[idx1];
+
+        printf("Lagu '%s' berhasil ditukar dengan '%s'", song1, song2);
+    }
 }
 
 void QueueRemove(Queue *queue, int id) {

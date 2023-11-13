@@ -17,7 +17,7 @@
 
 void QueueSong(Queue *queue, ListPenyanyi *ls);
 void QueuePlaylist(Queue *queue);
-void QueueSwap(Queue *queue, int id, int id2);
+void QueueSwap(Queue *queue, int id1, int id2);
 void QueueRemove(Queue *queue, int id);
 void QueueClear(Queue *queue);
 
