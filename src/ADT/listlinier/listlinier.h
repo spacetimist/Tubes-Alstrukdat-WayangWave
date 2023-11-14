@@ -36,7 +36,7 @@ boolean IsEmpty (List L);
 /* Mengirim true jika list kosong */
 
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateEmpty (List *L);
+void createEmptyLinkList (List *L);
 /* I.S. sembarang             */
 /* F.S. Terbentuk list kosong */
 
