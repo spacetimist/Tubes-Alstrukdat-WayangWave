@@ -9,6 +9,30 @@
 #include "../command/start.h"
 #include "boolean.h"
 
+#define initial_cap 100
+typedef struct {
+    Kalimat songName;
+    Kalimat artistName;
+    Kalimat albumName;
+} ElType;
+typedef struct {
+    ElType song;
+    address Next;
+}SongNode;
+
+typedef struct {
+    address First;
+    Kalimat PlaylistName;
+}Playlist;
+
+typedef struct{
+    Playlist *List;
+    int capacity;
+    int Neff;
+}DaftarPlaylist;
+/*menggunakan list dinamis
+I.S capacity = initial_cap */
+
 // playlist
 void createPlaylist(List *playlist);
 
