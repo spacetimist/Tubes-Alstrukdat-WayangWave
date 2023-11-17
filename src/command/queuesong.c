@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-// #include "queue.h"
-#include "../ADT/queue/queue.h"
-#include "../ADT/boolean.h"
+#include "queue.h"
 
-void QueueSong(Queue *queue, ListPenyanyi *ls) {
+void QueueSong(Queue *queue, ListPenyanyi *LP) {
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(ls); i++) {
-        printf("    %d. %s\n", i+1, Get(*ls, i));
+    for (int i = 0; i < Length(LP); i++) {
+        printf("    %d. %s\n", i+1, Get(*LP, i));
     }
    
     // input nama penyanyi pakai mesin kata
@@ -41,8 +39,6 @@ void QueueSong(Queue *queue, ListPenyanyi *ls) {
 }
 
 void QueuePlaylist(Queue *queue) {
-
-    char playlist[00];
     
     // input masukkan ID playlist
     printf("Masukkan ID Playlist: ");
