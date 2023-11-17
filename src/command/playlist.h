@@ -2,44 +2,52 @@
 #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
-#include "../ADT/word/word.h"
+// #include "../ADT/word/word.h"
 #include "../ADT/listlinier/listlinier.h"
-#include "../ADT/queue/queue.h"
-#include "../ADT/set/set.h"
-#include "../command/start.h"
+// #include "../ADT/queue/queue.h"
+// #include "../ADT/set/set.h"
+// #include "../command/start.h"
 #include "boolean.h"
 
 #define initial_cap 100
+typedef struct tsongNode *addressNode;
 typedef struct {
     Kalimat songName;
     Kalimat artistName;
     Kalimat albumName;
 } ElType;
-typedef struct {
+typedef struct tsongNode{
     ElType song;
-    address Next;
+    addressNode Next;
 }SongNode;
 
 typedef struct {
-    address First;
+    addressNode First;
     Kalimat PlaylistName;
-}List;
+}Playlist;
 
 typedef struct{
-    List *Playlist;
+    Playlist *List;
     int capacity;
     int Neff;
 }DaftarPlaylist;
 /*menggunakan list dinamis
 I.S capacity = initial_cap */
 
-// playlist
-void createPlaylist(List *playlist);
+void createDaftarPlaylist(DaftarPlaylist *daftar);
 
-void playlistAdd(List *singer);
+// daftar
+void createPlaylist(DaftarPlaylist *daftar);
 
-void playlistSwap(a, b, c);
 
-void playlistRemove(a, b);
+void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value);
 
-void playlistDelete();
+void PlaylistAdd(Playlist *currentPlaylist, ListPenyanyi LP);
+
+// void playlistAdd(List *singer);
+
+// void playlistSwap(a, b, c);
+
+// void playlistRemove(a, b);
+
+// void playlistDelete();
