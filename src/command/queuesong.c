@@ -1,18 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "queue.h"
+#include "queuesong.h"
 
 void QueueSong(Queue *queue, ListPenyanyi *LP) {
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(LP); i++) {
-        printf("    %d. %s\n", i+1, Get(*LP, i));
+    for (int i = 0; i < LP.NEff; i++) {
+        printf("    %d. %s\n", i+1, Get(LP, i));
     }
    
     // input nama penyanyi pakai mesin kata
     printf("Masukkan Nama Penyanyi: ");
     StartInput();
+
+    printf("\nPilih penyanyi untuk melihat album mereka: ");
+    StartInput();
+    int indexPenyanyi;
+    for (int i = 0; i < LP.NEff; i++){
+        Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
+        Penyanyi.Length--;
+        // printf("%d\n",Penyanyi.Length);
+        // printf("%d\n",Input.Length);
+        if (isKalimatEqual(Input, Penyanyi)){
+            indexPenyanyi = i;
+            ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
+            printf("\nDaftar Album oleh %s :\n", Input.TabLine);
+            for(int j=0; j<DaftarAlbum.NEff; j++){
+                MapLagu album = DaftarAlbum.AlbumLagu[j];
+                printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
+            }
+        }
 
     // output daftar album (set)
     printf("Daftar Album oleh %s :\n");
