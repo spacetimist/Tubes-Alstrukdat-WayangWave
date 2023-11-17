@@ -23,10 +23,10 @@ typedef struct {
 typedef struct {
     address First;
     Kalimat PlaylistName;
-}Playlist;
+}list;
 
 typedef struct{
-    Playlist *List;
+    List *Playlist;
     int capacity;
     int Neff;
 }DaftarPlaylist;
