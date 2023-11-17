@@ -17,7 +17,7 @@
 #include "../command/list.h"
 
 
-void QueueSong(Queue *queue, ListPenyanyi *LP);
+void QueueSong(Queue *queue, ListPenyanyi LP);
 void QueuePlaylist(Queue *queue);
 void QueueSwap(Queue *queue, int id1, int id2);
 void QueueRemove(Queue *queue, int id);
