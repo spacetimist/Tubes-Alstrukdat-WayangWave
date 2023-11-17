@@ -30,6 +30,10 @@ int main() {
     ListPenyanyi ls ;
     CreateListPenyanyi (&ls) ;
     boolean valid = true;
+    Queue songQue;
+    CreateQueue(&songQue);
+    Stack songHist;
+    CreateStack(&songHist);
 
     while(valid){
         printf(">> ");
@@ -47,7 +51,11 @@ int main() {
         StartInput() ; 
         if (isInputEqual(Input, "LIST DEFAULT")) {
             ListDefault(ls) ;
-        }else{
+        }
+        else if (isInputEqual(Input, "PLAY SONG")){
+            
+        }
+        else{
             printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }
     }
