@@ -6,22 +6,14 @@ void QueueSong(Queue *queue, ListPenyanyi *LP) {
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < LP.NEff; i++) {
-        printf("    %d. %s\n", i+1, Get(LP, i));
-    }
-   
-    // input nama penyanyi pakai mesin kata
-    printf("Masukkan Nama Penyanyi: ");
-    StartInput();
-
-    printf("\nPilih penyanyi untuk melihat album mereka: ");
     StartInput();
     int indexPenyanyi;
+
+    // output daftar penyanyi
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
         Penyanyi.Length--;
-        // printf("%d\n",Penyanyi.Length);
-        // printf("%d\n",Input.Length);
+
         if (isKalimatEqual(Input, Penyanyi)){
             indexPenyanyi = i;
             ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
@@ -31,10 +23,6 @@ void QueueSong(Queue *queue, ListPenyanyi *LP) {
                 printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
             }
         }
-
-    // output daftar album (set)
-    printf("Daftar Album oleh %s :\n");
-    // output isi set daftar album
 
     // input nama album yang dipilih
     printf("Masukkan Nama Album yang dipilih : ");
