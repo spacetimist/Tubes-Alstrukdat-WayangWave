@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 // #include "queue.h"
-#include "queue.h"
-#include "boolean.h"
+#include "../ADT/queue/queue.h"
+#include "../ADT/boolean.h"
 
 // void QueueSong(Queue *queue, ListPenyanyi *ls) {
 
