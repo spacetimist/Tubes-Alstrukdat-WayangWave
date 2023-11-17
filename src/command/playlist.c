@@ -5,10 +5,10 @@
 // ---------------------------------------------- PLAYLIST ------------------------------------------------------------
 void createPlaylist(List *playlist){
     printf(">> PLAYLIST CREATE;\n\n");
-    
+    List L;
+    createEmptyLinkList(&L);
     // playlist belum bisa dibuat
     boolean sesuai = false;
-
     while (sesuai){
         int count = 0;
         printf("Masukkan nama playlist yang ingin dibuat : ");
@@ -48,6 +48,7 @@ void playlistAdd(List *singer){
 
     // kalau nama penyanyi benar
     // menampilkan daftar album
+    if (Search(*singer, ))
     printf("Daftar Album oleh %s : \n", wordToString(namapenyanyi));
     for (int i = 0; i <= lengthlist; i++) {
         printf("    %d. %s", i, (list).buffer[i]);
