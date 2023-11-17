@@ -1,95 +1,118 @@
+/* Definisi ADT Queue dengan representasi array secara eksplisit dan alokasi statik */
+
+#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "queue.h"
 
-void QueueSong(Queue *queue, ListPenyanyi *ls) {
+/* *** Kreator *** */
+void CreateQueue(Queue *q){
+/* I.S. sembarang */
+/* F.S. Sebuah q kosong terbentuk dengan kondisi sbb: */
+/* - Index head bernilai IDX_UNDEF */
+/* - Index tail bernilai IDX_UNDEF */
+/* Proses : Melakukan alokasi, membuat sebuah q kosong */
+    IDX_HEAD(*q) = IDX_UNDEF;
+    IDX_TAIL(*q) = IDX_UNDEF;
+}
 
-    // output daftar penyanyi (list)
-    printf("Daftar Penyanyi :\n");
-    for (int i = 0; i < Length(ls); i++) {
-        printf("    %d. %s\n", i+1, Get(*ls, i));
+/* ********* Prototype ********* */
+boolean isEmpty(Queue q){
+/* Mengirim true jika q kosong: lihat definisi di atas */
+    return (IDX_HEAD(q) == IDX_UNDEF && IDX_TAIL(q) == IDX_UNDEF);
+}
+boolean isFull(Queue q){
+/* Mengirim true jika tabel penampung elemen q sudah penuh */
+/* yaitu IDX_TAIL akan selalu di belakang IDX_HEAD dalam buffer melingkar*/
+    if (IDX_TAIL(q) >= IDX_HEAD(q))
+        return IDX_TAIL(q) - IDX_HEAD(q) == CAPACITY - 1;
+    else
+        return IDX_HEAD(q) - IDX_TAIL(q) == 1;
+}
+int length(Queue q){
+/* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
+    if (isEmpty(q)) 
+        return 0;
+    else if (IDX_TAIL(q) >= IDX_HEAD(q))
+        return IDX_TAIL(q) - IDX_HEAD(q) + 1;
+    else
+        return IDX_TAIL(q) - IDX_HEAD(q) + CAPACITY + 1;
+}
+/* *** Primitif Add/Delete *** */
+void enqueue(Queue *q, ElType val){
+/* Proses: Menambahkan val pada q dengan aturan FIFO */
+/* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
+/* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
+    if (isEmpty(*q)){
+        IDX_HEAD(*q) = 0;
+        IDX_TAIL(*q) = 0;
     }
-   
-    // input nama penyanyi pakai mesin kata
-    printf("Masukkan Nama Penyanyi: ");
-    StartInput();
-
-    // output daftar album (set)
-    printf("Daftar Album oleh %s :\n");
-    // output isi set daftar album
-
-    // input nama album yang dipilih
-    printf("Masukkan Nama Album yang dipilih : ");
-    // input pakai mesin kata
-
-    // output daftar lagu album (set)
-    printf("Daftar Lagu Album %s oleh %s :\n");
-    // output isi set daftar lagu album
-
-    // input ID lagu
-    printf("Masukkan ID Lagu yang dipilih: ");
-    // input pakai mesin kata
-
-    // output kalau berhasil menambahkan lagu
-    printf("Berhasil menambahkann lagu");
-    printf("%s");
-    printf("oleh");
-    printf("%s");
-    printf("ke queue.");
-}
-
-void QueuePlaylist(Queue *queue) {
-
-    char playlist[00];
-    
-    // input masukkan ID playlist
-    printf("Masukkan ID Playlist: ");
-    // input pakai mesin kata
-
-    printf("Berhasil menambahkan playlist %s ke queue.", playlist);
-}
-
-void QueueSwap(Queue *queue, int id1, int id2) {
-    if (isEmpty(*queue)) printf("Queue kosong!");
-    else if ((id1 < 0 || id1 >= CAPACITY) && (id2 < 0 || id2 >= CAPACITY)) printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!", id1, id2);
-    else if (id1 < 0 || id1 >= CAPACITY) printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1);
-    else if (id2 < 0 || id2 >= CAPACITY) printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1);
     else {
-
-        int idx1 = (IDX_HEAD(*queue) + id1) % CAPACITY;
-        int idx2 = (IDX_HEAD(*queue) + id2) % CAPACITY;
-
-        ElType song1 = (*queue).buffer[idx1];
-        (*queue).buffer[idx1] = (*queue).buffer[idx2];
-        (*queue).buffer[idx2] = song1; 
-        ElType song2 = (*queue).buffer[idx1];
-
-        printf("Lagu '%s' berhasil ditukar dengan '%s'", song1, song2);
-    }
-}
-
-void QueueRemove(Queue *queue, int id) {
-    if (isEmpty(*queue)) return;
-    else if (id < 0 || id >= length(*queue)) printf("Lagu dengan urutan ke %d tidak ada.");
-    else {
-
-        int idToRemove = (IDX_HEAD(*queue) + id) % CAPACITY;
-        ElType songToRemove = (*queue).buffer[idToRemove];
-
-        for (int i = idToRemove; i < length(*queue) - 1; i++) {
-            (*queue).buffer[i] = (*queue).buffer[i + 1];
+        if (IDX_TAIL(*q) == (CAPACITY-1)){
+            IDX_TAIL(*q) = 0;
         }
-
-        (*queue).idxTail = ((*queue).idxTail - 1 + CAPACITY) & CAPACITY;
-
-        printf("Lagu '%s' oleh '%s' telah dihapus dari queue!", songToRemove);
+        else {
+            IDX_TAIL(*q) += 1;
+        }
+    }
+    TAIL(*q) = val;
+}
+void dequeue(Queue *q, ElType *val){
+/* Proses: Menghapus val pada q dengan aturan FIFO */
+/* I.S. q tidak mungkin kosong */
+/* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
+        q mungkin kosong */
+    *val = HEAD(*q);
+    if (IDX_HEAD(*q) == IDX_TAIL(*q))
+    {
+        IDX_HEAD(*q) = IDX_UNDEF;
+        IDX_TAIL(*q) = IDX_UNDEF;
+    }
+    else
+    {
+        if (IDX_HEAD(*q) == CAPACITY - 1)
+        {
+            IDX_HEAD(*q) = 0;
+        }
+        else
+        {
+            IDX_HEAD(*q)
+            ++;
+        }
     }
 }
 
-void QueueClear(Queue *queue) {
-    
-    IDX_HEAD(*queue) = IDX_UNDEF;
-    IDX_TAIL(*queue) = IDX_UNDEF;
-
-    printf("Queue berhasil dikosongkan.");
+/* *** Display Queue *** */
+void displayQueue(Queue q){
+/* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
+   siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
+   karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
+/* I.S. q boleh kosong */
+/* F.S. Jika q tidak kosong: [e1,e2,...,en] */
+/* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
+/* Jika Queue kosong : menulis [] */
+    if (isEmpty(q)){
+        printf("[]\n");
+    } else {
+        printf("[");
+        if (IDX_HEAD(q) > IDX_TAIL(q)){
+            for(int i = IDX_HEAD(q); i <= CAPACITY-1; i++){
+                printf("%d", q.buffer[i]);
+                printf(",");
+            }
+            for(int i = 0; i <= IDX_TAIL(q); i++){
+                printf("%d", q.buffer[i]);
+                if (i != IDX_TAIL(q)){
+                    printf(",");
+                }
+            }
+        } else {
+            for(int i = IDX_HEAD(q); i <= IDX_TAIL(q); i++){
+                printf("%d", q.buffer[i]);
+                if (i != IDX_TAIL(q)){
+                    printf(",");
+                }
+            }
+        }
+        printf("]\n");
+    }
 }
