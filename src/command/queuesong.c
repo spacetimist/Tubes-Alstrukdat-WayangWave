@@ -54,7 +54,7 @@ void QueueSong(Queue *queue, ListPenyanyi LP) {
     printf("Berhasil menambahkann lagu");
     printf("%s");
     printf("oleh");
-    printf("%s", Penyanyi);
+    printf("%s", Penyanyi.TabLine);
     printf("ke queue.");
 }
 

@@ -61,6 +61,8 @@
     "map2.h": "c",
     "playlist.h": "c",
     "word.h": "c",
-    "stdlib.h": "c"
+    "stdlib.h": "c",
+    "listlinier.h": "c",
+    "list.h": "c"
   }
 }
