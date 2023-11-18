@@ -70,10 +70,6 @@ void QueuePlaylist(Queue *queue) {
     printf("Berhasil menambahkan playlist %s ke queue.", Playlist);
 }
 
-int main() {
-    QueueSwap(*queue, id1, id2);
-}
-
 void QueueSwap(Queue *queue, int id1, int id2)
 {
     if ((id1 > 0 && id1 < length(queue))) {
