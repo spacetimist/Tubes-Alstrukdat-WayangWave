@@ -1,9 +1,16 @@
-#include "../ADT/mesin/mesinkata.h"
-#include "../ADT/mesin/mesinkarakter.h"
+// #include "../ADT/mesin/mesinkata.h"
+// #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
 #include "../ADT/listlinier/listlinier.h"
+<<<<<<< HEAD
 #include "boolean.h"
+=======
+// #include "../ADT/queue/queue.h"
+// #include "../ADT/set/set.h"
+// #include "../command/start.h"
+#include "../ADT/boolean.h"
+>>>>>>> 06c8d9e179eb099ddad6d13e8f4401bb4e38fe34
 
 #define initial_cap 100
 typedef struct tsongNode *addressNode;
