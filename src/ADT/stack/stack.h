@@ -25,13 +25,13 @@ void CreateStack(Stack *s);
 /* Ciri stack kosong: idxTop bernilai IDX_UNDEF */
 
 /********** Predikat Untuk test keadaan KOLEKSI **********/
-boolean isEmpty(Stack s);
+boolean isStackEmpty(Stack s);
 /* Mengirim true jika Stack kosong: lihat definisi di atas */
 
-boolean isFull(Stack s);
+boolean isStackFull(Stack s);
 /* Mengirim true jika Stack penuh */
 
-int length(Stack s);
+int stackLength(Stack s);
 /* Mengirim ukuran Stack s saat ini */
 
 /*********** Menambahkan sebuah elemen ke Stack **********/
