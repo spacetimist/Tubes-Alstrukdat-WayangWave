@@ -2,11 +2,12 @@
 #include <stdlib.h>
 
 void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songName, Kalimat *artistName) {
+    //print daftar penyanyi
     printf("\nDaftar Penyanyi :\n") ;
     for (int i = 0 ; i < (*LP).NEff ; i++) {
         printf("    %d. %s\n", i+1, (*LP).PenyanyiAlbum[i].NamaPenyanyi.TabLine);
     }
-
+    //milih penyanyi
     printf("\nMasukkan Nama Penyanyi yang Dipilih :\n") ;
     printf(">> ") ;
     StartInput() ;
@@ -58,6 +59,10 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songN
     CreateQueue(songQue);
 }
 
-void PLAYPLAYLIST(){
-
+void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP){
+    //print daftar playlist
+    //milih playlist
+    printf("\nMasukkan Nama Penyanyi yang Dipilih :\n") ;
+    printf(">> ") ;
+    StartInput() ;
 }

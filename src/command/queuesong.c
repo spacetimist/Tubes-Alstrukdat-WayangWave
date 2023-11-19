@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "queuesong.h"
 
-void QueueSong(Queue *songQue, ListPenyanyi LP) {
+void QueueSong(Queue *songQue, ListPenyanyi LP){
 
     // output daftar penyanyi (list)
     printf("Daftar Penyanyi :\n");
@@ -23,6 +23,7 @@ void QueueSong(Queue *songQue, ListPenyanyi LP) {
                 printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
             }
         }
+    }
     
     // input nama album yang dipilih
     ListAlbum DaftarAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum;
@@ -50,7 +51,7 @@ void QueueSong(Queue *songQue, ListPenyanyi LP) {
     StartInput();
     int idLagu = Input.TabLine[0] - 48 - 1;
 
-    enqueue(*songQue, idLagu);
+    enqueue(songQue, idLagu);
 
     // output kalau berhasil menambahkan lagu
     printf("Berhasil menambahkann lagu %s oleh %s ke queue.", HEAD(*songQue), Penyanyi.TabLine);
