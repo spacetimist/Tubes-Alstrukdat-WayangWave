@@ -122,7 +122,7 @@ void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y)
         addressY = (currentPlaylist.First)->Next;
     }
 
-    ElType temp = addressX->song;
+    SongDetails temp = addressX->song;
     addressX->song = addressY->song;
     addressY->song = temp;
 

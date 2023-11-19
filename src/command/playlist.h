@@ -2,11 +2,7 @@
 #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
-// #include "../ADT/word/word.h"
 #include "../ADT/listlinier/listlinier.h"
-// #include "../ADT/queue/queue.h"
-// #include "../ADT/set/set.h"
-// #include "../command/start.h"
 #include "boolean.h"
 
 #define initial_cap 100
@@ -15,9 +11,9 @@ typedef struct {
     Kalimat songName;
     Kalimat artistName;
     Kalimat albumName;
-} ElType;
+} SongDetails;
 typedef struct tsongNode{
-    ElType song;
+    SongDetails song;
     addressNode Next;
 }SongNode;
 
@@ -42,7 +38,7 @@ void createPlaylist(DaftarPlaylist *daftar);
 
 void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value);
 
-void PlaylistAdd(Playlist *currentPlaylist, ListPenyanyi LP);
+void PlaylistAdd(DaftarPlaylist *daftar, ListPenyanyi LP);
 
 // void playlistAdd(List *singer);
 

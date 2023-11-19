@@ -1,4 +1,3 @@
-#include "boolean.h"
 #include "listlinier.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -203,20 +202,20 @@ void DelAfter (List *L, adr *Pdel, adr Prec){
 /*      Pdel adalah alamat elemen list yang dihapus  */
 
 /****************** PROSES SEMUA ELEMEN LIST ******************/
-void PrintInfo (List L){
-	adr P = First(L);
+// void PrintInfo (List L){
+// 	adr P = First(L);
 
-	if (isLinkListEmpty(L)){
-		printf("[]");
-	} else {
-		printf("[%d", Info(P));
-		while (Next(P) != Nul){
-			P = Next(P);
-			printf(",%d", Info(P));
-		}
-		printf("]");
-	}
-}
+// 	if (isLinkListEmpty(L)){
+// 		printf("[]");
+// 	} else {
+// 		printf("[%d", Info(P));
+// 		while (Next(P) != Nul){
+// 			P = Next(P);
+// 			printf(",%d", Info(P));
+// 		}
+// 		printf("]");
+// 	}
+// }
 /* I.S. List mungkin kosong */
 /* F.S. Jika list tidak kosong, iai list dicetak ke kanan: [e1,e2,...,en] */
 /* Contoh : jika ada tiga elemen berNulai 1, 20, 30 akan dicetak: [1,20,30] */

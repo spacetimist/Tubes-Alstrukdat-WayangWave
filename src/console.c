@@ -28,22 +28,14 @@ void banner(){
 int main() {
     banner();
     ListPenyanyi ls ;
+    DaftarPlaylist dp;
     CreateListPenyanyi (&ls) ;
+    createDaftarPlaylist (&dp);
     boolean valid = true;
     Queue songQue;
     CreateQueue(&songQue);
     Stack songHist;
     CreateStack(&songHist);
-
-    while (valid) {
-        printf(">> ");
-        StartInput();
-        if (isInputEqual(Input, "HELP")) {
-            printf("====================[ Menu Help WayangWave ]====================");
-            printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave");
-            printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi");
-        }
-    }
 
     while(valid){
         printf(">> ");
@@ -51,7 +43,11 @@ int main() {
         if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ;
             valid = false;
-        } else {
+        }else if (isInputEqual(Input, "HELP")) {
+            printf("\n====================[ Menu Help WayangWave ]====================\n");
+            printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave\n");
+            printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
+        }else {
             printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
         }
     }
@@ -65,6 +61,8 @@ int main() {
         }
         else if (isInputEqual(Input, "PLAY SONG")){
             
+        }else if (isInputEqual(Input, "PLAYLIST CREATE")){
+            createPlaylist(&dp);
         }
         else if (isInputEqual(Input, "HELP")) {
             printf("====================[ Menu Help WayangWave ]====================");
