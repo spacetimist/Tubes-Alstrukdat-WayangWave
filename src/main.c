@@ -8,8 +8,8 @@ int main() {
     MakeList(&singer);
     
     // create queue
-    Queue queue;
-    CreateQueue(&queue);
+    // Queue queue;
+    // CreateQueue(&queue);
 
     // create set untuk menyimpan lagu dari suatu album
     Set SongAlbum;
