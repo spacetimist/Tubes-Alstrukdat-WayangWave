@@ -7,6 +7,8 @@
 #include "../ADT/map2/map2.h"
 
 void ListDefault(ListPenyanyi LP){
+    int indexPenyanyi;
+
     printf("\nDaftar Penyanyi :\n");
 
     for(int i=0; i<LP.NEff; i++){
@@ -18,7 +20,6 @@ void ListDefault(ListPenyanyi LP){
     if(isInputEqual(Input, "Y")){
         printf("\nPilih penyanyi untuk melihat album mereka: ");
         StartInput();
-        int indexPenyanyi;
         for (int i = 0; i < LP.NEff; i++){
             Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
             Penyanyi.Length--;
@@ -32,7 +33,9 @@ void ListDefault(ListPenyanyi LP){
                     MapLagu album = DaftarAlbum.AlbumLagu[j];
                     printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
                 }
-		    }
+		    }else{
+                printf("\nArtis tidak dikenali. Silahkan coba lagi!\n");
+            }
         }
         // printf("%d\n", indexPenyanyi);
         printf("\nIngin melihat lagu yang ada? (Y/N): ");

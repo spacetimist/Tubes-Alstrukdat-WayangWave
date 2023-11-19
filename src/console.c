@@ -25,6 +25,10 @@ void banner(){
 
 }
 
+void InvalidComment(){
+    printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+}
+
 int main() {
     banner();
     ListPenyanyi ls ;
@@ -48,7 +52,7 @@ int main() {
             printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave\n");
             printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
         }else {
-            printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
+            InvalidComment();
         }
     }
 
@@ -76,7 +80,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave");;
         }
         else{
-            printf("Command tidak dikenali, silahkan masukkan command yang valid.\n");
+            InvalidComment();
         }
     }
 
