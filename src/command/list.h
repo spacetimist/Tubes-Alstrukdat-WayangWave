@@ -10,4 +10,6 @@
 
 void ListDefault(ListPenyanyi LP);
 
+void ListPlaylist(DaftarPlaylist DP);
+
 #endif
