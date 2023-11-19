@@ -5,7 +5,7 @@
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
-boolean IsEmpty (List L){
+boolean isLinkListEmpty (List L){
 	return First(L) == Nil; 
 }
 /* Mengirim true jika list kosong */
