@@ -1,13 +1,7 @@
 #include "play.h"
 #include <stdlib.h>
 
-void PLAYSONG(Queue *songQue, Stack *songHist, Kalimat songName, Kalimat artistName){
-    //empty songQue and songHist
-    CreateStack(songHist);
-    CreateQueue(songQue);
-}
-
-void PlaySong(ListPenyanyi * LP, CurrentSong * CS) {
+void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songName, Kalimat *artistName) {
     printf("\nDaftar Penyanyi :\n") ;
     for (int i = 0 ; i < (*LP).NEff ; i++) {
         printf("    %d. %s\n", i+1, (*LP).PenyanyiAlbum[i].NamaPenyanyi.TabLine);
@@ -55,7 +49,15 @@ void PlaySong(ListPenyanyi * LP, CurrentSong * CS) {
     int idSong = Input.TabLine[0] - 48 - 1;
     Kalimat judulLagu = LP->PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[idSong];
     judulLagu.Length -- ;
-    printf("Memutar Lagu %s\n" , judulLagu.TabLine) ;
+    Kalimat namaPenyanyi = LP->PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
+    printf("Nama Penyanyi: %s\n", namaPenyanyi.TabLine);
+    printf("Memutar Lagu %s\n" , judulLagu.TabLine);
+
+    //empty songQue and songHist
+    CreateStack(songHist);
+    CreateQueue(songQue);
+}
+
+void PLAYPLAYLIST(){
 
 }
-void PLAYPLAYLIST();
