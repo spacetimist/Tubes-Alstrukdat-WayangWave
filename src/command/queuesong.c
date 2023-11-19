@@ -50,11 +50,13 @@ void QueueSong(Queue *queue, ListPenyanyi LP) {
     StartInput();
     int idLagu = Input.TabLine[0] - 48 - 1;
 
+    enqueue(*queue, idLagu);
+
     // output kalau berhasil menambahkan lagu
     printf("Berhasil menambahkann lagu");
     printf("%s");
     printf("oleh");
-    printf("%s", Penyanyi);
+    printf("%s", Penyanyi.TabLine);
     printf("ke queue.");
 }
 
@@ -70,11 +72,27 @@ void QueuePlaylist(Queue *queue) {
 
 void QueueSwap(Queue *queue, int id1, int id2)
 {
+    if ((id1 > 0 && id1 < length(queue))) {
+        if (id2 > 0 && id2 < length(queue)) {
 
+            temp = (*queue).buffer[id1]
+            (*queue).buffer[id1] = (*queue).buffer[id2];
+            (*queue).buffer[id2] = temp;
+
+            printf("Lagu %s berhasil ditukar dengan %s", );
+        }
+        else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!", id1, id2);
+    }
+    else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1)
+   
 }
 
-void QueueRemove(Queue *queue, int id) {
-
+void QueueRemove(Queue *queue, int id, Kalimat Penyanyi) {
+    if (!isEmpty(queue)) {
+        if (id <= 0 || id > IDX_TAIL - IDX_HEAD + 1)   printf("Lagu dengan urutan ke %d tidak ada", id);
+        else printf("Lagu %s oleh %s telah dihapus dari queue", id, Penyanyi.TabLine)
+    }
+    else printf("Queue kosong.")
 }
 
 void QueueClear(Queue *queue) {

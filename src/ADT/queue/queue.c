@@ -16,11 +16,11 @@ void CreateQueue(Queue *q){
 }
 
 /* ********* Prototype ********* */
-boolean isEmpty(Queue q){
+boolean isQueueEmpty(Queue q){
 /* Mengirim true jika q kosong: lihat definisi di atas */
     return (IDX_HEAD(q) == IDX_UNDEF && IDX_TAIL(q) == IDX_UNDEF);
 }
-boolean isFull(Queue q){
+boolean isQueueFull(Queue q){
 /* Mengirim true jika tabel penampung elemen q sudah penuh */
 /* yaitu IDX_TAIL akan selalu di belakang IDX_HEAD dalam buffer melingkar*/
     if (IDX_TAIL(q) >= IDX_HEAD(q))
@@ -28,7 +28,7 @@ boolean isFull(Queue q){
     else
         return IDX_HEAD(q) - IDX_TAIL(q) == 1;
 }
-int length(Queue q){
+int queueLength(Queue q){
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
     if (isEmpty(q)) 
         return 0;

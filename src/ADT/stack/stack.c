@@ -7,20 +7,20 @@ void CreateStack(Stack *s) {
 /* ALGORITMA */
     IDX_TOP(*s) = IDX_UNDEF;
 }
-int length(Stack s) {
+int stackLength(Stack s) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */
     return (IDX_TOP(s) + 1);
 }
 
-boolean isEmpty(Stack s) {
+boolean isStackEmpty(Stack s) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */
     return (IDX_TOP(s) == IDX_UNDEF);
 }
-boolean isFull(Stack s) {
+boolean isStackFull(Stack s) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */
