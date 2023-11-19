@@ -66,6 +66,30 @@ void WordToString (Word w, char *S){
     }
 }
 
+int wordToInt(Word w){
+    int val = 0;
+    boolean negatif = false;
+    int i;
+    for (i = 0; i < w.Length; i++)
+    {
+        if (i == 0 && w.TabWord[0] == '-')
+        {
+            negatif = true;
+        }
+        else
+        {
+            val = val * 10 + (w.TabWord[i] - 48);
+        }
+    }
+
+    if (negatif)
+    {
+        val = val * -1;
+    }
+
+    return val;
+}
+
 boolean IsKataEqual(Word w1, char * S2){
     boolean equal = true;
     int i = 0;
