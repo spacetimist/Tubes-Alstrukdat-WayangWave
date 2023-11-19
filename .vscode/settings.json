@@ -63,6 +63,7 @@
     "word.h": "c",
     "stdlib.h": "c",
     "listlinier.h": "c",
-    "list.h": "c"
+    "list.h": "c",
+    "quit.h": "c"
   }
 }
