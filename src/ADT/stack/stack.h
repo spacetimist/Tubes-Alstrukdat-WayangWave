@@ -1,16 +1,17 @@
 #ifndef STACK_H
 #define STACK_H
 #include "../boolean.h"
+#include "../mesin/mesinkalimat.h"
 
 #define IDX_UNDEF -1
-#define CAPACITY 10
+#define Capacity 10
 typedef struct {
         Kalimat songName;
         Kalimat artistName;
         Kalimat albumName;
-} ElType;
+} ElmType;
 typedef struct {
-    ElType buffer[CAPACITY];
+    ElmType buffer[Capacity];
     int idxTop;
 } Stack;
 
@@ -20,8 +21,8 @@ typedef struct {
 /*** Konstruktor/Kreator ***/
 void CreateStack(Stack *s);
 /* I.S. Sembarang */
-/* F.S. Membuat sebuah Stack s yang kosong berkapasitas CAPACITY */
-/* jadi indeksnya antara 0..CAPACITY-1 */
+/* F.S. Membuat sebuah Stack s yang kosong berkapasitas Capacity */
+/* jadi indeksnya antara 0..Capacity-1 */
 /* Ciri stack kosong: idxTop bernilai IDX_UNDEF */
 
 /********** Predikat Untuk test keadaan KOLEKSI **********/
@@ -35,12 +36,12 @@ int stackLength(Stack s);
 /* Mengirim ukuran Stack s saat ini */
 
 /*********** Menambahkan sebuah elemen ke Stack **********/
-void push(Stack *s, ElType val);
+void push(Stack *s, ElmType val);
 /* Menambahkan val sebagai elemen Stack s.
 I.S. s mungkin kosong, tidak penuh
 F.S. val menjadi TOP yang baru, TOP bertambah 1 */
 /*********** Menghapus sebuah elemen Stack **********/
-void pop(Stack *s, ElType *val);
+void pop(Stack *s, ElmType *val);
 /* Menghapus X dari Stack S.
 I.S. S tidak mungkin kosong
 F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */

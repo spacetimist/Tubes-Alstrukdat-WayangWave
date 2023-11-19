@@ -5,6 +5,7 @@
 #define QUEUE_H
 
 #include "../boolean.h"
+#include "../mesin/mesinkalimat.h"
 
 #define IDX_UNDEF -1
 #define CAPACITY 100

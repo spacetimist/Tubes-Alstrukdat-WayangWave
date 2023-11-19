@@ -30,7 +30,7 @@ boolean isQueueFull(Queue q){
 }
 int queueLength(Queue q){
 /* Mengirimkan banyaknya elemen queue. Mengirimkan 0 jika q kosong. */
-    if (isEmpty(q)) 
+    if (isQueueEmpty(q)) 
         return 0;
     else if (IDX_TAIL(q) >= IDX_HEAD(q))
         return IDX_TAIL(q) - IDX_HEAD(q) + 1;
@@ -42,7 +42,7 @@ void enqueue(Queue *q, ElType val){
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
-    if (isEmpty(*q)){
+    if (isQueueEmpty(*q)){
         IDX_HEAD(*q) = 0;
         IDX_TAIL(*q) = 0;
     }
@@ -82,37 +82,37 @@ void dequeue(Queue *q, ElType *val){
 }
 
 /* *** Display Queue *** */
-void displayQueue(Queue q){
-/* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
-   siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
-   karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
-/* I.S. q boleh kosong */
-/* F.S. Jika q tidak kosong: [e1,e2,...,en] */
-/* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
-/* Jika Queue kosong : menulis [] */
-    if (isEmpty(q)){
-        printf("[]\n");
-    } else {
-        printf("[");
-        if (IDX_HEAD(q) > IDX_TAIL(q)){
-            for(int i = IDX_HEAD(q); i <= CAPACITY-1; i++){
-                printf("%d", q.buffer[i]);
-                printf(",");
-            }
-            for(int i = 0; i <= IDX_TAIL(q); i++){
-                printf("%d", q.buffer[i]);
-                if (i != IDX_TAIL(q)){
-                    printf(",");
-                }
-            }
-        } else {
-            for(int i = IDX_HEAD(q); i <= IDX_TAIL(q); i++){
-                printf("%d", q.buffer[i]);
-                if (i != IDX_TAIL(q)){
-                    printf(",");
-                }
-            }
-        }
-        printf("]\n");
-    }
-}
+// void displayQueue(Queue q){
+// /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
+//    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
+//    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
+// /* I.S. q boleh kosong */
+// /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
+// /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
+// /* Jika Queue kosong : menulis [] */
+//     if (isQueueEmpty(q)){
+//         printf("[]\n");
+//     } else {
+//         printf("[");
+//         if (IDX_HEAD(q) > IDX_TAIL(q)){
+//             for(int i = IDX_HEAD(q); i <= CAPACITY-1; i++){
+//                 printf("%d", q.buffer[i]);
+//                 printf(",");
+//             }
+//             for(int i = 0; i <= IDX_TAIL(q); i++){
+//                 printf("%d", q.buffer[i]);
+//                 if (i != IDX_TAIL(q)){
+//                     printf(",");
+//                 }
+//             }
+//         } else {
+//             for(int i = IDX_HEAD(q); i <= IDX_TAIL(q); i++){
+//                 printf("%d", q.buffer[i]);
+//                 if (i != IDX_TAIL(q)){
+//                     printf(",");
+//                 }
+//             }
+//         }
+//         printf("]\n");
+//     }
+// }

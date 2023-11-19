@@ -24,17 +24,17 @@ boolean isStackFull(Stack s) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */
-    return (IDX_TOP(s) == CAPACITY-1);
+    return (IDX_TOP(s) == Capacity-1);
 }
 
-void push(Stack *s, ElType val) {
+void push(Stack *s, ElmType val) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */
     IDX_TOP(*s)++;
     TOP(*s) = val;
 }
-void pop(Stack *s, ElType *val) {
+void pop(Stack *s, ElmType *val) {
 /* ... */
 /* KAMUS LOKAL */
 /* ALGORITMA */

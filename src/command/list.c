@@ -65,17 +65,17 @@ void ListDefault(ListPenyanyi LP){
     } 
 }
 
-void ListPlaylist(DaftarPlaylist DP){
-    printf("\nDaftar Playlist yang kamu miliki:\n");
-    List playlist = DP.(*Playlist);
-    if(!IsListEmpty(playlist)){
-        for(int i=0; i<DP.NEff; i++){
-            printf("    %d. %s\n", i+1, playlist.PlaylistName.TabLine);
-        }
-    }else{
-        printf("\nKamu tidak memiliki playlist.\n");
-    }   
-}
+// void ListPlaylist(DaftarPlaylist DP){
+//     printf("\nDaftar Playlist yang kamu miliki:\n");
+//     List playlist = DP.(*Playlist);
+//     if(!IsListEmpty(playlist)){
+//         for(int i=0; i<DP.NEff; i++){
+//             printf("    %d. %s\n", i+1, playlist.PlaylistName.TabLine);
+//         }
+//     }else{
+//         printf("\nKamu tidak memiliki playlist.\n");
+//     }   
+// }
 
 // int main(){
 //     ListPenyanyi ls ;
