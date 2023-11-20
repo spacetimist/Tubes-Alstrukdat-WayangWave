@@ -45,7 +45,7 @@ int main() {
 
     while(valid){
         printf(">> ");
-        StartInput() ;   /* pakai ini untuk nerima inputnya.*/
+        StartCommand() ;   /* pakai ini untuk nerima inputnya.*/
         if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ;
             valid = false;
@@ -61,14 +61,43 @@ int main() {
     valid = true;
     while(valid){
         printf(">> ");
-        StartInput() ; 
-        if (isInputEqual(Input, "LIST DEFAULT")) {
-            ListDefault(ls) ;
-        }else if(isInputEqual(Input, "LIST PLAYLIST")) {
-            ListPlaylist(dp) ;
-        }else if (isInputEqual(Input, "PLAY SONG")){
-            //
-        }else if(isInputEqual(Input, "PLAYLIST ADD SONG")) {
+        StartCommand() ; 
+        if (isInputEqual(Input, "LIST")) {
+            ADVCommand() ; //ini untuk baca kata ke-duanya
+            if (isInputEqual(Input, "DEFAULT")) {
+                ListDefault(&ls) ;
+            } else if (isInputEqual(Input, "PLAYLIST")) {
+                ListPlaylist(dp) ;
+            }
+        }else if(isInputEqual(Input, "PLAY")) {
+            ADVCommand() ;
+            if (isInputEqual(Input, "SONG")) {
+                //
+            }
+        }
+        else if (isInputEqual(Input, "QUEUE")) {
+            ADVCommand() ; 
+            if (isInputEqual(Input, "SONG")) {
+                QueueSong(&songQue, ls) ;
+            } else if (isInputEqual(Input, "CLEAR")) {
+                QueueClear(&songQue) ;
+            } else if (isInputEqual(Input, "SWAP")) {
+                ADVCommand() ;
+                int id1 = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int id2 = Input.TabLine[0] - 48 ;
+                QueueSwap(&songQue, id1, id2) ;
+            } else if (isInputEqual(Input, "REMOVE")) {
+                ADVCommand() ;
+                int id = Input.TabLine[0] - 48 ;
+
+                QueueRemove(&songQue, id) ;
+            }
+            else {
+                printf("Command tidak diketahui!\n") ;
+            }
+        }
+        else if(isInputEqual(Input, "PLAYLIST ADD SONG")) {
             PlaylistAddSong(&dp, ls) ;
         }else if(isInputEqual(Input, "PLAYLIST ADD ALBUM")) {
             PlaylistAddAlbum(&dp, ls) ;
