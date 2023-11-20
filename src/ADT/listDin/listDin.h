@@ -3,6 +3,7 @@
 #include "../mesin/mesinkata.h"
 #include "../mesin/mesinkarakter.h"
 #include "../mesin/mesinkalimat.h"
+#include "../SongDetails.h"
 #include "../map2/map2.h"
 #include "../boolean.h"
 
@@ -18,12 +19,6 @@
 #define IdxType int
 #define initial_cap 100
 typedef struct tsongNode *addressNode;
-typedef struct {
-    Kalimat songName;
-    Kalimat artistName;
-    Kalimat albumName;
-} SongDetails;
-
 typedef struct tsongNode{
     SongDetails song;
     addressNode Next;

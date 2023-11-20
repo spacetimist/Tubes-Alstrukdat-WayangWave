@@ -1,7 +1,7 @@
 #include "play.h"
 #include <stdlib.h>
 
-void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songName, Kalimat *artistName) {
+void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *currentSong) {
     //print daftar penyanyi
     printf("\nDaftar Penyanyi :\n") ;
     for (int i = 0 ; i < (*LP).NEff ; i++) {
@@ -17,6 +17,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songN
         Penyanyi.Length --;
 
         if (isKalimatEqual(Input, Penyanyi)) {
+            copyKalimat(Input, &currentSong.artistName ) //&currentSong or currentSong not sure
             indexPenyanyi = i ;
             ListAlbum DaftarAlbum = (*LP).PenyanyiAlbum[i].ListAlbum ;
             printf("\nDaftar Album oleh %s :\n", Input.TabLine) ;
@@ -35,6 +36,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songN
         album.Length--;
 
         if (isKalimatEqual(Input, album)) {
+            copyKalimat(Input, &currentSong.albumName) //&currentSong or currentSong not sure
             indexAlbum = j;
             SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu ;
             printf("\nDaftar Lagu Album %s :\n", Input.TabLine) ;
@@ -53,14 +55,16 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi * LP, Kalimat *songN
     Kalimat namaPenyanyi = LP->PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
     printf("Nama Penyanyi: %s\n", namaPenyanyi.TabLine);
     printf("Memutar Lagu %s\n" , judulLagu.TabLine);
+    copyKalimat(judulLagu, &currentSong.songName ) //&currentSong or currentSong not sure
 
     //empty songQue and songHist
     CreateStack(songHist);
     CreateQueue(songQue);
 }
 
-void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP){
+void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong){
     //print daftar playlist
+
     //milih playlist
     printf("\nMasukkan Nama Penyanyi yang Dipilih :\n") ;
     printf(">> ") ;

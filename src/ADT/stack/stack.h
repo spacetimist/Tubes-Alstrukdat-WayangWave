@@ -2,16 +2,13 @@
 #define STACK_H
 #include "../boolean.h"
 #include "../mesin/mesinkalimat.h"
+#include "../SongDetails.h"
 
 #define IDX_UNDEF -1
 #define Capacity 10
+
 typedef struct {
-        Kalimat songName;
-        Kalimat artistName;
-        Kalimat albumName;
-} ElmType;
-typedef struct {
-    ElmType buffer[Capacity];
+    SongDetails buffer[Capacity];
     int idxTop;
 } Stack;
 
@@ -36,12 +33,12 @@ int stackLength(Stack s);
 /* Mengirim ukuran Stack s saat ini */
 
 /*********** Menambahkan sebuah elemen ke Stack **********/
-void push(Stack *s, ElmType val);
+void push(Stack *s, SongDetails val);
 /* Menambahkan val sebagai elemen Stack s.
 I.S. s mungkin kosong, tidak penuh
 F.S. val menjadi TOP yang baru, TOP bertambah 1 */
 /*********** Menghapus sebuah elemen Stack **********/
-void pop(Stack *s, ElmType *val);
+void pop(Stack *s, SongDetails *val);
 /* Menghapus X dari Stack S.
 I.S. S tidak mungkin kosong
 F.S. X adalah nilai elemen TOP yang lama, TOP berkurang 1 */

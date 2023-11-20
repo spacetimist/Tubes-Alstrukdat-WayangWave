@@ -201,4 +201,36 @@ void ResetKalimat() {
     }
 }
 
+Kalimat StringtoLine(char *string)
+{
+ /*KAMUS LOKAL*/
+ Kalimat kata;
+ int i = 0;
+ kata.Length = 0;
+ /*ALGORITMA*/
+ while (string[i] != '\0')
+ {
+  kata.TabLine[i] = string[i];
+  kata.Length++;
+  i++;
+ }
+ return kata;
+}
 
+char *LineToString(Kalimat line)
+{
+ /*KAMUS LOKAL*/
+ int i;
+ /*ALGORITMA*/
+ char *C = malloc(line.Length * sizeof(char));
+ while (C == NULL)
+ {
+  C = malloc(line.Length * sizeof(char));
+ }
+ for (i = 0; i < line.Length; i++)
+ {
+  C[i] = line.TabLine[i];
+ }
+ C[i] = '\0';
+ return C;
+}

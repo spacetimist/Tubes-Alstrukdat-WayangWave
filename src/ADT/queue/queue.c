@@ -38,7 +38,7 @@ int queueLength(Queue q){
         return IDX_TAIL(q) - IDX_HEAD(q) + CAPACITY + 1;
 }
 /* *** Primitif Add/Delete *** */
-void enqueue(Queue *q, ElType val){
+void enqueue(Queue *q, SongDetails val){
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
@@ -56,7 +56,7 @@ void enqueue(Queue *q, ElType val){
     }
     TAIL(*q) = val;
 }
-void dequeue(Queue *q, ElType *val){
+void dequeue(Queue *q, SongDetails *val){
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";
@@ -81,38 +81,8 @@ void dequeue(Queue *q, ElType *val){
     }
 }
 
-/* *** Display Queue *** */
-// void displayQueue(Queue q){
-// /* Proses : Menuliskan isi Queue dengan traversal, Queue ditulis di antara kurung 
-//    siku; antara dua elemen dipisahkan dengan separator "koma", tanpa tambahan 
-//    karakter di depan, di tengah, atau di belakang, termasuk spasi dan enter */
-// /* I.S. q boleh kosong */
-// /* F.S. Jika q tidak kosong: [e1,e2,...,en] */
-// /* Contoh : jika ada tiga elemen bernilai 1, 20, 30 akan dicetak: [1,20,30] */
-// /* Jika Queue kosong : menulis [] */
-//     if (isQueueEmpty(q)){
-//         printf("[]\n");
-//     } else {
-//         printf("[");
-//         if (IDX_HEAD(q) > IDX_TAIL(q)){
-//             for(int i = IDX_HEAD(q); i <= CAPACITY-1; i++){
-//                 printf("%d", q.buffer[i]);
-//                 printf(",");
-//             }
-//             for(int i = 0; i <= IDX_TAIL(q); i++){
-//                 printf("%d", q.buffer[i]);
-//                 if (i != IDX_TAIL(q)){
-//                     printf(",");
-//                 }
-//             }
-//         } else {
-//             for(int i = IDX_HEAD(q); i <= IDX_TAIL(q); i++){
-//                 printf("%d", q.buffer[i]);
-//                 if (i != IDX_TAIL(q)){
-//                     printf(",");
-//                 }
-//             }
-//         }
-//         printf("]\n");
-//     }
-// }
+void displayQueue(Queue q) {
+    for (int i = IDX_HEAD(q) ; i<= IDX_TAIL(q) ; i++) {
+        printf("{%s, %s, %s}\n", LineToString(q.buffer[i].artistName), LineToString(q.buffer[i].albumName), LineToString(q.buffer[i].songName)) ;
+    }
+}
