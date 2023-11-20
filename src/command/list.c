@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "start.h"
 #include "string.h"
+#include "list.h"
 
 void ListDefault(ListPenyanyi LP){
-    int indexPenyanyi;
+    int indexPenyanyi, indexAlbum;
 
     printf("\nDaftar Penyanyi :\n");
 
@@ -47,6 +48,7 @@ void ListDefault(ListPenyanyi LP){
                 // printf("%d\n",album.Length);
                 // printf("%d\n",Input.Length);
                 if (isKalimatEqual(Input, album)){
+                    indexAlbum = j;
                     SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
                     printf("\nDaftar Lagu di");
                     printf(" %s :\n", Input.TabLine);
@@ -66,10 +68,9 @@ void ListDefault(ListPenyanyi LP){
 
 void ListPlaylist(DaftarPlaylist DP){
     printf("\nDaftar Playlist yang kamu miliki:\n");
-    List playlist = DP.(*Playlist);
-    if(!IsListEmpty(playlist)){
-        for(int i=0; i<DP.NEff; i++){
-            printf("    %d. %s\n", i+1, playlist.PlaylistName.TabLine);
+    if(!IsDaftarPlaylistEmpty(DP)){
+        for(int i=0; i<DP.Neff; i++){
+            printf("    %d. %s\n", i+1, DP.List[i].PlaylistName.TabLine);
         }
     }else{
         printf("\nKamu tidak memiliki playlist.\n");

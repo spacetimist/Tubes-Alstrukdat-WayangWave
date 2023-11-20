@@ -65,10 +65,12 @@ int main() {
         }else if(isInputEqual(Input, "LIST PLAYLIST")) {
             ListPlaylist(dp) ;
         }else if (isInputEqual(Input, "PLAY SONG")){
-            
+            //
+        }else if(isInputEqual(Input, "PLAYLIST ADD SONG")) {
+            PlaylistAddSong(&dp, ls) ;
         }else if (isInputEqual(Input, "PLAYLIST CREATE")){
-            createPlaylist(&dp);
-        }
+            createPlaylist(&dp);    
+        }    
         else if (isInputEqual(Input, "HELP")) {
             printf("====================[ Menu Help WayangWave ]====================");
             printf("1. LIST -> Untuk menampilkan list playlist, list penyanyi, list album, dan list lagu");

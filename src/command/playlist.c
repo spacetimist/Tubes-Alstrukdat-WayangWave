@@ -28,7 +28,7 @@ void createPlaylist(DaftarPlaylist *playlist){
     printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n");
 }
 
-void PlaylistAdd(DaftarPlaylist *daftar, ListPenyanyi LP)
+void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
 {
     printf("\nDaftar Penyanyi :\n");
 
@@ -97,6 +97,57 @@ void PlaylistAdd(DaftarPlaylist *daftar, ListPenyanyi LP)
             (*daftar).List[indexPlaylist - 1] = currentPlaylist;
         }
     }
+}
+
+void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
+{
+    printf("\nDaftar Penyanyi :\n");
+
+    for(int i=0; i<LP.NEff; i++){
+        printf("    %d. %s\n", i+1, LP.PenyanyiAlbum[i].NamaPenyanyi.TabLine);
+    }
+
+    printf("\nPilih penyanyi untuk melihat album mereka: ");
+    StartInput();
+    int indexPenyanyi;
+    for (int i = 0; i < LP.NEff; i++){
+        Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
+        Penyanyi.Length--;
+        // printf("%d\n",Penyanyi.Length);
+        // printf("%d\n",Input.Length);
+        if (isKalimatEqual(Input, Penyanyi)){
+            indexPenyanyi = i;
+            ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
+            printf("\nDaftar Album oleh %s :\n", Input.TabLine);
+            for(int j=0; j<DaftarAlbum.NEff; j++){
+                MapLagu album = DaftarAlbum.AlbumLagu[j];
+                printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
+            }
+        }
+    
+    }
+    ListAlbum DaftarAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum;
+    printf("\nPilih album untuk melihat lagu yang ada di album: ");
+    StartInput();
+    int indexAlbum;
+
+    for(int j=0; j<DaftarAlbum.NEff; j++){
+        Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
+        album.Length--;
+        // printf("%d\n",album.Length);
+        // printf("%d\n",Input.Length);
+        if (isKalimatEqual(Input, album)){
+            indexAlbum = j;
+            SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
+            printf("\nDaftar Lagu di");
+            printf(" %s :\n", Input.TabLine);
+            for(int k=0; k<DaftarLagu.Count;k++){
+            Kalimat lagu = DaftarLagu.JudulLagu[k];
+                printf("    %d. %s\n", k+1, lagu.TabLine);
+            }
+        }
+    }
+    
 }
 
 void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y)

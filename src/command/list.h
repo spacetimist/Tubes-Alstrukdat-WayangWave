@@ -7,8 +7,8 @@
 #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
-#include "../command/playlist.h"
-
+#include "../ADT/listDin/listDin.h"
+#include "playlist.h"
 void ListDefault(ListPenyanyi LP);
 
 void ListPlaylist(DaftarPlaylist DP);
