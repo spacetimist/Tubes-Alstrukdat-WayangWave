@@ -65,7 +65,7 @@ int main() {
         if (isInputEqual(Input, "LIST")) {
             ADVCommand() ; //ini untuk baca kata ke-duanya
             if (isInputEqual(Input, "DEFAULT")) {
-                ListDefault(&ls) ;
+                ListDefault(ls) ;
             } else if (isInputEqual(Input, "PLAYLIST")) {
                 ListPlaylist(dp) ;
             }

@@ -7,9 +7,9 @@
 #include "./ADT/listlinier/listlinier.h"
 #include "./command/start.h"
 #include "./command/list.h"
+#include "./command/queuesong.h"
 #include "./ADT/SongDetails.h"
 #include "./ADT/listDin/listDin.h"
-//#include "./command/queuesong.h"
 //#include "./command/playlist.h"
 
 void banner();

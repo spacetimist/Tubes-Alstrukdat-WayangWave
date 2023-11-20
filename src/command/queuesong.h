@@ -14,7 +14,7 @@
 #include "../ADT/queue/queue.h"
 //#include "../ADT/set/set.h"
 // #include "./command/start.h"
-#include "./command/list.h"
+#include "./list.h"
 //#include "./command/console.h"
 #include "../ADT/SongDetails.h"
 

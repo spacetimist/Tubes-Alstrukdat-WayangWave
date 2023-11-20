@@ -61,75 +61,76 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     printf("%s\n", LineToString(namaAlbum)) ;
     namaAlbum.Length -- ;
     SongDetails simpan ;
-    SongDetails.songName = judulLagu ;
+    simpan.songName= judulLagu ;
     // printf("%s\n", LineToString(simpan.songName)) ;
-    SongDetails.artistName = namaPenyanyi ;
+    simpan.artistName = namaPenyanyi ;
     // printf("%s\n", LineToString(simpan.artistName)) ;
-    SongDetails.albumName = namaAlbum ;
+    simpan.albumName = namaAlbum ;
     // printf("%s\n", LineToString(simpan.albumName)) ;
-    enqueue(queue, simpan) ;
-    displayQueue(*queue) ;
+    enqueue(songQue, simpan) ;
+    displayQueue(*songQue) ;
 
 }
 
-void QueuePlaylist(Queue *songQue, DaftarPlaylist DP) {
+// void QueuePlaylist(Queue *songQue, DaftarPlaylist DP) {
     
-    // input ID playlist
-    printf("Masukkan ID Playlist: ");
-    StartInput();
-    int idPlaylist = Input.TabLine[0] - 48 - 1;
+//     // // input ID playlist
+//     // printf("Masukkan ID Playlist: ");
+//     // StartInput();
+//     // int idPlaylist = Input.TabLine[0] - 48 - 1;
 
-    List playlist = DP.(*Playlist);
-    if (!IsListEmpty(playlist)) {
-        for (int i = 0; i < DP.NEff; i++) {
-            if (i == idPlaylist) {
-                printf("Berhasil menambahkan playlist %s ke queue.", playlist.PlaylistName.TabLine);
-                for (int j = 0; j < DP.NEff; j++) {
-                    enqueue(songQue, playlist.PlaylistName.TabLine);
-                }
-            }
-        }
-    }
-}
+//     // List playlist = DP.(*Playlist);
+//     // if (!IsListEmpty(playlist)) {
+//     //     for (int i = 0; i < DP.NEff; i++) {
+//     //         if (i == idPlaylist) {
+//     //             printf("Berhasil menambahkan playlist %s ke queue.", playlist.PlaylistName.TabLine);
+//     //             for (int j = 0; j < DP.NEff; j++) {
+//     //                 enqueue(songQue, playlist.PlaylistName.TabLine);
+//     //             }
+//     //         }
+//     //     }
+//     // }
+// }
 
 void QueueSwap(Queue *songQue, int id1, int id2)
 {
-    song1 = (*songQue).buffer[id1];
-    song2 = (*songQue).buffer[id2];
+    // song1 = (*songQue).buffer[id1];
+    // song2 = (*songQue).buffer[id2];
 
     if ((id1 >= 1 && id1 <= IDX_TAIL(*songQue))) {
-        if (id2 >= 1 && id2-1 <= IDX_TAIL(*queue) && (id1 != id2)) {
-
-            temp = (*songQue).buffer[id1];
+        if (id2 >= 1 && id2-1 <= IDX_TAIL(*songQue) && (id1 != id2)) {
+            SongDetails temp ;
+            temp = (*songQue).buffer[id1-1];
             (*songQue).buffer[id1-1]= (*songQue).buffer[id2-1];
             (*songQue).buffer[id2-1] = temp;
 
-            printf("Lagu %s berhasil ditukar dengan %s", song1, song2); //masih belum dites
+            printf("Lagu berhasil ditukar\n"); //masih belum dites
+            displayQueue(*songQue) ;
         }
-        else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!", id1, id2);
+        else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!\n", id1, id2) ;
     }
-    else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1)
+    else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1) ;
 }
 
 void QueueRemove(Queue *songQue, int id) {
-    if (!isQueueEmpty(*queue)) {
-        if (id <= 0 || id > IDX_TAIL(*queue) - IDX_HEAD(*queue) + 1) {
+    if (!isQueueEmpty(*songQue)) {
+        if (id <= 0 || id > IDX_TAIL(*songQue) - IDX_HEAD(*songQue) + 1) {
             printf("Lagu dengan urutan ke %d tidak ada\n", id);
         }
-        else if (IDX_TAIL(*queue) - IDX_HEAD(*queue) == 0) {
-            printf("%d\n", IDX_HEAD(*queue)) ;
-            printf("%d\n", IDX_TAIL(*queue)) ;
-            IDX_HEAD(*queue) = IDX_UNDEF;
-            IDX_TAIL(*queue) = IDX_UNDEF;
-            displayQueue(*queue);
+        else if (IDX_TAIL(*songQue) - IDX_HEAD(*songQue) == 0) {
+            printf("%d\n", IDX_HEAD(*songQue)) ;
+            printf("%d\n", IDX_TAIL(*songQue)) ;
+            IDX_HEAD(*songQue) = IDX_UNDEF;
+            IDX_TAIL(*songQue) = IDX_UNDEF;
+            displayQueue(*songQue);
         }
         else {
-            for (int i = id -1; i< IDX_TAIL(*queue) ; i++) {
-                (*queue).buffer[i] = (*queue).buffer[i+1];
+            for (int i = id -1; i< IDX_TAIL(*songQue) ; i++) {
+                (*songQue).buffer[i] = (*songQue).buffer[i+1];
             }
-            IDX_TAIL(*queue) -- ;
+            IDX_TAIL(*songQue) -- ;
             printf("Lagu telah dihapus dari queue\n" );
-            displayQueue(*queue) ;
+            displayQueue(*songQue) ;
         }
     }
     else printf("Queue kosong.\n");
@@ -140,5 +141,5 @@ void QueueClear(Queue *songQue) {
     IDX_HEAD(*songQue) = IDX_UNDEF;
     IDX_TAIL(*songQue) = IDX_UNDEF;
 
-    printf("Queue berhasil dikosongkan.");
+    printf("Queue berhasil dikosongkan.\n");
 }

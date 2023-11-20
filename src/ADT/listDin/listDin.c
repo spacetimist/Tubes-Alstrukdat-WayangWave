@@ -3,8 +3,8 @@
 
 DaftarPlaylist MakeDaftarPlaylist(){
     DaftarPlaylist arr;
-    arr.List = (Playlist *)malloc(InitialSize*sizeof(Playlist));
-    arr.capacity = InitialSize;
+    arr.List = (Playlist *)malloc(initial_cap*sizeof(Playlist));
+    arr.capacity = initial_cap;
     arr.Neff = 0;
 
     return arr;
