@@ -3,58 +3,73 @@
 #include "queuesong.h"
 
 void QueueSong(Queue *songQue, ListPenyanyi LP){
+    printf("\nDaftar Penyanyi :\n") ;
+    for (int i = 0 ; i < (LP).NEff ; i++) {
+        printf("    %d. %s\n", i+1, (LP).PenyanyiAlbum[i].NamaPenyanyi.TabLine);
+    }
 
-    // output daftar penyanyi (list)
-    printf("Daftar Penyanyi :\n");
-    StartInput();
-    int indexPenyanyi;
+    printf("\nMasukkan Nama Penyanyi yang Dipilih :\n") ;
+    printf(">> ") ;
+    StartInput() ;
+    int indexPenyanyi, indexAlbum, indexLagu;
 
-    // output daftar penyanyi
-    for (int i = 0; i < LP.NEff; i++){
-        Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-        Penyanyi.Length--;
+    for (int i = 0 ; i< (LP).NEff ; i++) {
+        Kalimat Penyanyi = (LP).PenyanyiAlbum[i].NamaPenyanyi ;
+        Penyanyi.Length --;
 
-        if (isKalimatEqual(Input, Penyanyi)){
-            indexPenyanyi = i;
-            ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
-            printf("\nDaftar Album oleh %s :\n", Input.TabLine);
-            for(int j=0; j<DaftarAlbum.NEff; j++){
-                MapLagu album = DaftarAlbum.AlbumLagu[j];
-                printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
+        if (isKalimatEqual(Input, Penyanyi)) {
+            indexPenyanyi = i ;
+            ListAlbum DaftarAlbum = (LP).PenyanyiAlbum[i].ListAlbum ;
+            printf("\nDaftar Album oleh %s :\n", Input.TabLine) ;
+            for (int j = 0 ; j<DaftarAlbum.NEff ; j++) {
+                MapLagu album = DaftarAlbum.AlbumLagu[j] ;
+                printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine) ;
             }
         }
     }
-    
-    // input nama album yang dipilih
-    ListAlbum DaftarAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum;
-    printf("Masukkan Nama Album yang dipilih : ");
-    StartInput();
-
-    for(int j=0; j<DaftarAlbum.NEff; j++){
+    printf("\nMasukkan Nama Album yang Dipilih :\n") ;
+    printf(">> ") ;
+    ListAlbum DaftarAlbum = (LP).PenyanyiAlbum[indexPenyanyi].ListAlbum ;
+    StartInput() ;
+    for (int j = 0; j<DaftarAlbum.NEff ; j++) {
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
         album.Length--;
-        // printf("%d\n",album.Length);
-        // printf("%d\n",Input.Length);
-        if (isKalimatEqual(Input, album)){
-            SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
-            printf("\nDaftar Lagu Album %s oleh, NamaAlbum");
-            printf(" %s :\n", Input.TabLine);
-            for(int k=0; k<DaftarLagu.Count;k++){
-            Kalimat lagu = DaftarLagu.JudulLagu[k];
-                printf("    %d. %s\n", k+1, lagu.TabLine);
+
+        if (isKalimatEqual(Input, album)) {
+            indexAlbum = j;
+            SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu ;
+            printf("\nDaftar Lagu Album %s :\n", Input.TabLine) ;
+            for (int k = 0 ; k<DaftarLagu.Count; k++) {
+                Kalimat judul = DaftarLagu.JudulLagu[k] ;
+                printf("    %d. %s\n", k+1, judul.TabLine) ;
             }
         }
     }
+    printf("\nMasukkan ID Lagu yang Dipilih :\n") ;
+    printf(">> ") ;
+    StartInput() ;
+    int idSong = Input.TabLine[0] - 48 - 1;
+    Kalimat judulLagu = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[idSong];
+    judulLagu.Length -- ;
+    printf("%s\n", LineToString(judulLagu)) ;
 
-    // input ID lagu
-    printf("Masukkan ID Lagu yang dipilih: ");
-    StartInput();
-    int idLagu = Input.TabLine[0] - 48 - 1;
+    Kalimat namaPenyanyi = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
+    namaPenyanyi.Length -- ;
+    printf("%s\n", LineToString(namaPenyanyi)) ;
 
-    enqueue(songQue, idLagu);
+    Kalimat namaAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].NamaAlbum ;
+    printf("%s\n", LineToString(namaAlbum)) ;
+    namaAlbum.Length -- ;
+    SongDetails simpan ;
+    SongDetails.songName = judulLagu ;
+    // printf("%s\n", LineToString(simpan.songName)) ;
+    SongDetails.artistName = namaPenyanyi ;
+    // printf("%s\n", LineToString(simpan.artistName)) ;
+    SongDetails.albumName = namaAlbum ;
+    // printf("%s\n", LineToString(simpan.albumName)) ;
+    enqueue(queue, simpan) ;
+    displayQueue(*queue) ;
 
-    // output kalau berhasil menambahkan lagu
-    printf("Berhasil menambahkann lagu %s oleh %s ke queue.", HEAD(*songQue), Penyanyi.TabLine);
 }
 
 void QueuePlaylist(Queue *songQue) {
@@ -72,14 +87,14 @@ void QueueSwap(Queue *songQue, int id1, int id2)
     song1 = (*songQue).buffer[id1];
     song2 = (*songQue).buffer[id2];
 
-    if ((id1 >= 0 && id1 <= queueLength(songQue))) {
-        if (id2 >= 0 && id2 <= queueLength(songQue)) {
+    if ((id1 >= 1 && id1 <= IDX_TAIL(*songQue))) {
+        if (id2 >= 1 && id2-1 <= IDX_TAIL(*queue) && (id1 != id2)) {
 
             temp = (*songQue).buffer[id1];
-            (*songQue).buffer[id1] = (*songQue).buffer[id2];
-            (*songQue).buffer[id2] = temp;
+            (*songQue).buffer[id1-1]= (*songQue).buffer[id2-1];
+            (*songQue).buffer[id2-1] = temp;
 
-            printf("Lagu %s berhasil ditukar dengan %s", song1, song2);
+            printf("Lagu %s berhasil ditukar dengan %s", song1, song2); //masih belum dites
         }
         else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!", id1, id2);
     }

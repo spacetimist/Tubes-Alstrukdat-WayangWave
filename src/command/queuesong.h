@@ -16,6 +16,7 @@
 // #include "./command/start.h"
 #include "./command/list.h"
 //#include "./command/console.h"
+#include "../ADT/SongDetails.h"
 
 
 void QueueSong(Queue *songQue, ListPenyanyi LP);
