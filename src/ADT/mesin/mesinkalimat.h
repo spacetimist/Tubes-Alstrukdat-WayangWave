@@ -67,6 +67,8 @@ void ADVRecord() ;
 /*melanjutkan ke command selanjutnya*/
 void ADVCommand() ;
 /*???*/
+void SalinCommand() ;
+void StartCommand() ;
 
 void copyKalimat (Kalimat k1, Kalimat *k2);
 /*menyalin isi kalimat k1 ke k2

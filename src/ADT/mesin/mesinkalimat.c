@@ -81,6 +81,27 @@ void SalinInput() {
     Input.Length = x ;
 }
 
+void StartCommand() {
+    START() ;
+    IgnoreNewline();
+    if( CC == ';') {
+        EndKalimat = true ;
+    } else {
+        EndKalimat= false ;
+        SalinCommand() ;
+    }
+}
+
+void SalinCommand() {
+    ResetIn() ;
+    int i = 0;
+    while ((CC != ' ') && (CC != ';') && (CC != EOF)) {
+        Input.TabLine[i] = CC ;
+        i++;
+        ADV() ;
+    }
+    Input.Length = i ;
+}
 void STARTKALIMATFILE(char NamaFile[]) {
     STARTFILE(NamaFile);
     IgnoreNewline();
@@ -140,6 +161,15 @@ void copyKalimat (Kalimat k1, Kalimat *k2){
 }
 
 
+void ADVCommand() {
+    IgnoreBlanks() ;
+    if (CC == ';') {
+        EndKalimat = true;
+    } else {
+        EndKalimat = false;
+        SalinCommand() ;
+    }
+}
 boolean isKalimatEqual(Kalimat K1, Kalimat K2) // belum dites
 {   
     boolean equal = true;
