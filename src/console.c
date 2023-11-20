@@ -40,6 +40,8 @@ int main() {
     CreateQueue(&songQue);
     Stack songHist;
     CreateStack(&songHist);
+    SongDetails currentSong;
+    createSongDetails(&currentSong);
 
     while(valid){
         printf(">> ");
