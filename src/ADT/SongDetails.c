@@ -1,7 +1,7 @@
 #include "SongDetails.h"
 
 void createSongDetails(SongDetails *song){
-    song.songName.length = NULL;
-    song.artistName.length = NULL;
-    song.albumName.length = NULL;
+    song->songName.Length = 0;
+    song->artistName.Length = 0;
+    song->albumName.Length = 0;
 }
