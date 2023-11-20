@@ -53,75 +53,26 @@ DaftarPlaylist MakeDaftarPlaylist();
 boolean IsDaftarPlaylistEmpty(DaftarPlaylist L);
 /* Mengirimkan true jika DaftarPlaylist L kosong, mengirimkan false jika tidak */
 
-/* *** Menghasilkan sebuah elemen *** */
-Playlist Get(DaftarPlaylist L, IdxType i);
-/* Prekondisi : DaftarPlaylist tidak kosong, i antara FirstIdx(T)..LastIdx(T) */
-/* Mengirimkan elemen DaftarPlaylist yang ke-i */
-
-/* *** Selektor SET : Mengubah nilai DaftarPlaylist dan elemen DaftarPlaylist *** */
-void Set(DaftarPlaylist *L, IdxType i, Playlist v);
-/* I.S. T terdefinisi, sembarang */
-/* F.S. Elemen T yang ke-i bernilai v */
+/**
+ * Destruktor
+ * I.S. ArrayDin terdefinisi
+ * F.S. array->A terdealokasi
+ */
+void DeallocateDaftarPlaylist(DaftarPlaylist *L);
 
 /* ********** SELEKTOR ********** */
 /* *** Banyaknya elemen *** */
-int Length(DaftarPlaylist L);
-/* Mengirimkan banyaknya elemen efektif DaftarPlaylist */
-/* Mengirimkan nol jika DaftarPlaylist kosong */
 
-/* *** Selektor INDEKS *** */
-IdxType FirstIdx(DaftarPlaylist L);
-/* Prekondisi : DaftarPlaylist L tidak kosong */
-/* Mengirimkan indeks elemen pertama */
+/**
+ * Fungsi untuk menambahkan elemen baru di index ke-i
+ * Prekondisi: array terdefinisi, i di antara 0..Length(array).
+ */
+void InsertAtListDin(DaftarPlaylist *L, Playlist el, IdxType i);
 
-IdxType LastIdx(DaftarPlaylist L);
-/* Prekondisi : DaftarPlaylist L tidak kosong */
-/* Mengirimkan indeks elemen terakhir */
+/**
+ * Fungsi untuk menghapus elemen di index ke-i ArrayDin
+ * Prekondisi: array terdefinisi, i di antara 0..Length(array).
+ */
+void DeleteAtListDin(DaftarPlaylist *L, IdxType i);
 
-/* ********** Test Indeks yang valid ********** */
-boolean IsIdxValid (DaftarPlaylist L, IdxType i);
-/* Prekondisi : i sembarang */
-/* Mengirimkan true jika i adalah indeks yang valid utk ukuran DaftarPlaylist */
-/* yaitu antara indeks yang terdefinisi untuk container*/
-
-boolean IsIdxEff (DaftarPlaylist L, IdxType i);
-/* Prekondisi : i sembarang*/
-/* Mengirimkan true jika i adalah indeks yang terdefinisi utk DaftarPlaylist */
-/* yaitu antara FirstIdx(L)..LastIdx(L) */
-
-/* ********** Operasi-operasi ********** */
-boolean SearchDaftarPlaylist(DaftarPlaylist L, Playlist X);
-/* Prekondisi : X sembarang */
-/* Mengirimkan true jika terdapat elemen X di dalam DaftarPlaylist */
-/* yaitu antara FirstIdx(L)..LastIdx(L) */
-
-void InsertFirstDaftarPlaylist(DaftarPlaylist *L, Playlist X);
-/* I.S. L terdefinisi, mungkin kosong. */
-/* F.S. v menjadi elemen pertama L. */
-
-void InsertAtDaftarPlaylist(DaftarPlaylist *L, Playlist X, IdxType i);
-/* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
-/* F.S. v disisipkan dalam L pada indeks ke-i (bukan menimpa elemen di i). */
-
-void InsertLastDaftarPlaylist(DaftarPlaylist *L, Playlist X);
-/* I.S. L terdefinisi, mungkin kosong. */
-/* F.S. v menjadi elemen terakhir L. */
-
-void DeleteFirstDaftarPlaylist(DaftarPlaylist *L);
-/* I.S. L terdefinisi, tidak kosong. */
-/* F.S. F diset dengan elemen pertama L, elemen pertama L dihapus dari L. */
-
-void DeleteAtDaftarPlaylist(DaftarPlaylist *L, IdxType i);
-/* I.S. L terdefinisi, tidak kosong, i merupakan indeks lojik yang valid di L. */
-/* F.S. Elemen L pada indeks ke-i dihapus dari L. */
-
-// void DeleteLastDaftarPlaylist(DaftarPlaylist *L);
-/* I.S. L terdefinisi, tidak kosong. */
-/* F.S. F diset dengan elemen terakhir L, elemen terakhir L dihapus dari L. */
-
-// DaftarPlaylist ConcatDaftarPlaylist(DaftarPlaylist L1, DaftarPlaylist L2);
-/* Prekondisi : L1 dan L2 tidak kosong */
-/* Mengirimkan sebuah DaftarPlaylist yang merupakan gabungan dari L1 dan L2 */
-/* Urutan elemen terisi dari L1, lalu L2 */
-/* Contoh : L1 : [1, 2]; L2 : [3, 4]; Mengembalikan [1, 2, 3, 4] */
 #endif

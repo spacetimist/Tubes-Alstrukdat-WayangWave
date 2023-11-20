@@ -1,26 +1,41 @@
 #include <stdio.h>
 #include "listDin.h"
 
-// DaftarPlaylist MakeDaftarPlaylist() {
-//     DaftarPlaylist L ;
-//     int i ;
-//     for (i=0; i < L.capacity; i++) {
-//         L.List[i] = Mark ;
-//     }
-//     return L ;
-// } 
+DaftarPlaylist MakeDaftarPlaylist(){
+    DaftarPlaylist arr;
+    arr.List = (Playlist *)malloc(InitialSize*sizeof(Playlist));
+    arr.capacity = InitialSize;
+    arr.Neff = 0;
+
+    return arr;
+}
 
 boolean IsDaftarPlaylistEmpty(DaftarPlaylist L) {
     return L.Neff == 0 ; 
 }
 
-// Playlist Get(DaftarPlaylist L, IdxType i) {
-//     return L.List[i] ;
-// }
+void DeallocateDaftarPlaylist(DaftarPlaylist *L){
+    free((*L).List);
+    L->capacity = 0;
+    L->Neff = 0;
+}
 
-// void Set(DaftarPlaylist *L, IdxType i, Playlist v) {
-//     (*L).List[i] = v ;
-// } 
+void InsertAtListDin(DaftarPlaylist *L, Playlist el, IdxType i){
+    IdxType j;
+    for(j = L->Neff; j > i; j--){
+        L->List[j] = L->List[j-1];
+    }
+    L->List[i] = el;
+    L->Neff++;
+}
+
+void DeleteAtListDin(DaftarPlaylist *L, IdxType i){
+    IdxType j;
+    for(j=i; j<L->Neff-1; j++){
+        L->List[j] = L->List[j+1];
+    }
+    L->Neff--;
+}
 
 // int Length(DaftarPlaylist L) {
 //     int count = 0, i = 0 ;
