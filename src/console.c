@@ -71,8 +71,8 @@ int main() {
             }
         }else if(isInputEqual(Input, "PLAY")) {
             ADVCommand() ;
-            if (isInputEqual(Input, "SONG")) {
-                //
+            if (isInputEqual(Input, "SONG")) {  
+                PlaySong(&songQue,  &songHist,  &ls,  &currentSong);
             }
         }
         else if (isInputEqual(Input, "QUEUE")) {

@@ -17,7 +17,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
         Penyanyi.Length --;
 
         if (isKalimatEqual(Input, Penyanyi)) {
-            copyKalimat(Input, &currentSong.artistName ) //&currentSong or currentSong not sure
+         //   copyKalimat(Input, &currentSong.artistName ) //&currentSong or currentSong not sure
             indexPenyanyi = i ;
             ListAlbum DaftarAlbum = (*LP).PenyanyiAlbum[i].ListAlbum ;
             printf("\nDaftar Album oleh %s :\n", Input.TabLine) ;
@@ -36,7 +36,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
         album.Length--;
 
         if (isKalimatEqual(Input, album)) {
-            copyKalimat(Input, &currentSong.albumName) //&currentSong or currentSong not sure
+         //   copyKalimat(Input, &currentSong.albumName) //&currentSong or currentSong not sure
             indexAlbum = j;
             SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu ;
             printf("\nDaftar Lagu Album %s :\n", Input.TabLine) ;
@@ -55,11 +55,12 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     Kalimat namaPenyanyi = LP->PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
     printf("Nama Penyanyi: %s\n", namaPenyanyi.TabLine);
     printf("Memutar Lagu %s\n" , judulLagu.TabLine);
-    copyKalimat(judulLagu, &currentSong.songName ) //&currentSong or currentSong not sure
+  //  copyKalimat(judulLagu, &currentSong.songName ) //&currentSong or currentSong not sure
 
     //empty songQue and songHist
     CreateStack(songHist);
     CreateQueue(songQue);
+    displayQueue(*songQue) ;
 }
 
 void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong){
