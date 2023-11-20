@@ -15,3 +15,6 @@
 void banner();
 
 void InvalidCommand();
+
+
+// gcc ../src/ADT/mesin/mesinkata.c ../src/ADT/mesin/mesinkalimat.c ../src/ADT/mesin/mesinkarakter.c ../src/ADT/map2/map2.c ../src/ADT/queue/queue.c ../src/ADT/stack/stack.c ../src/ADT/listlinier/listlinier.c ../src/ADT/listDin/listDin.c ../src/command/start.c ../src/command/list.c ../src/command/playlist.c ../src/console.c ../src/command/queuesong.c -o cekk

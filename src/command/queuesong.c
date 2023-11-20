@@ -51,14 +51,14 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     int idSong = Input.TabLine[0] - 48 - 1;
     Kalimat judulLagu = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[idSong];
     judulLagu.Length -- ;
-    printf("%s\n", LineToString(judulLagu)) ;
+    // printf("%s\n", LineToString(judulLagu)) ;
 
     Kalimat namaPenyanyi = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
     namaPenyanyi.Length -- ;
-    printf("%s\n", LineToString(namaPenyanyi)) ;
+    // printf("%s\n", LineToString(namaPenyanyi)) ;
 
     Kalimat namaAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].NamaAlbum ;
-    printf("%s\n", LineToString(namaAlbum)) ;
+    // printf("%s\n", LineToString(namaAlbum)) ;
     namaAlbum.Length -- ;
     SongDetails simpan ;
     simpan.songName= judulLagu ;
@@ -118,8 +118,6 @@ void QueueRemove(Queue *songQue, int id) {
             printf("Lagu dengan urutan ke %d tidak ada\n", id);
         }
         else if (IDX_TAIL(*songQue) - IDX_HEAD(*songQue) == 0) {
-            printf("%d\n", IDX_HEAD(*songQue)) ;
-            printf("%d\n", IDX_TAIL(*songQue)) ;
             IDX_HEAD(*songQue) = IDX_UNDEF;
             IDX_TAIL(*songQue) = IDX_UNDEF;
             displayQueue(*songQue);

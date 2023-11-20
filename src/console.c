@@ -90,7 +90,6 @@ int main() {
             } else if (isInputEqual(Input, "REMOVE")) {
                 ADVCommand() ;
                 int id = Input.TabLine[0] - 48 ;
-
                 QueueRemove(&songQue, id) ;
             }
             else {
@@ -114,6 +113,10 @@ int main() {
             printf("6. STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta queue song\n");
             printf("7. SAVE -> Untuk menyimpan state aplikasi WayangWave terbaru\n");
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
+        }
+        else if (isInputEqual(Input, "QUIT")) {
+            printf("Dadah\n") ;
+            valid = false ;
         }
         else{
             InvalidCommand();
