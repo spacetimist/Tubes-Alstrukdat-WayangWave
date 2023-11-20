@@ -4,6 +4,7 @@
 #include "../boolean.h"
 #include "mesinkarakter.h"
 #include "mesinkata.h"
+#include <stdlib.h>
 
 #define NMaks 400
 #define NEWLINE '\n'
