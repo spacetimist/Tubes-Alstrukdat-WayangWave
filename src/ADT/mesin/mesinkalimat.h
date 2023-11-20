@@ -95,5 +95,9 @@ int length(char * S) ;
 /*mengembalikan panjang array of char
 I.S. : S terdefinisi*/
 
+Kalimat StringtoLine(char *string) ;
+
+char *LineToString(Kalimat line) ;
+
 
 #endif
