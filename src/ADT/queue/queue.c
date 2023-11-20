@@ -38,7 +38,7 @@ int queueLength(Queue q){
         return IDX_TAIL(q) - IDX_HEAD(q) + CAPACITY + 1;
 }
 /* *** Primitif Add/Delete *** */
-void enqueue(Queue *q, ElType val){
+void enqueue(Queue *q, SongDetails val){
 /* Proses: Menambahkan val pada q dengan aturan FIFO */
 /* I.S. q mungkin kosong, tabel penampung elemen q TIDAK penuh */
 /* F.S. val menjadi TAIL yang baru, IDX_TAIL "mundur" dalam buffer melingkar. */
@@ -56,7 +56,7 @@ void enqueue(Queue *q, ElType val){
     }
     TAIL(*q) = val;
 }
-void dequeue(Queue *q, ElType *val){
+void dequeue(Queue *q, SongDetails *val){
 /* Proses: Menghapus val pada q dengan aturan FIFO */
 /* I.S. q tidak mungkin kosong */
 /* F.S. val = nilai elemen HEAD pd I.S., IDX_HEAD "mundur";

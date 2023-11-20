@@ -4,14 +4,10 @@
 #include "../ADT/map2/map2.h"
 #include "../ADT/listlinier/listlinier.h"
 #include "../ADT/boolean.h"
+#include "../ADT/SongDetails.h"
 
 #define initial_cap 100
 typedef struct tsongNode *addressNode;
-typedef struct {
-    Kalimat songName;
-    Kalimat artistName;
-    Kalimat albumName;
-} SongDetails;
 
 typedef struct tsongNode{
     SongDetails song;
