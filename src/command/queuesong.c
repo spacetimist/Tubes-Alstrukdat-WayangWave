@@ -90,8 +90,6 @@ void QueuePlaylist(Queue *songQue, DaftarPlaylist DP) {
             }
         }
     }
-
-    printf("Berhasil menambahkan playlist %s ke queue.", Playlist);
 }
 
 void QueueSwap(Queue *songQue, int id1, int id2)
