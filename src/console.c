@@ -13,8 +13,8 @@ void banner(){
     printf("       \\/        \\/\\/          \\/     \\//_____/       \\/        \\/          \\/ \n");
     printf("\n");
 /*                               
- tar jadinya ky gini_
- _      __                                     __      __                     
+ tar jadinya ky gini
+ __      __                                     __      __                     
 /  \    /  \_____  ___.__._____    ____    ____/  \    /  \_____ ___  __ ____  
 \   \/\/   /\__  \<   |  |\__  \  /    \  / ___\   \/\/   /\__  \\  \/ // __ \ 
  \        /  / __ \\___  | / __ \|   |  \/ /_/  >        /  / __ \\   /\  ___/ 
@@ -25,7 +25,7 @@ void banner(){
 
 }
 
-void InvalidComment(){
+void InvalidCommand(){
     printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
 }
 
@@ -52,7 +52,7 @@ int main() {
             printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave\n");
             printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
         }else {
-            InvalidComment();
+            InvalidCommand();
         }
     }
 
@@ -62,8 +62,9 @@ int main() {
         StartInput() ; 
         if (isInputEqual(Input, "LIST DEFAULT")) {
             ListDefault(ls) ;
-        }
-        else if (isInputEqual(Input, "PLAY SONG")){
+        }else if(isInputEqual(Input, "LIST PLAYLIST")) {
+            ListPlaylist(dp) ;
+        }else if (isInputEqual(Input, "PLAY SONG")){
             
         }else if (isInputEqual(Input, "PLAYLIST CREATE")){
             createPlaylist(&dp);
@@ -80,7 +81,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave");;
         }
         else{
-            InvalidComment();
+            InvalidCommand();
         }
     }
 

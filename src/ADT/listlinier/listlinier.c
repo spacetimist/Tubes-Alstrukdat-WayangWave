@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// #include "boolean.h"
->>>>>>> 06c8d9e179eb099ddad6d13e8f4401bb4e38fe34
 #include "listlinier.h"
 #include <stdio.h>
 #include <stdlib.h>
