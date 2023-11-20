@@ -30,7 +30,6 @@ typedef struct {
 
 /* PROTOTYPE */
 /****************** TEST LIST KOSONG ******************/
-boolean isLinkListEmpty (List L);
 /* Mengirim true jika list kosong */
 
 /****************** PEMBUATAN LIST KOSONG ******************/

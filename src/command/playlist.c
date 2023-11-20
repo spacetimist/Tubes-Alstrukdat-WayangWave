@@ -25,6 +25,7 @@ void createPlaylist(DaftarPlaylist *playlist){
     printf("\n");
     printf("Playlist %s berhasil dibuat!\n", currentPlaylist.PlaylistName.TabLine);
     InsVLastDaftarPlaylist(playlist, currentPlaylist);
+    ListPlaylist(*playlist);
     printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n");
 }
 
@@ -80,11 +81,12 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     printf("Masukkan ID Lagu yang dipilih: ");
     STARTWORD();
     int indexLagu = wordToInt(currentWord);
-    if (indexLagu < DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.Count)
+    if (indexLagu-1 < DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.Count)
     {
         printf("Masukkan ID Playlist yang dipilih: ");
         STARTWORD();
         int indexPlaylist = wordToInt(currentWord);
+        ListPlaylist(*daftar);
 
         if (indexPlaylist - 1 < daftar->Neff)
         {
@@ -95,6 +97,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
 
             (*daftar).List[indexPlaylist - 1] = currentPlaylist;
+            PrintPlaylistSong(currentPlaylist);
         }
     }
 }
@@ -232,4 +235,21 @@ void createDaftarPlaylist(DaftarPlaylist *daftar)
     (*daftar).List = (Playlist*) malloc (10 * sizeof(Playlist));
     (*daftar).capacity = 10;
     (*daftar).Neff = 0;
+}
+
+boolean isLinkListEmpty (Playlist L){
+	return L.First == Nul; 
+}
+
+void PrintPlaylistSong (Playlist L){
+	addressNode P = L.First;
+
+	if (isLinkListEmpty(L)){
+		printf("Playlist kosong.");
+	} else {
+		while (P->Next != Nul){
+			P = P->Next;
+			printf("%s\n", P->song.songName.TabLine);
+		}
+	}
 }

@@ -25,6 +25,10 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP);
 
 void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP);
 
+void PrintPlaylistSong (Playlist L);
+
+boolean isLinkListEmpty (Playlist L);
+
 // void playlistAdd(List *singer);
 
 // void playlistSwap(a, b, c);
