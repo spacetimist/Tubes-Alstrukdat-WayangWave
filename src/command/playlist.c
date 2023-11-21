@@ -79,16 +79,16 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     }
 
     printf("Masukkan ID Lagu yang dipilih: ");
-    STARTWORD();
-    int indexLagu = wordToInt(currentWord);
-    if (indexLagu-1 < DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.Count)
+    StartInput();
+    int indexLagu = Input.TabLine[0] - 48 - 1;
+    if (indexLagu < DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.Count)
     {
         printf("Masukkan ID Playlist yang dipilih: ");
-        STARTWORD();
-        int indexPlaylist = wordToInt(currentWord);
         ListPlaylist(*daftar);
-
-        if (indexPlaylist - 1 < daftar->Neff)
+        printf("Masukkan ID Playlist yang dipilih: ");
+        StartInput();
+        int indexPlaylist = Input.TabLine[0] - 48 - 1;
+        if (indexPlaylist < daftar->Neff)
         {
             Playlist currentPlaylist = (*daftar).List[indexPlaylist - 1];
             addressNode currentSongAddress = currentPlaylist.First;
@@ -96,7 +96,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
             (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
 
-            (*daftar).List[indexPlaylist - 1] = currentPlaylist;
+            (*daftar).List[indexPlaylist] = currentPlaylist;
             PrintPlaylistSong(currentPlaylist);
         }
     }
@@ -210,8 +210,8 @@ void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
 void PlaylistDelete(DaftarPlaylist *daftar)
 {
     printf("Masukkan ID Playlist yang dipilih: ");
-    STARTWORD();
-    int id = wordToInt(currentWord);
+    StartInput();
+    int id = Input.TabLine[0] - 48 - 1;
     int j;
     for (j = id; j < daftar -> Neff; j++) {
         daftar -> List[j] = daftar -> List [j+1];
