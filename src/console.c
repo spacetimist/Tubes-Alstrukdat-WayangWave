@@ -42,6 +42,8 @@ int main() {
     CreateStack(&songHist);
     SongDetails currentSong;
     createSongDetails(&currentSong);
+    Playlist currentPlaylist;
+    CreateLinkList(&currentPlaylist);
     char namafile;
 
     while(valid){
@@ -83,7 +85,7 @@ int main() {
                 PlaySong(&songQue,  &songHist,  &ls,  &currentSong);
             }
             else if (isInputEqual(Input, "PLAYLIST")) {
-                PLAYPLAYLIST(&songQue, &songHist, dp, &currentSong);
+                PLAYPLAYLIST(&songQue, &songHist, dp, &currentSong, &currentPlaylist);
             }
         }
         else if(isInputEqual(Input, "SONG")) {
@@ -151,7 +153,7 @@ int main() {
             } 
         }  
         else if (isInputEqual(Input, "STATUS")) {
-            status(songQue, currentSong);
+            status(songQue, currentSong, currentPlaylist);
         }
         else if (isInputEqual(Input, "HELP")) {
             printf("\n====================[ Menu Help WayangWave ]====================\n");

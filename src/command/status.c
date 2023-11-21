@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include "status.h"
 
-void status(Queue q, SongDetails currentSong){
+void status(Queue q, SongDetails currentSong, Playlist currentPlaylist){
+    if(!IsLinkListEmpty(currentPlaylist)){
+        printf("\nCurrent Playlist: %s\n", currentPlaylist.PlaylistName.TabLine);
+    }
     printf("\nNow Playing:\n");
     if(isSongDetailsEmpty(currentSong)){
         printf("No songs have been played yet. Please search for a song to begin playback.\n");

@@ -14,7 +14,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
 I.S. : songQue dan songHist terdefinisi sembarang.
 F.S. : songQue kosong, songHist berisi song, currentSong berisi song yang di play*/
 
-void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong);
+void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong, Playlist *currentPlaylist);
 /*mengosongkan isi songQue dan songHist. lalu songHist akan berisi playlist(inverted)
 I.S. : songQue dan songHist terdefinisi sembarang.
 F.S. : songQue kosong, songHist berisi playlist(inverted), currentSong berisi song pertama pada playlist*/

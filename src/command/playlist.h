@@ -2,7 +2,6 @@
 #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
-#include "../ADT/listlinier/playlistADT.h"
 #include "../ADT/listlinier/listlinier.h"
 #include "../ADT/boolean.h"
 #include "../ADT/listDin/listDin.h"

@@ -70,7 +70,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
  //   displayQueue(*songQue) ;
 }
 
-void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong){
+void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong, Playlist *currentPlaylist){
     //check if daftar playlist empty
     //print daftar playlist
     ListPlaylist(DP) ;
@@ -90,6 +90,8 @@ void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetail
     //put first element of playlist to currentSong
     SongDetails song = playlist.First->song;
     *currentSong = song;
+    *currentPlaylist = playlist; //IZIN NAMBAHIN PARAMETER CURRENT PLAYLIST - FIRA
+
     //empty songQue and songHist
     CreateStack(songHist);
     CreateQueue(songQue);
