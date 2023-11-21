@@ -195,7 +195,7 @@ boolean isIdxEff(DaftarPlaylist l, IdxType i){
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
-boolean isDaftarPlaylistEmpty(DaftarPlaylist l){
+boolean IsDaftarPlaylistEmpty(DaftarPlaylist l){
     /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
     /* *** Test list penuh *** */
     return(listLength(l) == 0);
@@ -212,7 +212,7 @@ void copyList(DaftarPlaylist lIn, DaftarPlaylist *lOut){
     /* F.S. lOut berisi salinan dari lIn (identik, nEff dan capacity sama) */
     /* Proses : Menyalin isi lIn ke lOut */
     int i;
-    CreateListDin(lOut, CAPACITY(lIn));
+    CreateDaftarPlaylist(lOut, capacity(lIn));
     NEFF(*lOut) = NEFF(lIn);
     for(i = 0; i < NEFF(lIn); i++){
        ELMT(*lOut,i) = ELMT(lIn,i);

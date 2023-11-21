@@ -168,7 +168,7 @@ boolean isIdxEff(DaftarPlaylist l, IdxType i);
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
-boolean isDaftarPlaylistEmpty(DaftarPlaylist l);
+boolean IsDaftarPlaylistEmpty(DaftarPlaylist l);
 /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
 /* *** Test list penuh *** */
 boolean isFull(DaftarPlaylist l);

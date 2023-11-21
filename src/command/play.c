@@ -71,14 +71,10 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
 
 void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong){
     //check if daftar playlist empty
-    if (IsDaftarPlaylistEmpty(DP)) {
-        printf("\nDaftar Playlist Kosong\n") ;
-        return ;
-    }
     //print daftar playlist
     ListPlaylist(DP) ;
     //milih playlist
-    printf("\nMasukkan Nama Penyanyi yang Dipilih :\n") ;
+    printf("\nMasukkan ID Playlist :\n") ;
     printf(">> ") ;
     StartInput() ;
     //turn kalimat to int

@@ -8,6 +8,7 @@ void createPlaylist(DaftarPlaylist *playlist){
     printf("Masukkan nama playlist yang ingin dibuat : ");
     StartInput();
     Playlist currentPlaylist;
+    CreateEmpty(&currentPlaylist);
     currentPlaylist.PlaylistName = Input;
         // menghitung banyak karakter
         // for (int i = 0; i < EOP; i++){
@@ -90,14 +91,24 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
         int indexPlaylist = Input.TabLine[0] - 48 - 1;
         if (indexPlaylist < daftar->Neff)
         {
-            Playlist currentPlaylist = (*daftar).List[indexPlaylist - 1];
-            addressNode currentSongAddress = currentPlaylist.First;
-            (*currentSongAddress).song.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
-            (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
-            (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-
-            (*daftar).List[indexPlaylist] = currentPlaylist;
-            PrintPlaylistSong(currentPlaylist);
+            SongDetails X;
+            X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
+            X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
+            X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
+            printf("lolos\n");
+            Playlist currentPlaylist = (*daftar).List[indexPlaylist];
+            printf("lolos\n");
+            InsVLast(&currentPlaylist, X);
+            printf("lolos\n");
+            // addressNode currentSongAddress = currentPlaylist.First;
+            // (*currentSongAddress).song.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
+            // (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
+            // (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
+            // Playlist currentPlaylist = (*daftar).List[indexPlaylist - 1];
+            // addressNode currentSongAddress = currentPlaylist.First;
+            // (*currentSongAddress).song.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
+            // (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
+            // (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
         }
     }
 }
@@ -242,14 +253,14 @@ boolean isLinkListEmpty (Playlist L){
 }
 
 void PrintPlaylistSong (Playlist L){
-	addressNode P = L.First;
+	addressNode P = First(L);
 
-	if (isLinkListEmpty(L)){
+	if (IsEmpty(L)){
 		printf("Playlist kosong.");
 	} else {
-		while (P->Next != Nul){
-			P = P->Next;
-			printf("%s\n", P->song.songName.TabLine);
+		while (Next(P) != Nul){
+			P = Next(P);
+			printf("%s\n", Info(P).songName.TabLine);
 		}
 	}
 }
