@@ -84,7 +84,6 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexLagu = Input.TabLine[0] - 48 - 1;
     if (indexLagu < DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.Count)
     {
-        printf("Masukkan ID Playlist yang dipilih: ");
         ListPlaylist(*daftar);
         printf("Masukkan ID Playlist yang dipilih: ");
         StartInput();
@@ -97,9 +96,8 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
             Playlist currentPlaylist;
             currentPlaylist = (*daftar).List[indexPlaylist];
-            PrintPlaylistSong(currentPlaylist); //ini buat ngetes sebelumnya kosong ato ngga
-            InsVLast(&currentPlaylist, X);
-            PrintPlaylistSong(currentPlaylist);
+            InsVLast(&((*daftar).List[indexPlaylist]), X);
+            PrintPlaylistSong((*daftar).List[indexPlaylist]);
         }
     }
 }
