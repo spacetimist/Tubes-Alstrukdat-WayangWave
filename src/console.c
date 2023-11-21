@@ -32,9 +32,9 @@ void InvalidCommand(){
 int main() {
     banner();
     ListPenyanyi ls ;
+    CreateListPenyanyi (&ls) ;    
     DaftarPlaylist dp;
-    CreateListPenyanyi (&ls) ;
-    createDaftarPlaylist (&dp);
+    CreateDaftarPlaylist (&dp, 50); //kapasitasnya 50 playlist
     boolean valid = true;
     Queue songQue;
     CreateQueue(&songQue);
