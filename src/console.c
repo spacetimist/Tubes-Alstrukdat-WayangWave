@@ -78,6 +78,15 @@ int main() {
                 PLAYPLAYLIST(&songQue, &songHist, dp, &currentSong);
             }
         }
+        else if(isInputEqual(Input, "SONG")) {
+            ADVCommand() ;
+            if (isInputEqual(Input, "NEXT")) {  
+                songNext(&songQue,  &songHist,  &currentSong);
+            }
+            else if (isInputEqual(Input, "PREV")) {
+                songPrev(&songQue,  &songHist,  &currentSong);
+            }
+        }
         else if (isInputEqual(Input, "QUEUE")) {
             ADVCommand() ; 
             if (isInputEqual(Input, "SONG")) {
