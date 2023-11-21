@@ -68,6 +68,7 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     simpan.albumName = namaAlbum ;
     // printf("%s\n", LineToString(simpan.albumName)) ;
     enqueue(songQue, simpan) ;
+    printf("Berhasil menambahkan lagu %s oleh %s ke queue\n", LineToString(judulLagu), LineToString(namaPenyanyi)) ;
     displayQueue(*songQue) ;
 
 }
