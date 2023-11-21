@@ -12,9 +12,9 @@
 #include "../ADT/queue/queue.h"
 #include "../ADT/stack/stack.h"
 // #include "../ADT/listlinier/listlinier.h"
-
+#include "../ADT/SongDetails.h"
 #include "queuesong.h"
-#include "play.h"
+// #include "play.h"
 // #include "playlist.h" 
 
 

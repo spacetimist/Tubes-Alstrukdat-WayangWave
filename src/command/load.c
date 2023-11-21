@@ -65,6 +65,8 @@ void LOADFILE(ListPenyanyi * LP, char namafile[]) {
     Kalimat NamaLagu = Line ;
 
     SongDetails save ;
+    Queue songQue ;
+    CreateQueue(&songQue) ;
     save.artistName = NamaPenyanyi;
     save.albumName = NamaAlbum;
     save.songName = NamaLagu ;

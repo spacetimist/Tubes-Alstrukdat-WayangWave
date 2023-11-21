@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "load.h"
+// Ini file cuma untuk ngetes load nya aja
+void banner(){
+    printf("\n");
+    printf("                              W E L C O M E  T O                               \n");
+    printf(" __      __                                     __      __                     \n");
+    printf("/  \\    /  \\_____  ___.__._____    ____    ____/  \\    /  \\_____ ___  __ ____  \n");
+    printf("\\   \\/\\/   /\\__  \\<   |  |\\__  \\  /    \\  / ___\\   \\/\\/   /\\__  \\\\  \\/ // __ \\ \n");
+    printf(" \\        /  / __ \\\\___  | / __ \\|   |  \\/ /_/  >        /  / __ \\\\   /\\  ___/ \n");
+    printf("  \\__/\\  /  (____  / ____|(____  /___|  /\\___  / \\__/\\  /  (____  /\\_/  \\___  >\n");
+    printf("       \\/        \\/\\/          \\/     \\//_____/       \\/        \\/          \\/ \n");
+    printf("\n");
+/*                               
+ tar jadinya ky gini
+ __      __                                     __      __                     
+/  \    /  \_____  ___.__._____    ____    ____/  \    /  \_____ ___  __ ____  
+\   \/\/   /\__  \<   |  |\__  \  /    \  / ___\   \/\/   /\__  \\  \/ // __ \ 
+ \        /  / __ \\___  | / __ \|   |  \/ /_/  >        /  / __ \\   /\  ___/ 
+  \__/\  /  (____  / ____|(____  /___|  /\___  / \__/\  /  (____  /\_/  \___  >
+       \/        \/\/          \/     \//_____/       \/        \/          \/                          
+
+*/    
+
+}
+
+void InvalidCommand(){
+    printf("\nCommand tidak dikenali, silahkan masukkan command yang valid.\n");
+}
+
+int main() {
+    banner();
+    ListPenyanyi ls ;
+    DaftarPlaylist dp;
+    CreateListPenyanyi (&ls) ;
+//   createDaftarPlaylist (&dp);
+    boolean valid = true;
+    Queue songQue;
+    CreateQueue(&songQue);
+    Stack songHist;
+    CreateStack(&songHist);
+    SongDetails currentSong;
+  //  createSongDetails(&currentSong);
+    while (valid) {
+        printf(">> ");
+        StartCommand() ;
+        if (isInputEqual(Input, "LOAD")) {
+            LOADFILE(&ls, "../save/save.txt") ;
+    }        
+    }
+    valid = true ;
+    while (valid) {
+        if (isInputEqual(Input, "QUIT")) {
+            valid = false ;
+        } 
+    }
+}
