@@ -94,7 +94,7 @@ int main() {
             Kalimat namasave ;
             namasave = Directory(Input) ;            
             printf("%s\n", namasave.TabLine) ;
-            SAVEFILE(&ls, LineToString (namasave), &songQue, &songHist) ;
+            SAVEFILE(&ls, LineToString (namasave), &songQue, &songHist, &currentSong) ;
 
         }
     }
