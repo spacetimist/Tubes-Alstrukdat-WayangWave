@@ -15,4 +15,6 @@ void createSongDetails(SongDetails *song);
 /*I.S. sembarang
 F.S. kalimat.length semuanya 0*/
 
+boolean isSongDetailsEmpty(SongDetails song);
+
 #endif

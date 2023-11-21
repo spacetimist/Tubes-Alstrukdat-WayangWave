@@ -166,7 +166,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit(&ls, namafile ,&songQue, &songHist, &currentSong) ;
+            quit(&ls, &namafile ,&songQue, &songHist, &currentSong) ;
         }
         else{
             InvalidCommand();

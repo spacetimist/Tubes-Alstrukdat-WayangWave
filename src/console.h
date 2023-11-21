@@ -13,6 +13,7 @@
 #include "./command/play.h"
 #include "./command/quit.h"
 #include "./command/song.h"
+#include "./command/status.h"
 //#include "./command/playlist.h"
 
 void banner();
