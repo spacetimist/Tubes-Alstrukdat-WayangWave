@@ -21,7 +21,7 @@ void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayat
         fprintf(save, "%s;%s;%s\n", LineToString((*songQue).buffer[i].artistName), LineToString((*songQue).buffer[i].albumName), LineToString((*songQue).buffer[i].songName));
     }
     fprintf(save, "%d\n", stackLength(*riwayatlagu)) ;
-    for (int i = 0 ; i <stackLength(*riwayatlagu) ; i++) {
+    for (int i = stackLength(*riwayatlagu)-1 ; i>= 0 ; i--) {
         fprintf(save, "%s;%s;%s\n", LineToString((*riwayatlagu).buffer[i].artistName), LineToString((*riwayatlagu).buffer[i].albumName), LineToString((*riwayatlagu).buffer[i].songName));
     }
     fclose(save) ;
