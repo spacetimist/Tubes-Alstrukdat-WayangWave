@@ -1,5 +1,5 @@
-#ifndef __LOAD_H__
-#define __LOAD_H__
+#ifndef __SAVE_H__
+#define __SAVE_H__
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,7 +17,9 @@
 // #include "play.h"
 // #include "playlist.h" 
 
+static FILE * save ;
 
-void LOADFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu);
+
+void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu);
 
 #endif

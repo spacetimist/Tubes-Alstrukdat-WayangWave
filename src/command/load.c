@@ -1,6 +1,6 @@
 #include "load.h"
 
-void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
+void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu) {
     STARTKALIMATFILE(namafile) ;
     Kalimat NamaPenyanyi;
     Kalimat NamaAlbum;
@@ -75,10 +75,11 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
   int jumlahriwayat = Line.TabLine[0] - 48 ;
   printf("\nBanyak jumlah record riwayat : %d\n", jumlahriwayat) ;
 
+  Stack temp ; CreateStack(&temp) ;
   for (int i = 0 ; i< jumlahriwayat; i++) {
     ADVRecord() ;
     Kalimat NamaPenyanyi ; Kalimat NamaAlbum ; 
-    SongDetails riwayat ;
+    SongDetails riwayat ; 
     riwayat.artistName = Line ;
     printf("Penanyi lagu ke-%d : %s\n",i+1, LineToString(Line)) ;
     ADVRecord() ;
@@ -88,6 +89,14 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
     riwayat.songName = Line ;
     printf("Nama lagu %d : %s\n",i+1, LineToString(Line)) ;
     // disini kurang ngepush ke stack riwayat lagu 
+    push(&temp, riwayat) ;
+  }
+  {
+    for (int i = 0 ; i < jumlahriwayat; i++) {
+      SongDetails baru ;
+      pop(&temp, &baru ) ;
+      push(riwayatlagu, baru) ;
+    }
   }
 
   ADVKALIMAT() ;

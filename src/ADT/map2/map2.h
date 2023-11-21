@@ -18,7 +18,7 @@ typedef int address;
 typedef struct
 {   
   Kalimat JudulLagu[25];
-  address Count;
+  int Count;
 } SetLagu;
 
 

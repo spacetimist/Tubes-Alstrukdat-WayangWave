@@ -94,12 +94,12 @@ int main() {
                 ADVCommand() ;
                 int id = Input.TabLine[0] - 48 ;
                 QueueRemove(&songQue, id) ;
+            } else if (isInputEqual(Input, "PLAYLIST")) {
+                // masukkin fungsi queue playlist
             }
             else {
                 printf("Command tidak diketahui!\n") ;
             }
-        }else if(isInputEqual(Input, "STATUS")){
-            status(songQue, currentSong);
         }
         else if(isInputEqual(Input, "PLAYLIST")) {
             ADVCommand() ; 
@@ -129,7 +129,21 @@ int main() {
             }else if (isInputEqual(Input, "DELETE")){
                 PlaylistDelete(&dp);
             }
-        }    
+            else if (isInputEqual(Input, "CREATE")){
+                createPlaylist(&dp);    
+            } 
+        }  
+        else if (isInputEqual(Input, "SONG")) {
+            ADVCommand() ;
+            if (isInputEqual("PREVIOUS")) {
+                // fungsi song prev
+            } else if (isInputEqual("NEXT")) {
+                // fungsi song next
+            }
+        }
+        else if (isInputEqual(Input, "STATUS")) {
+            // fungsi status
+        }
         else if (isInputEqual(Input, "HELP")) {
             printf("\n====================[ Menu Help WayangWave ]====================\n");
             printf("1. LIST -> Untuk menampilkan list playlist, list penyanyi, list album, dan list lagu\n");
@@ -139,10 +153,10 @@ int main() {
             printf("5. PLAYLIST -> Untuk membuat dan menghapus playlist, menambahkan, menukar, dan menghapus lagu dalam playlist\n");
             printf("6. STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta queue song\n");
             printf("7. SAVE -> Untuk menyimpan state aplikasi WayangWave terbaru\n");
-            printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n\n");
+            printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit();
+            quit() ;
         }
         else{
             InvalidCommand();

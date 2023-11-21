@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "load.h"
 #include "start.h"
+#include "save.h"
 // Ini file cuma untuk ngetes load nya aja
 void banner(){
     printf("\n");
@@ -52,7 +53,7 @@ int main() {
             Kalimat nama ;
             nama = Directory(Input) ;
             printf("%s\n", nama.TabLine) ;
-            LOADFILE(&ls, LineToString (nama), &songQue) ;
+            LOADFILE(&ls, LineToString (nama), &songQue, &songHist) ;
             valid = false ;
     }    else if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ; valid = false ;
@@ -87,6 +88,14 @@ int main() {
             else {
                 printf("Command tidak diketahui!\n") ;
             }
+        }
+        else if (isInputEqual(Input, "SAVE")) {
+            ADVCommand () ;
+            Kalimat namasave ;
+            namasave = Directory(Input) ;            
+            printf("%s\n", namasave.TabLine) ;
+            SAVEFILE(&ls, LineToString (namasave), &songQue, &songHist) ;
+
         }
     }
 }
