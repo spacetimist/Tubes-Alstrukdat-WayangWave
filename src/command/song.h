@@ -4,6 +4,7 @@
 #include "../ADT/SongDetails.h"
 #include "../ADT/queue/queue.h"
 #include "../ADT/stack/stack.h"
+#include "../ADT/mesin/mesinkalimat.h"
 
 void songNext(Queue *songQue, Stack *songHist, SongDetails *currentSong);
 // I.S. songQue, songHist, currentSong terdefinisi
