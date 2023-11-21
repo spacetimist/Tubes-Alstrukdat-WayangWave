@@ -54,7 +54,14 @@ int main() {
             printf("\n====================[ Menu Help WayangWave ]====================\n");
             printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave\n");
             printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
-        }else {
+        } else if (isInputEqual(Input, "LOAD")) {
+            ADVCommand() ;
+            Kalimat nama ;
+            nama = Directory(Input) ;
+            LOADFILE(&ls, LineToString(nama), &songQue, &songHist, &currentSong);
+            valid = false;
+        }
+        else {
             InvalidCommand();
         }
     }
