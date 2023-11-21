@@ -98,6 +98,8 @@ int main() {
             else {
                 printf("Command tidak diketahui!\n") ;
             }
+        }else if(isInputEqual(Input, "STATUS")){
+            status(songQue, currentSong);
         }
         else if(isInputEqual(Input, "PLAYLIST ADD SONG")) {
             PlaylistAddSong(&dp, ls) ;
