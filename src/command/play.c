@@ -14,7 +14,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     int indexPenyanyi, indexAlbum, indexLagu;
     for (int i = 0 ; i< (*LP).NEff ; i++) {
         Kalimat Penyanyi = (*LP).PenyanyiAlbum[i].NamaPenyanyi ;
-        Penyanyi.Length --;
+     //   Penyanyi.Length --;
 
         if (isKalimatEqual(Input, Penyanyi)) {
             copyKalimat(Input, &currentSong->artistName); //&currentSong or currentSong not sure
@@ -33,7 +33,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     StartInput() ;
     for (int j = 0; j<DaftarAlbum.NEff ; j++) {
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-        album.Length--;
+     //   album.Length--;
 
         if (isKalimatEqual(Input, album)) {
             copyKalimat(Input, &currentSong->albumName); //&currentSong or currentSong not sure
@@ -51,7 +51,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     StartInput() ;
     int idSong = Input.TabLine[0] - 48 - 1;
     Kalimat judulLagu = LP->PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[idSong];
-    judulLagu.Length -- ;
+ //   judulLagu.Length -- ;
     Kalimat namaPenyanyi = LP->PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
     //IZIN NAMBAHIN NAMA ALBUM - FIRA
     Kalimat namaAlbum = LP->PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].NamaAlbum ;
