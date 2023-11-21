@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "load.h"
+#include "start.h"
 // Ini file cuma untuk ngetes load nya aja
 void banner(){
     printf("\n");
@@ -48,7 +49,9 @@ int main() {
         if (isInputEqual(Input, "LOAD")) {
             LOADFILE(&ls, "../save/save.txt", &songQue) ;
             valid = false ;
-    }        
+    }    else if (isInputEqual(Input, "START")) {
+            STARTREAD(&ls) ; valid = false ;
+    }    
     }
     valid = true ;
     while (valid) {

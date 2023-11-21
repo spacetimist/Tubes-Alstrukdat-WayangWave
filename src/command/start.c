@@ -22,7 +22,7 @@ void STARTREAD(ListPenyanyi * LP){
     int album = Line.TabLine[0] - 48;
     
     ADVKALIMAT();
-    
+    Line.Length -- ;
     AddPenyanyi(LP, Line);
     NamaPenyanyi = NamaPenyanyiNow(LP);
 
@@ -37,7 +37,7 @@ void STARTREAD(ListPenyanyi * LP){
       int lagu = Line.TabLine[0] - 48;
 
       ADVKALIMAT();
-
+      Line.Length -- ;
       AddAlbum(LP, Line);
       NamaAlbum = NamaAlbumNow(LP);
 
@@ -46,7 +46,7 @@ void STARTREAD(ListPenyanyi * LP){
       for (int k = 0; k < lagu; k++)
       {
         ADVKALIMAT();
-
+        Line.Length --;
         AddLagu(LP, Line);
         NamaLagu = NamaLaguNow(LP);
 
