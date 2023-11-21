@@ -141,7 +141,7 @@
 void CreateDaftarPlaylist(DaftarPlaylist *l, int capacity){
     /* I.S. l sembarang, capacity > 0 */
     /* F.S. Terbentuk list dinamis l kosong dengan kapasitas capacity */
-    CAPACITY(*l) = capacity;
+    capacity(*l) = capacity;
     BUFFER(*l) = (Playlist *)malloc(capacity * sizeof(Playlist));
     NEFF(*l) = 0;
 
@@ -150,9 +150,9 @@ void CreateDaftarPlaylist(DaftarPlaylist *l, int capacity){
 
 void dealocateList(DaftarPlaylist *l){
     /* I.S. l terdefinisi; */
-    /* F.S. (l) dikembalikan ke system, CAPACITY(l)=0; NEFF(l)=0 */
+    /* F.S. (l) dikembalikan ke system, capacity(l)=0; NEFF(l)=0 */
     NEFF(*l) = 0;
-    CAPACITY(*l) = 0;
+    capacity(*l) = 0;
     free(BUFFER(*l));
 }
 
@@ -184,7 +184,7 @@ IdxType getLastIdx(DaftarPlaylist l){
 boolean isIdxValid(DaftarPlaylist l, IdxType i){
     /* Mengirimkan true jika i adalah indeks yang valid utk kapasitas list l */
     /* yaitu antara indeks yang terdefinisi utk container*/
-    return (i>=getFirstIdx(l)) && (i< CAPACITY(l));
+    return (i>=getFirstIdx(l)) && (i< capacity(l));
 }
 
 boolean isIdxEff(DaftarPlaylist l, IdxType i){
@@ -195,7 +195,7 @@ boolean isIdxEff(DaftarPlaylist l, IdxType i){
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
-boolean isEmpty(DaftarPlaylist l){
+boolean isDaftarPlaylistEmpty(DaftarPlaylist l){
     /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
     /* *** Test list penuh *** */
     return(listLength(l) == 0);
@@ -203,7 +203,7 @@ boolean isEmpty(DaftarPlaylist l){
 
 boolean isFull(DaftarPlaylist l){
     /* Mengirimkan true jika list l penuh, mengirimkan false jika tidak */
-    return(listLength(l) == CAPACITY(l));
+    return(listLength(l) == capacity(l));
 }
 
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
@@ -234,7 +234,7 @@ void expandList(DaftarPlaylist *l, int num){
     /* F.S. Ukuran list bertambah sebanyak num */
     DaftarPlaylist ltemp;
     int i;
-    CreateDaftarPlaylist(&ltemp, CAPACITY(*l) + num);
+    CreateDaftarPlaylist(&ltemp, capacity(*l) + num);
     for(i = 0; i < NEFF(*l); i++){
        ELMT(ltemp,i) = ELMT(*l,i);
     }
@@ -250,7 +250,7 @@ void shrinkList(DaftarPlaylist *l, int num){
     /* F.S. Ukuran list berkurang sebanyak num. */
     DaftarPlaylist ltemp;
     int i;
-    CreateDaftarPlaylist(&ltemp, CAPACITY(*l) - num);
+    CreateDaftarPlaylist(&ltemp, capacity(*l) - num);
     for(i = 0; i < NEFF(*l); i++){
        ELMT(ltemp,i) = ELMT(*l,i);
     }

@@ -4,11 +4,11 @@
 
 boolean IsEmpty (Playlist L){
 /* Mengirim true jika list kosong */
-    return (First(L) == Nil);
+    return (First(L) == Nul);
 }
 
 void CreateEmpty (Playlist *L){
-    First(*L) = Nil;
+    First(*L) = Nul;
 }
 
 addressNode Alokasi (SongDetails X){
@@ -16,10 +16,10 @@ addressNode Alokasi (SongDetails X){
     // address P = (address) malloc (sizeof(ElmtList));
     addressNode P = (addressNode) malloc (sizeof(SongNode));
     //check if allocation success
-    if (P != Nil){
+    if (P != Nul){
         //if success, put X in info(P)
         Info(P) = X;
-        Next(P) = Nil;
+        Next(P) = Nul;
     }
     //return address of P
     return P;
@@ -34,7 +34,7 @@ void InsVFirst (Playlist *L, SongDetails X){
     //alocate X, put address in P
     addressNode P = Alokasi(X);
     //check if allocation success
-    if (P != Nil){
+    if (P != Nul){
         InsertFirst(L, P);
     }
 }
@@ -43,7 +43,7 @@ void InsVLast (Playlist *L, SongDetails X){
     //alocate X, put address in P
     addressNode P = Alokasi(X);
     //check if allocation success
-    if (P != Nil){
+    if (P != Nul){
         InsertLast(L, P);
     }
 }
@@ -53,7 +53,7 @@ void DelVFirst (Playlist *L, SongDetails *X){
     //declare temp to store address
     addressNode temp = First(*L);
     //check if list is empty
-    if (temp != Nil){
+    if (temp != Nul){
         //if not empty, put info(temp) in X
         *X = Info(temp);
         //connect First(L) to Next(temp)
@@ -93,13 +93,13 @@ void InsertLast(Playlist *L, addressNode P){
     //declare temp to store address
     addressNode temp = First(*L);
     //check if list is empty
-    if (temp == Nil){
+    if (temp == Nul){
         //if empty, connect First(L) to P
         First(*L) = P;
-        //Next(P) already Nil, refer to Alokasi()
+        //Next(P) already Nul, refer to Alokasi()
     } else {
         //if not empty, transverse to find last node
-        while (Next(temp) != Nil){
+        while (Next(temp) != Nul){
             temp = Next(temp);
         }
         //connect Next(temp) to P
@@ -113,21 +113,21 @@ void DelFirst (Playlist *L, addressNode *P){
     //connect First(L) to 2nd node
     First(*L) = Next(*P);
     //disconnect P from list
-    Next(*P) = Nil;
+    Next(*P) = Nul;
 }
 
 void DelLast (Playlist *L, addressNode *P){
     //declare temp to store address
     addressNode temp = First(*L);
     //check if list is empty
-    if (temp != Nil){
+    if (temp != Nul){
         //if not empty, transverse to find 2nd last node
-        while (Next(Next(temp)) != Nil){
+        while (Next(Next(temp)) != Nul){
             temp = Next(temp);
         }
         //assign last node's address to P
         *P = Next(temp);
-        //connect Next(temp) to Nil
+        //connect Next(temp) to Nul
         Next(temp) = Next(*P);
     }
 }
@@ -138,7 +138,7 @@ void DelAfter (Playlist *L, addressNode *Pdel, addressNode Prec){
     //connect Next(Prec) to Next(Pdel)
     Next(Prec) = Next(*Pdel);
     //disconnect Pdel from list
-    Next(*Pdel) = Nil;
+    Next(*Pdel) = Nul;
 }
 
 int NbElmt (Playlist L){
@@ -147,7 +147,7 @@ int NbElmt (Playlist L){
     //declare counter
     int count = 0;
     //transverse to count nodes
-    while (temp != Nil){
+    while (temp != Nul){
         count++;
         temp = Next(temp);
     }
