@@ -7,7 +7,7 @@
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
 #include "../ADT/listDin/listDin.h"
-#include "list.h"
+#include "../command/list.h"
 
 void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *currentSong);
 /*mengosongkan isi songQue dan songHist. lalu menambahkan song ke songHist

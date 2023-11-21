@@ -115,11 +115,10 @@ int main() {
             printf("5. PLAYLIST -> Untuk membuat dan menghapus playlist, menambahkan, menukar, dan menghapus lagu dalam playlist\n");
             printf("6. STATUS -> Untuk menampilkan lagu yang sedang dimainkan beserta queue song\n");
             printf("7. SAVE -> Untuk menyimpan state aplikasi WayangWave terbaru\n");
-            printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
+            printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            printf("Dadah\n") ;
-            valid = false ;
+            quit();
         }
         else{
             InvalidCommand();

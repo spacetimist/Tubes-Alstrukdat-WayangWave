@@ -11,6 +11,7 @@
 #include "./ADT/SongDetails.h"
 #include "./ADT/listDin/listDin.h"
 #include "./command/play.h"
+#include "./command/quit.h"
 //#include "./command/playlist.h"
 
 void banner();
