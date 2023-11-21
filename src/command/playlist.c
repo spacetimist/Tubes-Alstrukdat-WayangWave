@@ -43,7 +43,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexPenyanyi;
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-   //     Penyanyi.Length--;  (ini kayaknya gaperlu lagi, soalnya udah dikurangin di fungsi start)
+        // Penyanyi.Length--;  (ini kayaknya gaperlu lagi, soalnya udah dikurangin di fungsi start)
         // printf("%d\n",Penyanyi.Length);
         // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, Penyanyi)){
@@ -94,7 +94,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
             X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
             X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-            Playlist currentPlaylist;
+            Playlist currentPlaylist = (*daftar).List[indexPlaylist];
             currentPlaylist = (*daftar).List[indexPlaylist];
             InsVLast(&((*daftar).List[indexPlaylist]), X);
             PrintPlaylistSong((*daftar).List[indexPlaylist]);
