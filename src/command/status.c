@@ -4,7 +4,7 @@
 void status(Queue q, SongDetails currentSong){
     printf("\nNow Playing:\n");
     if(isSongDetailsEmpty(currentSong)){
-        printf("No songs have been played yet. Please search for a song to begin playback.\n\n");
+        printf("No songs have been played yet. Please search for a song to begin playback.\n");
     }else{
         printf("%s -", LineToString(currentSong.artistName));
         printf(" %s -", LineToString(currentSong.songName));

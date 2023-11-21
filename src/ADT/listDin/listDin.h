@@ -9,6 +9,8 @@
 
 #ifndef ADTDaftarPlaylist1
 #define ADTDaftarPlaylist1
+#define Nul NULL
+
 
 /* Kamus Umum */
 #define MaxEl 100
@@ -34,6 +36,10 @@ typedef struct{
     int capacity;
     int Neff;
 }DaftarPlaylist;
+
+#define Info(P) (P)->song
+#define Next(P) (P)->Next
+#define First(L) ((L).First)
 
 /* Indeks yang digunakan seberapa banyak memori itu terisi */
 /* Jika L adalah DaftarPlaylist, cara deklarasi dan akses: */

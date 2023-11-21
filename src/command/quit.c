@@ -8,7 +8,7 @@ void quit(){
     if(isInputEqual(Input, "Y")){
         // save();
     }else if(isInputEqual(Input, "N")){
-        printf("Kamu keluar dari WayangWave.\nDadah ^_^/\n");
+        printf("Kamu keluar dari WayangWave.\nDadah ^_^/\n\n");
         exit(0);
     }
 }

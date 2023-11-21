@@ -111,38 +111,36 @@ int main() {
             }
         }
         else if(isInputEqual(Input, "PLAYLIST")) {
-            ADVCommand() ;
-            if (isInputEqual(Input, "ADD")) {
+            ADVCommand() ; 
+            if (isInputEqual(Input, "CREATE")) {
+                createPlaylist(&dp);
+            } else if (isInputEqual(Input, "ADD")) {
+                ADVCommand();
+                if(isInputEqual(Input, "SONG")){
+                    PlaylistAddSong(&dp, ls);
+                }else if(isInputEqual(Input, "ALBUM")){
+                    PlaylistAddAlbum(&dp, ls);
+                }
+            } else if (isInputEqual(Input, "SWAP")) {
                 ADVCommand() ;
-                if (isInputEqual(Input, "SONG")) {
-                    PlaylistAddSong(&dp, ls) ;
-                }
-                else if (isInputEqual(Input, "ALBUM")) {
-                    PlaylistAddAlbum(&dp, ls) ;
-                }
+                int idp = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int id1 = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int id2 = Input.TabLine[0] - 48 ;
+                PlaylistSwap(&dp, idp, id1, id2);
+            } else if (isInputEqual(Input, "REMOVE")) {
+                ADVCommand() ;
+                int id = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int n = Input.TabLine[0] - 48 ;
+                PlaylistRemove(&dp, id, n);
+            }else if (isInputEqual(Input, "DELETE")){
+                PlaylistDelete(&dp);
             }
             else if (isInputEqual(Input, "CREATE")){
                 createPlaylist(&dp);    
-            }
-            else if (isInputEqual(Input, "DELETE")) {
-                // disini masukkin fungsi playlist delete
-            }
-            else if (isInputEqual(Input, "REMOVE")) {
-                ADVCommand() ;
-                int idpl = Input.TabLine[0] - 48 ;
-                ADVCommand() ;
-                int idsong = Input.TabLine[0] - 48 ;
-                // disini masukkin fungsi playlist remove
-            }
-            else if (isInputEqual(Input, "SWAP")) {
-                ADVCommand() ;
-                int idplaylist = Input.TabLine[0] - 48 ;
-                ADVCommand() ;
-                int urutanX = Input.TabLine[0] - 48;
-                ADVCommand() ;
-                int urutanY = Input.TabLine[0] - 48;
-                // disini masukkin fungsi playlist swap
-            }  
+            } 
         }  
         else if (isInputEqual(Input, "SONG")) {
             ADVCommand() ;

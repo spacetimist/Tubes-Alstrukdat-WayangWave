@@ -2,37 +2,29 @@
 #include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
+#include "../ADT/listlinier/playlistADT.h"
 #include "../ADT/listlinier/listlinier.h"
 #include "../ADT/boolean.h"
 #include "../ADT/listDin/listDin.h"
 
-// typedef struct{
-//     Playlist *List;
-//     int capacity;
-//     int Neff;
-// }DaftarPlaylist;
-/*menggunakan list dinamis
-I.S capacity = initial_cap */
-
+// primitif
 void createDaftarPlaylist(DaftarPlaylist *daftar);
-
-// daftar
-void createPlaylist(DaftarPlaylist *daftar);
-
-void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value);
-
-void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP);
-
-void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP);
 
 void PrintPlaylistSong (Playlist L);
 
 boolean isLinkListEmpty (Playlist L);
 
-// void playlistAdd(List *singer);
+void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value);
 
-// void playlistSwap(a, b, c);
+// fungsi utama
+void createPlaylist(DaftarPlaylist *daftar);
 
-// void playlistRemove(a, b);
+void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP);
 
-// void playlistDelete();
+void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP);
+
+void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y);
+
+void PlaylistRemove(DaftarPlaylist *daftar, int id, int n);
+
+void PlaylistDelete(DaftarPlaylist *daftar);

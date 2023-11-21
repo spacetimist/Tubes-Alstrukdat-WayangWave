@@ -19,7 +19,6 @@ void ListDefault(ListPenyanyi LP){
         StartInput();
         for (int i = 0; i < LP.NEff; i++){
             Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-            Penyanyi.Length--;
             // printf("%d\n",Penyanyi.Length);
             // printf("%d\n",Input.Length);
             if (isKalimatEqual(Input, Penyanyi)){
@@ -44,7 +43,6 @@ void ListDefault(ListPenyanyi LP){
 
             for(int j=0; j<DaftarAlbum.NEff; j++){
                 Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-                album.Length--;
                 // printf("%d\n",album.Length);
                 // printf("%d\n",Input.Length);
                 if (isKalimatEqual(Input, album)){
@@ -58,6 +56,7 @@ void ListDefault(ListPenyanyi LP){
                     }
                 }
             }
+            printf("\n");
         }
     }else if(isInputEqual(Input, "N")){
         return;
