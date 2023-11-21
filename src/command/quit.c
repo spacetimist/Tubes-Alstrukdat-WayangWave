@@ -6,7 +6,7 @@ void quit(){
     printf("Apakah kamu ingin menyimpan data sesi sekarang? (Y/N) ");
     StartInput();
     if(isInputEqual(Input, "Y")){
-        // save();
+        save();
     }else if(isInputEqual(Input, "N")){
         printf("Kamu keluar dari WayangWave.\nDadah ^_^/\n\n");
         exit(0);

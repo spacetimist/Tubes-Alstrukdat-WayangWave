@@ -142,7 +142,7 @@ int main() {
             }
         }
         else if (isInputEqual(Input, "STATUS")) {
-            // fungsi status
+            status(songQue, currentSong);
         }
         else if (isInputEqual(Input, "HELP")) {
             printf("\n====================[ Menu Help WayangWave ]====================\n");
