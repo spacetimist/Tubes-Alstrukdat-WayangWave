@@ -1,6 +1,6 @@
 #include "save.h"
 
-void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu) {
+void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong) {
     save = fopen(namafile, "w") ;
 
     fprintf(save, "%d\n", (*LP).NEff ) ;
@@ -16,6 +16,7 @@ void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayat
         }
 
     }
+    fprintf(save, "%s;%s;%s\n", LineToString((*currentSong).artistName), LineToString((*currentSong).albumName), LineToString((*currentSong).songName));
     fprintf(save, "%d\n", queueLength(*songQue)) ;
     for (int i = 0 ; i < queueLength(*songQue); i++) {
         fprintf(save, "%s;%s;%s\n", LineToString((*songQue).buffer[i].artistName), LineToString((*songQue).buffer[i].albumName), LineToString((*songQue).buffer[i].songName));
