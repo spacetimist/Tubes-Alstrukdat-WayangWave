@@ -45,7 +45,4 @@ Arctic Monkeys;AM;Do I Wanna Know?
 Arctic Monkeys;AM;Arabella
 Arctic Monkeys;Favourite Worst Nightmare;505
 Arctic Monkeys;Humbug;Pretty Visitors
-2 My Top 2
-Arctic Monkeys;Humbug;Secret Door
-Arctic Monkeys;Humbug;Crying Lightning
 0 Mixed Playlist
