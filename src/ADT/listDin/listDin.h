@@ -174,6 +174,12 @@ boolean isEmpty(DaftarPlaylist l);
 boolean isFull(DaftarPlaylist l);
 /* Mengirimkan true jika list l penuh, mengirimkan false jika tidak */
 
+/* ********** OPERASI LAIN ********** */
+void copyList(DaftarPlaylist lIn, DaftarPlaylist *lOut);
+    /* I.S. lIn terdefinisi tidak kosong, lOut sembarang */
+    /* F.S. lOut berisi salinan dari lIn (identik, nEff dan capacity sama) */
+    /* Proses : Menyalin isi lIn ke lOut */
+
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
 /* *** Menambahkan elemen terakhir *** */
 void insertLast(DaftarPlaylist *l, Playlist val);

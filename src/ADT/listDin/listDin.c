@@ -206,6 +206,19 @@ boolean isFull(DaftarPlaylist l){
     return(listLength(l) == CAPACITY(l));
 }
 
+/* ********** OPERASI LAIN ********** */
+void copyList(DaftarPlaylist lIn, DaftarPlaylist *lOut){
+    /* I.S. lIn terdefinisi tidak kosong, lOut sembarang */
+    /* F.S. lOut berisi salinan dari lIn (identik, nEff dan capacity sama) */
+    /* Proses : Menyalin isi lIn ke lOut */
+    int i;
+    CreateListDin(lOut, CAPACITY(lIn));
+    NEFF(*lOut) = NEFF(lIn);
+    for(i = 0; i < NEFF(lIn); i++){
+       ELMT(*lOut,i) = ELMT(lIn,i);
+    }   
+}
+
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
 /* *** Menambahkan elemen terakhir *** */
 void insertLast(DaftarPlaylist *l, Playlist val){
