@@ -1,6 +1,6 @@
 #include "load.h"
 
-void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu) {
+void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu, SongDetails *currentsong) {
     STARTKALIMATFILE(namafile) ;
     Kalimat NamaPenyanyi;
     Kalimat NamaAlbum;
@@ -49,6 +49,14 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     }
 
   }
+  ADVKALIMAT() ;
+  (*currentsong).artistName = Line;
+  ADVRecord() ;
+  (*currentsong).albumName = Line;
+  ADVRecord() ;
+  (*currentsong).songName = Line ;
+  printf("Current song : %s-%s-%s\n", LineToString((*currentsong).artistName), LineToString((*currentsong).albumName), LineToString((*currentsong).songName));
+
   ADVKALIMAT() ;
   int jumlahqs = Line.TabLine[0] - 48 ; //banyak lagu ke dalam queue
   printf("\nBanyak record lagu : %d\n", jumlahqs) ;

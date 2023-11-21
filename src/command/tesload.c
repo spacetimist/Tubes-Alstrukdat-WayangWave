@@ -34,7 +34,7 @@ void InvalidCommand(){
 int main() {
     banner();
     ListPenyanyi ls ;
-    DaftarPlaylist dp;
+ //   DaftarPlaylist dp;
     CreateListPenyanyi (&ls) ;
 //   createDaftarPlaylist (&dp);
     boolean valid = true;
@@ -53,7 +53,7 @@ int main() {
             Kalimat nama ;
             nama = Directory(Input) ;
             printf("%s\n", nama.TabLine) ;
-            LOADFILE(&ls, LineToString (nama), &songQue, &songHist) ;
+            LOADFILE(&ls, LineToString (nama), &songQue, &songHist, &currentSong) ;
             valid = false ;
     }    else if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ; valid = false ;
