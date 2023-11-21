@@ -29,8 +29,9 @@ void ListDefault(ListPenyanyi LP){
                     MapLagu album = DaftarAlbum.AlbumLagu[j];
                     printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
                 }
-		    }else{
-                printf("\nArtis tidak dikenali. Silahkan coba lagi!\n");
+		    }
+            else {
+       //         printf("\nArtis tidak dikenali. Silahkan coba lagi!\n");
             }
         }
         // printf("%d\n", indexPenyanyi);
