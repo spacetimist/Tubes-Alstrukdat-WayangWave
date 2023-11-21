@@ -18,6 +18,6 @@
 // #include "playlist.h" 
 
 
-void LOADFILE(ListPenyanyi * LP, char namafile[]);
+void LOADFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue);
 
 #endif

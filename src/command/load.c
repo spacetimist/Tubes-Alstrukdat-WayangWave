@@ -1,6 +1,6 @@
 #include "load.h"
 
-void LOADFILE(ListPenyanyi * LP, char namafile[]) {
+void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
     STARTKALIMATFILE(namafile) ;
     Kalimat NamaPenyanyi;
     Kalimat NamaAlbum;
@@ -65,12 +65,10 @@ void LOADFILE(ListPenyanyi * LP, char namafile[]) {
     Kalimat NamaLagu = Line ;
 
     SongDetails save ;
-    Queue songQue ;
-    CreateQueue(&songQue) ;
     save.artistName = NamaPenyanyi;
     save.albumName = NamaAlbum;
     save.songName = NamaLagu ;
-    enqueue(&songQue, save) ;
+    enqueue(songQue, save) ;
   }
 
   ADVKALIMAT() ;

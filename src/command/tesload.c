@@ -46,13 +46,37 @@ int main() {
         printf(">> ");
         StartCommand() ;
         if (isInputEqual(Input, "LOAD")) {
-            LOADFILE(&ls, "../save/save.txt") ;
+            LOADFILE(&ls, "../save/save.txt", &songQue) ;
+            valid = false ;
     }        
     }
     valid = true ;
     while (valid) {
+        printf(">> ") ;
+        StartCommand() ;
         if (isInputEqual(Input, "QUIT")) {
             valid = false ;
-        } 
+        }
+            else if (isInputEqual(Input, "QUEUE")) {
+            ADVCommand() ; 
+            if (isInputEqual(Input, "SONG")) {
+                QueueSong(&songQue, ls) ;
+            } else if (isInputEqual(Input, "CLEAR")) {
+                QueueClear(&songQue) ;
+            } else if (isInputEqual(Input, "SWAP")) {
+                ADVCommand() ;
+                int id1 = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int id2 = Input.TabLine[0] - 48 ;
+                QueueSwap(&songQue, id1, id2) ;
+            } else if (isInputEqual(Input, "REMOVE")) {
+                ADVCommand() ;
+                int id = Input.TabLine[0] - 48 ;
+                QueueRemove(&songQue, id) ;
+            }
+            else {
+                printf("Command tidak diketahui!\n") ;
+            }
+        }
     }
 }
