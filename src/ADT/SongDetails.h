@@ -12,6 +12,6 @@ typedef struct {
 
 void createSongDetails(SongDetails *song);
 /*I.S. sembarang
-F.S. kalimat.length semuanya Null*/
+F.S. kalimat.length semuanya 0*/
 
 #endif
