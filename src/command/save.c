@@ -16,5 +16,9 @@ void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue) {
         }
 
     }
+    fprintf(save, "%d\n", queueLength(*songQue)) ;
+    for (int i = 0 ; i < queueLength(*songQue); i++) {
+        fprintf(save, "%s;%s;%s\n", LineToString((*songQue).buffer[i].artistName), LineToString((*songQue).buffer[i].albumName), LineToString((*songQue).buffer[i].songName));
+    }
     fclose(save) ;
 }
