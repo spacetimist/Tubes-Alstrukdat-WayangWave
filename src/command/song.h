@@ -1,3 +1,6 @@
+#ifndef __SONG_H__
+#define __SONG_H__ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "../ADT/boolean.h"
@@ -17,3 +20,5 @@ void songPrev(Queue *songQue, Stack *songHist, SongDetails *currentSong);
 // F.S. currentSong berisi lagu sebelumnya dari songHist, currentSong dimasukan ke songQue.
 //jika kosong, currentSong tetap.
 //jika songQue penuh, elemen tail queue dihapus 1.
+
+#endif
