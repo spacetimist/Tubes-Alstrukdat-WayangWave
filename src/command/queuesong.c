@@ -105,7 +105,7 @@ void QueueSwap(Queue *songQue, int id1, int id2)
             (*songQue).buffer[id1-1]= (*songQue).buffer[id2-1];
             (*songQue).buffer[id2-1] = temp;
 
-            printf("Lagu berhasil ditukar\n"); //masih belum dites
+            printf("Lagu %s berhasil ditukar dengan %s\n", LineToString((*songQue).buffer[id1-1].songName), LineToString((*songQue).buffer[id2-1].songName));
             displayQueue(*songQue) ;
         }
         else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!\n", id1, id2) ;
@@ -121,6 +121,7 @@ void QueueRemove(Queue *songQue, int id) {
         else if (IDX_TAIL(*songQue) - IDX_HEAD(*songQue) == 0) {
             IDX_HEAD(*songQue) = IDX_UNDEF;
             IDX_TAIL(*songQue) = IDX_UNDEF;
+            printf("Lagu %s oleh %s telah dihapus dari queue\n", LineToString((*songQue).buffer[id-1].songName), LineToString((*songQue).buffer[id-1].artistName));
             displayQueue(*songQue);
         }
         else {
@@ -128,7 +129,7 @@ void QueueRemove(Queue *songQue, int id) {
                 (*songQue).buffer[i] = (*songQue).buffer[i+1];
             }
             IDX_TAIL(*songQue) -- ;
-            printf("Lagu telah dihapus dari queue\n" );
+            printf("Lagu %s oleh %s telah dihapus dari queue\n", LineToString((*songQue).buffer[id-1].songName), LineToString((*songQue).buffer[id-1].artistName));
             displayQueue(*songQue) ;
         }
     }
