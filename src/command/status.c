@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "status.h"
 
-void status(Queue q, Stack hist){
+void status(Queue q, SongDetails currentSong){
     printf("\nNow Playing:\n");
     if(isStackEmpty(hist)){
         printf("No songs have been played yet. Please search for a song to begin playback.\n\n");
     }else{
-        // ini ngeplay dari mana siii
+        printf("%s - %s - %s\n\n", currentSong.artistName.TabLine, currentSong.songName.TabLine, currentSong.albumName.TabLine);
     }
     printf("Queue:\n");
     if(isQueueEmpty(q)){

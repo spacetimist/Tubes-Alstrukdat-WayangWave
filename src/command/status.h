@@ -4,6 +4,8 @@
 #include "../ADT/boolean.h"
 #include <stdio.h>
 #include "../command/queuesong.h"
+#include "../command/play.h"
+#include "../ADT/SongDetails.h"
 
 void status();
 
