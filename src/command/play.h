@@ -1,5 +1,5 @@
-#ifndef __SONG_H__
-#define __SONG_H__  
+#ifndef __PLAY_H__
+#define __PLAY_H__  
 
 #include "../ADT/boolean.h"
 #include "../ADT/queue/queue.h"

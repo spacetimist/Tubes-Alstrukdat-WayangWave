@@ -6,6 +6,7 @@
 #include "../ADT/listlinier/listlinier.h"
 #include "../ADT/boolean.h"
 #include "../ADT/listDin/listDin.h"
+#include "list.h"
 
 // primitif
 void createDaftarPlaylist(DaftarPlaylist *daftar);

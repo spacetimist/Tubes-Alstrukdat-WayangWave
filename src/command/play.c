@@ -55,8 +55,9 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     Kalimat namaPenyanyi = LP->PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
     //IZIN NAMBAHIN NAMA ALBUM - FIRA
     Kalimat namaAlbum = LP->PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].NamaAlbum ;
-    printf("Nama Penyanyi: %s\n", namaPenyanyi.TabLine);
-    printf("Memutar Lagu %s\n" , judulLagu.TabLine);
+   // printf("Nama Penyanyi: %s\n", namaPenyanyi.TabLine);
+    //printf("Memutar Lagu %s\n" , judulLagu.TabLine);
+    printf("Memutar lagu %s oleh %s\n", LineToString(judulLagu), LineToString(namaPenyanyi)) ;
     copyKalimat(judulLagu, &currentSong->songName ); //&currentSong or currentSong not sure
 
     //IZIN COPY ALBUM DAN PENYANYI KE CURRENTSONG - FIRA
@@ -66,7 +67,7 @@ void PlaySong(Queue *songQue, Stack *songHist, ListPenyanyi *LP, SongDetails *cu
     //empty songQue and songHist
     CreateStack(songHist);
     CreateQueue(songQue);
-    displayQueue(*songQue) ;
+ //   displayQueue(*songQue) ;
 }
 
 void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetails *currentSong){

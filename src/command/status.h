@@ -7,6 +7,6 @@
 #include "../command/play.h"
 #include "../ADT/SongDetails.h"
 
-void status();
+void status(Queue q, SongDetails currentSong);
 
 #endif

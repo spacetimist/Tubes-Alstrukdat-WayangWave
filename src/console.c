@@ -54,7 +54,14 @@ int main() {
             printf("\n====================[ Menu Help WayangWave ]====================\n");
             printf("1. START -> Untuk masuk sesi baru aplikasi WayangWave\n");
             printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
-        }else {
+        } else if (isInputEqual(Input, "LOAD")) {
+            ADVCommand() ;
+            Kalimat nama ;
+            nama = Directory(Input) ;
+            LOADFILE(&ls, LineToString(nama), &songQue, &songHist, &currentSong);
+            valid = false;
+        }
+        else {
             InvalidCommand();
         }
     }
@@ -143,14 +150,6 @@ int main() {
                 createPlaylist(&dp);    
             } 
         }  
-        else if (isInputEqual(Input, "SONG")) {
-            ADVCommand() ;
-            if (isInputEqual(Input, "PREVIOUS")) {
-                // fungsi song prev
-            } else if (isInputEqual(Input, "NEXT")) {
-                // fungsi song next
-            }
-        }
         else if (isInputEqual(Input, "STATUS")) {
             status(songQue, currentSong);
         }
@@ -166,7 +165,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit(&ls, namafile ,&songQue, &songHist, &currentSong) ;
+            quit(&ls, &namafile ,&songQue, &songHist, &currentSong) ;
         }
         else{
             InvalidCommand();
