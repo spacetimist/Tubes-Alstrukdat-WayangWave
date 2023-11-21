@@ -143,14 +143,6 @@ int main() {
                 createPlaylist(&dp);    
             } 
         }  
-        else if (isInputEqual(Input, "SONG")) {
-            ADVCommand() ;
-            if (isInputEqual(Input, "PREVIOUS")) {
-                // fungsi song prev
-            } else if (isInputEqual(Input, "NEXT")) {
-                // fungsi song next
-            }
-        }
         else if (isInputEqual(Input, "STATUS")) {
             status(songQue, currentSong);
         }
