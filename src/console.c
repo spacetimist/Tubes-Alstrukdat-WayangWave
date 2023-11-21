@@ -101,12 +101,27 @@ int main() {
         }else if(isInputEqual(Input, "STATUS")){
             status(songQue, currentSong);
         }
-        else if(isInputEqual(Input, "PLAYLIST ADD SONG")) {
-            PlaylistAddSong(&dp, ls) ;
-        }else if(isInputEqual(Input, "PLAYLIST ADD ALBUM")) {
-            PlaylistAddAlbum(&dp, ls) ;
-        }else if (isInputEqual(Input, "PLAYLIST CREATE")){
-            createPlaylist(&dp);    
+        else if(isInputEqual(Input, "PLAYLIST")) {
+              ADVCommand() ; 
+            if (isInputEqual(Input, "CREATE")) {
+                
+            } else if (isInputEqual(Input, "ADD SONG")) {
+                
+            } else if (isInputEqual(Input, "SWAP")) {
+                ADVCommand() ;
+                int id1 = Input.TabLine[0] - 48 ;
+                ADVCommand() ;
+                int id2 = Input.TabLine[0] - 48 ;
+                
+            } else if (isInputEqual(Input, "REMOVE")) {
+                ADVCommand() ;
+                int id = Input.TabLine[0] - 48 ;
+                
+            }else if (isInputEqual(Input, "ADD SONG")){
+
+            }else if (isInputEqual(Input, "DELETE")){
+                
+            }
         }    
         else if (isInputEqual(Input, "HELP")) {
             printf("\n====================[ Menu Help WayangWave ]====================\n");

@@ -2,6 +2,7 @@
 #define __SONGDETAILS_h__
 
 #include "./mesin/mesinkalimat.h"
+#include "boolean.h"
 #include <stdlib.h>
 
 typedef struct {

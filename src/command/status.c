@@ -6,9 +6,11 @@ void status(Queue q, SongDetails currentSong){
     if(isSongDetailsEmpty(currentSong)){
         printf("No songs have been played yet. Please search for a song to begin playback.\n\n");
     }else{
-        printf("%s - %s - %s\n\n", currentSong.artistName.TabLine, currentSong.songName.TabLine, currentSong.albumName.TabLine);
+        printf("%s -", LineToString(currentSong.artistName));
+        printf(" %s -", LineToString(currentSong.songName));
+        printf(" %s\n", LineToString(currentSong.albumName));
     }
-    printf("Queue:\n");
+    printf("\nQueue:\n");
     if(isQueueEmpty(q)){
         printf("Your queue is empty.\n\n");
     }else{
