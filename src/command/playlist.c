@@ -232,17 +232,6 @@ void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value)
     (*daftar).Neff += 1;
 }
 
-void createDaftarPlaylist(DaftarPlaylist *daftar)
-{
-    (*daftar).List = (Playlist*) malloc (10 * sizeof(Playlist));
-    (*daftar).capacity = 10;
-    (*daftar).Neff = 0;
-}
-
-boolean isLinkListEmpty (Playlist L){
-	return L.First == Nul; 
-}
-
 void PrintPlaylistSong (Playlist L){
 
 	if (IsLinkListEmpty(L)){

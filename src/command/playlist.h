@@ -9,11 +9,7 @@
 #include "list.h"
 
 // primitif
-void createDaftarPlaylist(DaftarPlaylist *daftar);
-
 void PrintPlaylistSong (Playlist L);
-
-boolean isLinkListEmpty (Playlist L);
 
 void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value);
 

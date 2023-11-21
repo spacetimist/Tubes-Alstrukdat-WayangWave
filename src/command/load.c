@@ -7,9 +7,10 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     Kalimat NamaLagu;
 
     int jumlah = Line.TabLine[0] - 48;
-    printf("\nJumlah Penyanyi: %d\n", jumlah);
+ //   printf("\nJumlah Penyanyi: %d\n", jumlah);
 
-
+    if (jumlah > 0 ) {
+    printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n") ;
     for (int i = 0; i < jumlah; i++){
     ADVSATUKATA();
     int album = Line.TabLine[0] - 48;
@@ -131,6 +132,8 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
         printf("Nama lagu %d : %s\n", j+1, LineToString(Line)) ;
     }
   }
-
+  } else {
+    printf("Save file tidak ditemukan. WayangWave gagal dijalankan.\n") ;
+  }
 
 }   
