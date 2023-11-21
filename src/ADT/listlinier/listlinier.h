@@ -41,11 +41,11 @@ typedef struct {
 
 /* PROTOTYPE */
 /****************** TEST Playlist KOSONG ******************/
-boolean IsEmpty (Playlist L);
+boolean IsLinkListEmpty (Playlist L);
 /* Mengirim true jika Playlist kosong */
 
 /****************** PEMBUATAN LIST KOSONG ******************/
-void CreateEmpty (Playlist *L);
+void CreateLinkList (Playlist *L);
 /* I.S. sembarang             */
 /* F.S. Terbentuk Playlist kosong */
 

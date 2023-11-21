@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-boolean IsEmpty (Playlist L){
+boolean IsLinkListEmpty (Playlist L){
 /* Mengirim true jika list kosong */
     return (First(L) == Nul);
 }
 
-void CreateEmpty (Playlist *L){
+void CreateLinkList (Playlist *L){
     First(*L) = Nul;
 }
 

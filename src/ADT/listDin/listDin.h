@@ -168,10 +168,10 @@ boolean isIdxEff(DaftarPlaylist l, IdxType i);
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
-boolean isDaftarPlaylistEmpty(DaftarPlaylist l);
+boolean IsDaftarPlaylistEmpty(DaftarPlaylist l);
 /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
 /* *** Test list penuh *** */
-boolean isFull(DaftarPlaylist l);
+boolean IsDaftarPlaylistFull(DaftarPlaylist l);
 /* Mengirimkan true jika list l penuh, mengirimkan false jika tidak */
 
 /* ********** OPERASI LAIN ********** */
@@ -182,12 +182,12 @@ void copyList(DaftarPlaylist lIn, DaftarPlaylist *lOut);
 
 /* ********** MENAMBAH DAN MENGHAPUS ELEMEN DI AKHIR ********** */
 /* *** Menambahkan elemen terakhir *** */
-void insertLast(DaftarPlaylist *l, Playlist val);
+void ListDininsertLast(DaftarPlaylist *l, Playlist val);
 /* Proses: Menambahkan val sebagai elemen terakhir list */
 /* I.S. List l boleh kosong, tetapi tidak penuh */
 /* F.S. val adalah elemen terakhir l yang baru */
 /* ********** MENGHAPUS ELEMEN ********** */
-void deleteLast(DaftarPlaylist *l, Playlist *val);
+void ListDindeleteLast(DaftarPlaylist *l, Playlist *val);
 /* Proses : Menghapus elemen terakhir list */
 /* I.S. List tidak kosong */
 /* F.S. val adalah nilai elemen terakhir l sebelum penghapusan, */
