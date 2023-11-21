@@ -53,7 +53,7 @@ int main() {
             Kalimat nama ;
             nama = Directory(Input) ;
             printf("%s\n", nama.TabLine) ;
-            LOADFILE(&ls, LineToString (nama), &songQue) ;
+            LOADFILE(&ls, LineToString (nama), &songQue, &songHist) ;
             valid = false ;
     }    else if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ; valid = false ;
@@ -94,7 +94,7 @@ int main() {
             Kalimat namasave ;
             namasave = Directory(Input) ;            
             printf("%s\n", namasave.TabLine) ;
-            SAVEFILE(&ls, LineToString (namasave), &songQue) ;
+            SAVEFILE(&ls, LineToString (namasave), &songQue, &songHist) ;
 
         }
     }

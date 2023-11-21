@@ -20,6 +20,6 @@
 static FILE * save ;
 
 
-void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue);
+void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu);
 
 #endif

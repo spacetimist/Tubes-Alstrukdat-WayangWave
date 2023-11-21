@@ -1,6 +1,6 @@
 #include "load.h"
 
-void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
+void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu) {
     STARTKALIMATFILE(namafile) ;
     Kalimat NamaPenyanyi;
     Kalimat NamaAlbum;
@@ -88,6 +88,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue) {
     riwayat.songName = Line ;
     printf("Nama lagu %d : %s\n",i+1, LineToString(Line)) ;
     // disini kurang ngepush ke stack riwayat lagu 
+    push(riwayatlagu, riwayat) ;
   }
 
   ADVKALIMAT() ;
