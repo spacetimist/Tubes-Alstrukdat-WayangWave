@@ -95,20 +95,11 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
             X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
             X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-            printf("lolos\n");
-            Playlist currentPlaylist = (*daftar).List[indexPlaylist];
-            printf("lolos\n");
+            Playlist currentPlaylist;
+            currentPlaylist = (*daftar).List[indexPlaylist];
+            PrintPlaylistSong(currentPlaylist); //ini buat ngetes sebelumnya kosong ato ngga
             InsVLast(&currentPlaylist, X);
-            printf("lolos\n");
             PrintPlaylistSong(currentPlaylist);
-            // addressNode currentSongAddress = currentPlaylist.First;
-            // (*currentSongAddress).song.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
-            // (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
-            // (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-            // addressNode currentSongAddress = currentPlaylist.First;
-            // (*currentSongAddress).song.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
-            // (*currentSongAddress).song.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
-            // (*currentSongAddress).song.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
         }
     }
 }
@@ -253,14 +244,14 @@ boolean isLinkListEmpty (Playlist L){
 }
 
 void PrintPlaylistSong (Playlist L){
-	addressNode P = First(L);
 
 	if (IsLinkListEmpty(L)){
-		printf("Playlist kosong.");
+		printf("Playlist kosong.\n");
 	} else {
-		while (Next(P) != Nul){
-			P = Next(P);
+	    addressNode P = First(L);
+		while (P != Nul){
 			printf("%s\n", LineToString(Info(P).songName));
+			P = Next(P);
 		}
 	}
 }

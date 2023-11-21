@@ -14,11 +14,13 @@ void CreateLinkList (Playlist *L){
 addressNode Alokasi (SongDetails X){
     //alocate node(ElmtList), put address in P
     // address P = (address) malloc (sizeof(ElmtList));
-    addressNode P = (addressNode) malloc (sizeof(SongNode));
+    addressNode P = (SongNode*) malloc (sizeof(SongNode));
     //check if allocation success
     if (P != Nul){
         //if success, put X in info(P)
-        Info(P) = X;
+        Info(P).songName = X.songName;
+        Info(P).albumName = X.albumName;
+        Info(P).artistName = X.artistName;
         Next(P) = Nul;
     }
     //return address of P
