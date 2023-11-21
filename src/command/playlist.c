@@ -94,7 +94,6 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
             X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
             X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-            Playlist currentPlaylist = (*daftar).List[indexPlaylist];
             InsVLast(&((*daftar).List[indexPlaylist]), X);
             PrintPlaylistSong((*daftar).List[indexPlaylist]);
         }
