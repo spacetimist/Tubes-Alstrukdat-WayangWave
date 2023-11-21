@@ -158,8 +158,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            printf("Dadah\n") ;
-            valid = false ;
+            quit() ;
         }
         else{
             InvalidCommand();
