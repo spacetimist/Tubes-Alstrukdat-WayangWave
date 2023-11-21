@@ -32,9 +32,9 @@ void InvalidCommand(){
 int main() {
     banner();
     ListPenyanyi ls ;
+    CreateListPenyanyi (&ls) ;    
     DaftarPlaylist dp;
-    CreateListPenyanyi (&ls) ;
-    createDaftarPlaylist (&dp);
+    CreateDaftarPlaylist (&dp, 50); //kapasitasnya 50 playlist
     boolean valid = true;
     Queue songQue;
     CreateQueue(&songQue);
@@ -144,9 +144,9 @@ int main() {
         }  
         else if (isInputEqual(Input, "SONG")) {
             ADVCommand() ;
-            if (isInputEqual("PREVIOUS")) {
+            if (isInputEqual(Input, "PREVIOUS")) {
                 // fungsi song prev
-            } else if (isInputEqual("NEXT")) {
+            } else if (isInputEqual(Input, "NEXT")) {
                 // fungsi song next
             }
         }
