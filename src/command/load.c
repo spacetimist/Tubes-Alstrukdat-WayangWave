@@ -7,7 +7,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     Kalimat NamaLagu;
 
     int jumlah = Line.TabLine[0] - 48;
-    printf("\nJumlah Penyanyi: %d\n", jumlah);
+ //   printf("\nJumlah Penyanyi: %d\n", jumlah);
 
     if (jumlah > 0 ) {
     printf("Save file berhasil dibaca. WayangWave berhasil dijalankan.\n") ;
