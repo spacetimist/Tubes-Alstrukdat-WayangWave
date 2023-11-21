@@ -9,7 +9,7 @@
 #include "../boolean.h"
 #include "../SongDetails.h"
 
-#define Nil NULL
+#define Nul NULL
 
 // typedef int infotype;
 // typedef struct tElmtlist *address;
@@ -32,9 +32,9 @@ typedef struct {
 }Playlist;
 
 /* Definisi Playlist : */
-/* PlayList kosong : First(L) = Nil */
+/* PlayList kosong : First(L) = Nul */
 /* Setiap elemen dengan address P dapat diacu Info(P), Next(P) */
-/* Elemen terakhir Playlist : jika addressnya Last, maka Next(Last)=Nil */
+/* Elemen terakhir Playlist : jika addressnya Last, maka Next(Last)=Nul */
 #define Info(P) (P)->song
 #define Next(P) (P)->Next
 #define First(L) ((L).First)
@@ -52,34 +52,34 @@ void CreateEmpty (Playlist *L);
 /****************** Manajemen Memori ******************/
 addressNode Alokasi (SongDetails X);
 /* Mengirimkan address hasil alokasi sebuah elemen */
-/* Jika alokasi berhasil, maka address tidak nil, dan misalnya */
-/* menghasilkan P, maka info(P)=X, Next(P)=Nil */
-/* Jika alokasi gagal, mengirimkan Nil */
+/* Jika alokasi berhasil, maka address tidak Nul, dan misalnya */
+/* menghasilkan P, maka info(P)=X, Next(P)=Nul */
+/* Jika alokasi gagal, mengirimkan Nul */
 void Dealokasi (addressNode *P);
 /* I.S. P terdefinisi */
 /* F.S. P dikembalikan ke sistem */
 /* Melakukan dealokasi/pengembalian address P */
 
-/****************** PRIMITIF BERDASARKAN NILAI ******************/
+/****************** PRIMITIF BERDASARKAN NulAI ******************/
 /*** PENAMBAHAN ELEMEN ***/
 void InsVFirst (Playlist *L, SongDetails X);
 /* I.S. L mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
-/* menambahkan elemen pertama dengan nilai X jika alokasi berhasil */
+/* menambahkan elemen pertama dengan Nulai X jika alokasi berhasil */
 void InsVLast (Playlist *L, SongDetails X);
 /* I.S. L mungkin kosong */
 /* F.S. Melakukan alokasi sebuah elemen dan */
 /* menambahkan elemen Playlist di akhir: elemen terakhir yang baru */
-/* bernilai X jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
+/* berNulai X jika alokasi berhasil. Jika alokasi gagal: I.S.= F.S. */
 
 /*** PENGHAPUSAN ELEMEN ***/
 void DelVFirst (Playlist *L, SongDetails *X);
 /* I.S. Playlist L tidak kosong  */
-/* F.S. Elemen pertama Playlist dihapus: nilai info disimpan pada X */
+/* F.S. Elemen pertama Playlist dihapus: Nulai info disimpan pada X */
 /*      dan alamat elemen pertama di-dealokasi */
 void DelVLast (Playlist *L, SongDetails *X);
 /* I.S. Playlist tidak kosong */
-/* F.S. Elemen terakhir Playlist dihapus: nilai info disimpan pada X */
+/* F.S. Elemen terakhir Playlist dihapus: Nulai info disimpan pada X */
 /*      dan alamat elemen terakhir di-dealokasi */
 
 /****************** PRIMITIF BERDASARKAN ALAMAT ******************/

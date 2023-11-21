@@ -42,6 +42,7 @@ int main() {
     CreateStack(&songHist);
     SongDetails currentSong;
     createSongDetails(&currentSong);
+    char namafile;
 
     while(valid){
         printf(">> ");
@@ -151,7 +152,7 @@ int main() {
             }
         }
         else if (isInputEqual(Input, "STATUS")) {
-            // fungsi status
+            status(songQue, currentSong);
         }
         else if (isInputEqual(Input, "HELP")) {
             printf("\n====================[ Menu Help WayangWave ]====================\n");
@@ -165,7 +166,7 @@ int main() {
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit() ;
+            quit(&ls, namafile ,&songQue, &songHist, &currentSong) ;
         }
         else{
             InvalidCommand();

@@ -131,7 +131,7 @@ typedef struct{
 #define NEFF(l) (l).Neff
 #define BUFFER(l) (l).List
 #define ELMT(l, i) (l).List[i]
-#define CAPACITY(l) (l).capacity
+#define capacity(l) (l).capacity
 
 /* ********** KONSTRUKTOR ********** */
 /* Konstruktor : create list kosong  */
@@ -141,7 +141,7 @@ void CreateDaftarPlaylist(DaftarPlaylist *l, int capacity);
 
 void dealocateList(DaftarPlaylist *l);
 /* I.S. l terdefinisi; */
-/* F.S. (l) dikembalikan ke system, CAPACITY(l)=0; NEFF(l)=0 */
+/* F.S. (l) dikembalikan ke system, capacity(l)=0; NEFF(l)=0 */
 
 /* ********** SELEKTOR (TAMBAHAN) ********** */
 /* *** Banyaknya elemen *** */
@@ -168,7 +168,7 @@ boolean isIdxEff(DaftarPlaylist l, IdxType i);
 
 /* ********** TEST KOSONG/PENUH ********** */
 /* *** Test list kosong *** */
-boolean isEmpty(DaftarPlaylist l);
+boolean isDaftarPlaylistEmpty(DaftarPlaylist l);
 /* Mengirimkan true jika list l kosong, mengirimkan false jika tidak */
 /* *** Test list penuh *** */
 boolean isFull(DaftarPlaylist l);
