@@ -102,5 +102,6 @@ Kalimat StringtoLine(char *string) ;
 
 char *LineToString(Kalimat line) ;
 
+Kalimat Directory(Kalimat namafile) ;
 
 #endif

@@ -264,3 +264,27 @@ char *LineToString(Kalimat line)
  C[i] = '\0';
  return C;
 }
+
+Kalimat Directory(Kalimat namafile)  {
+    Kalimat lokasi ;
+    lokasi.TabLine[0] = '.' ;
+    lokasi.TabLine[1] = '.' ;
+    lokasi.TabLine[2] = '/' ;
+    lokasi.TabLine[3] = 's' ;
+    lokasi.TabLine[4] = 'a' ;
+    lokasi.TabLine[5] = 'v' ;
+    lokasi.TabLine[6] = 'e' ;
+    lokasi.TabLine[7] = '/' ;
+    lokasi.Length = 8;
+    int a = lokasi.Length ;
+    int b = 0 ;
+
+    while (namafile.TabLine[b] != '\0') {
+        lokasi.TabLine[a] = namafile.TabLine[b] ;
+        lokasi.Length ++ ;
+        a++; b++;
+    }
+
+    lokasi.TabLine[lokasi.Length] = '\0' ;
+    return lokasi ;
+}

@@ -47,11 +47,18 @@ int main() {
         printf(">> ");
         StartCommand() ;
         if (isInputEqual(Input, "LOAD")) {
-            LOADFILE(&ls, "../save/save.txt", &songQue) ;
+            ADVCommand() ;
+       //     printf("%s\n", LineToString(Input)) ;
+            Kalimat nama ;
+            nama = Directory(Input) ;
+            printf("%s\n", nama.TabLine) ;
+            LOADFILE(&ls, LineToString (nama), &songQue) ;
             valid = false ;
     }    else if (isInputEqual(Input, "START")) {
             STARTREAD(&ls) ; valid = false ;
-    }    
+        }  else {
+            printf("Tidak ada file dengan nama tersebut !\n") ;
+        }  
     }
     valid = true ;
     while (valid) {
