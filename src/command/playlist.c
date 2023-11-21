@@ -42,7 +42,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexPenyanyi;
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-        Penyanyi.Length--;
+   //     Penyanyi.Length--;  (ini kayaknya gaperlu lagi, soalnya udah dikurangin di fungsi start)
         // printf("%d\n",Penyanyi.Length);
         // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, Penyanyi)){
@@ -63,7 +63,7 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
 
     for(int j=0; j<DaftarAlbum.NEff; j++){
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-        album.Length--;
+    //    album.Length--;
         // printf("%d\n",album.Length);
         // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, album)){
@@ -115,7 +115,7 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexPenyanyi;
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-        Penyanyi.Length--;
+  //      Penyanyi.Length--;
         // printf("%d\n",Penyanyi.Length);
         // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, Penyanyi)){
@@ -136,7 +136,7 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
 
     for(int j=0; j<DaftarAlbum.NEff; j++){
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-        album.Length--;
+    //    album.Length--;
         // printf("%d\n",album.Length);
         // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, album)){
