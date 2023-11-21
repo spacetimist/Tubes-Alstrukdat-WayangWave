@@ -19,7 +19,7 @@ void InsVSongPlaylistLast (Playlist *L, SongDetails X){
 	addressNode P = Alokasi(X);
 
 	if (P != Nul){
-		if (isLinkListEmpty(*L)){
+		if (IsLinkListEmpty(*L)){
 		Next(P) = First(*L);
 	    First(*L) = P;
 	    } else {
