@@ -15,7 +15,7 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
 
     for (int i = 0 ; i< (LP).NEff ; i++) {
         Kalimat Penyanyi = (LP).PenyanyiAlbum[i].NamaPenyanyi ;
-        Penyanyi.Length --;
+  //      Penyanyi.Length --;
 
         if (isKalimatEqual(Input, Penyanyi)) {
             indexPenyanyi = i ;
@@ -33,7 +33,7 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     StartInput() ;
     for (int j = 0; j<DaftarAlbum.NEff ; j++) {
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-        album.Length--;
+   //     album.Length--;
 
         if (isKalimatEqual(Input, album)) {
             indexAlbum = j;
@@ -50,16 +50,16 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     StartInput() ;
     int idSong = Input.TabLine[0] - 48 - 1;
     Kalimat judulLagu = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[idSong];
-    judulLagu.Length -- ;
+ //   judulLagu.Length -- ;
     // printf("%s\n", LineToString(judulLagu)) ;
 
     Kalimat namaPenyanyi = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi ;
-    namaPenyanyi.Length -- ;
+ //   namaPenyanyi.Length -- ;
     // printf("%s\n", LineToString(namaPenyanyi)) ;
 
     Kalimat namaAlbum = LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.AlbumLagu[indexAlbum].NamaAlbum ;
     // printf("%s\n", LineToString(namaAlbum)) ;
-    namaAlbum.Length -- ;
+ //   namaAlbum.Length -- ;
     SongDetails simpan ;
     simpan.songName= judulLagu ;
     // printf("%s\n", LineToString(simpan.songName)) ;
