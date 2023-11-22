@@ -12,14 +12,14 @@
 // #include "../ADT/list/list.h"
 #include "../ADT/queue/queue.h"
 // #include "./command/start.h"
-// #include "./list.h"
+#include "./list.h"
 //#include "./command/console.h"
 #include "../ADT/SongDetails.h"
 #include "../ADT/listDin/listDin.h"
 
 
 void QueueSong(Queue *songQue, ListPenyanyi LP);
-void QueuePlaylist(Queue *songQue);
+void QueuePlaylist(Queue *songQue, DaftarPlaylist DP);
 void QueueSwap(Queue *songQue, int id1, int id2);
 void QueueRemove(Queue *songQue, int id);
 void QueueClear(Queue *songQue);

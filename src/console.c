@@ -61,7 +61,10 @@ int main() {
             ADVCommand() ;
             namafile = Directory(Input) ;
             LOADFILE(&ls, LineToString(namafile), &songQue, &songHist, &currentSong, &dp);
-            valid = false;
+            if(ls.NEff <= 0){
+                valid = true;
+            }
+            else valid = false;
         }
         else {
             InvalidCommand();
@@ -114,7 +117,7 @@ int main() {
                 int id = Input.TabLine[0] - 48 ;
                 QueueRemove(&songQue, id) ;
             } else if (isInputEqual(Input, "PLAYLIST")) {
-                // masukkin fungsi queue playlist
+                QueuePlaylist(&songQue, dp) ;
             }
             else {
                 printf("Command tidak diketahui!\n") ;
