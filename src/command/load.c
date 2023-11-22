@@ -20,10 +20,10 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     AddPenyanyi(LP, Line);
     NamaPenyanyi = NamaPenyanyiNow(LP);
 
-    printf("\nNama Penyanyi ke-%d: %s\n", i+1, NamaPenyanyi.TabLine);
-    printf("\n");
-    printf("Jumlah Album: %d\n", album);
-    printf("\n");
+ //   printf("\nNama Penyanyi ke-%d: %s\n", i+1, NamaPenyanyi.TabLine);
+   // printf("\n");
+   // printf("Jumlah Album: %d\n", album);
+   // printf("\n");
 
 
     for (int j = 0; j < album; j++){
@@ -35,8 +35,8 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
       AddAlbum(LP, Line);
       NamaAlbum = NamaAlbumNow(LP);
 
-      printf("Nama Album: %s\n", NamaAlbum.TabLine);
-      printf("\n");
+     // printf("Nama Album: %s\n", NamaAlbum.TabLine);
+     // printf("\n");
       for (int k = 0; k < lagu; k++)
       {
         ADVKALIMAT();
@@ -44,7 +44,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
         AddLagu(LP, Line);
         NamaLagu = NamaLaguNow(LP);
 
-        printf("Nama Lagu %d: %s\n", k+1, NamaLagu.TabLine);
+       // printf("Nama Lagu %d: %s\n", k+1, NamaLagu.TabLine);
     
       }
     }
@@ -56,21 +56,21 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
   (*currentsong).albumName = Line;
   ADVRecord() ;
   (*currentsong).songName = Line ;
-  printf("Current song : %s-%s-%s\n", LineToString((*currentsong).artistName), LineToString((*currentsong).albumName), LineToString((*currentsong).songName));
+ // printf("Current song : %s-%s-%s\n", LineToString((*currentsong).artistName), LineToString((*currentsong).albumName), LineToString((*currentsong).songName));
 
   ADVKALIMAT() ;
   int jumlahqs = Line.TabLine[0] - 48 ; //banyak lagu ke dalam queue
-  printf("\nBanyak record lagu : %d\n", jumlahqs) ;
+ // printf("\nBanyak record lagu : %d\n", jumlahqs) ;
 
   for (int i = 0 ; i <jumlahqs ; i++) {
     ADVRecord() ;
     Kalimat NamaPenyanyi = Line ;
-    printf("Penyanyi lagu %d : %s\n", i+1, LineToString(Line)) ;
+  //  printf("Penyanyi lagu %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
-    Kalimat NamaAlbum = Line ;
+  //  Kalimat NamaAlbum = Line ;
     printf("Nama album %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
-    printf("Nama lagu %d : %s\n", i+1, LineToString(Line)) ;
+   // printf("Nama lagu %d : %s\n", i+1, LineToString(Line)) ;
     Kalimat NamaLagu = Line ;
 
     SongDetails save ;
@@ -82,7 +82,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
 
   ADVKALIMAT() ;
   int jumlahriwayat = Line.TabLine[0] - 48 ;
-  printf("\nBanyak jumlah record riwayat : %d\n", jumlahriwayat) ;
+ // printf("\nBanyak jumlah record riwayat : %d\n", jumlahriwayat) ;
 
   Stack temp ; CreateStack(&temp) ;
   for (int i = 0 ; i< jumlahriwayat; i++) {
@@ -90,14 +90,13 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     Kalimat NamaPenyanyi ; Kalimat NamaAlbum ; 
     SongDetails riwayat ; 
     riwayat.artistName = Line ;
-    printf("Penanyi lagu ke-%d : %s\n",i+1, LineToString(Line)) ;
+   // printf("Penanyi lagu ke-%d : %s\n",i+1, LineToString(Line)) ;
     ADVRecord() ;
     riwayat.albumName = Line ;
-    printf("Nama album %d : %s\n",i+1, LineToString(Line)) ;
+   // printf("Nama album %d : %s\n",i+1, LineToString(Line)) ;
     ADVRecord() ;
     riwayat.songName = Line ;
-    printf("Nama lagu %d : %s\n",i+1, LineToString(Line)) ;
-    // disini kurang ngepush ke stack riwayat lagu 
+   // printf("Nama lagu %d : %s\n",i+1, LineToString(Line)) ;
     push(&temp, riwayat) ;
   }
   {
