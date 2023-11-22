@@ -67,7 +67,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     Kalimat NamaPenyanyi = Line ;
   //  printf("Penyanyi lagu %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
-  //  Kalimat NamaAlbum = Line ;
+   Kalimat NamaAlbum = Line ;
  //   printf("Nama album %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
    // printf("Nama lagu %d : %s\n", i+1, LineToString(Line)) ;
