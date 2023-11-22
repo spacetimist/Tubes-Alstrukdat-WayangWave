@@ -17,8 +17,10 @@ void status(Queue q, SongDetails currentSong, Playlist currentPlaylist){
     if(isQueueEmpty(q)){
         printf("Your queue is empty.\n\n");
     }else{
+        int index = 1;
         for (int i = IDX_HEAD(q) ; i<= IDX_TAIL(q) ; i++) {
-            printf("    %d. %s - %s - %s\n", i+1, LineToString(q.buffer[i].artistName), LineToString(q.buffer[i].songName), LineToString(q.buffer[i].albumName));
+            printf("    %d. %s - %s - %s\n", index, LineToString(q.buffer[i].artistName), LineToString(q.buffer[i].songName), LineToString(q.buffer[i].albumName));
+            index++;
         }
         printf("\n");
     }

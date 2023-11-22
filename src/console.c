@@ -166,6 +166,11 @@ int main() {
             printf("7. SAVE -> Untuk menyimpan state aplikasi WayangWave terbaru\n");
             printf("8. QUIT -> Untuk keluar dari sesi aplikasi WayangWave\n");
         }
+        else if (isInputEqual(Input, "SAVE")) {
+            ADVCommand() ; Kalimat namasave ;
+            namasave = Directory(Input) ;
+            SAVEFILE(&ls, LineToString(namasave), &songQue, &songHist, &currentSong);
+        }
         else if (isInputEqual(Input, "QUIT")) {
             quit(&ls, &namafile ,&songQue, &songHist, &currentSong) ;
         }
