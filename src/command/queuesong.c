@@ -73,25 +73,36 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
 
 }
 
-// void QueuePlaylist(Queue *songQue, DaftarPlaylist DP) {
-    
-//     // // input ID playlist
-//     // printf("Masukkan ID Playlist: ");
-//     // StartInput();
-//     // int idPlaylist = Input.TabLine[0] - 48 - 1;
-
-//     // List playlist = DP.(*Playlist);
-//     // if (!IsListEmpty(playlist)) {
-//     //     for (int i = 0; i < DP.NEff; i++) {
-//     //         if (i == idPlaylist) {
-//     //             printf("Berhasil menambahkan playlist %s ke queue.", playlist.PlaylistName.TabLine);
-//     //             for (int j = 0; j < DP.NEff; j++) {
-//     //                 enqueue(songQue, playlist.PlaylistName.TabLine);
-//     //             }
-//     //         }
-//     //     }
-//     // }
-// }
+void QueuePlaylist(Queue *songQue, DaftarPlaylist DP) {
+    //check if daftar playlist empty
+    if (IsDaftarPlaylistEmpty(DP)) {
+        printf("\nDaftar Playlist Kosong\n") ;
+        return ;
+    }
+    //print daftar playlist
+    ListPlaylist(DP) ;
+    //milih playlist
+    printf("\nMasukkan ID Playlist :\n") ;
+    printf(">> ") ;
+    StartInput() ;
+    //turn kalimat to int
+    int indexPlaylist = Input.TabLine[0] - 48 - 1;
+    //check if indexPlaylist valid
+    if (indexPlaylist < 0 || indexPlaylist >= DP.Neff) {
+        printf("\nPlaylist tidak ditemukan\n") ;
+        return ;
+    }
+    //get playlist
+    Playlist playlist = DP.List[indexPlaylist]; 
+    //insert playlist to queue
+    addressNode P = playlist.First;
+    while (P != NULL) {
+        enqueue(songQue, P->song);
+        P = P->Next;
+    }
+    printf("berhasil menambahkan playlist “%s” ke dalam queue.\n", LineToString(playlist.PlaylistName));
+    displayQueue(*songQue);
+}
 
 void QueueSwap(Queue *songQue, int id1, int id2)
 {
