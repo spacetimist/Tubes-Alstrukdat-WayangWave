@@ -23,6 +23,13 @@ void Ignoreblanks()
     }
 }
 
+int lengthNoBlanks (char * S) {
+    int i = 0 ;
+    while (S[i] != '\0' && S[i] != BLANK) {
+        i++ ;
+    } return i ;
+}
+
 void IgnoreNewline()
 /* Mengabaikan satu atau beberapa BLANK
    I.S. : CC sembarang

@@ -104,4 +104,6 @@ char *LineToString(Kalimat line) ;
 
 Kalimat Directory(Kalimat namafile) ;
 
+int lengthNoBlanks (char * S);
+
 #endif
