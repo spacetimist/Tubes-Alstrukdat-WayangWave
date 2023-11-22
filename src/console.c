@@ -44,7 +44,8 @@ int main() {
     createSongDetails(&currentSong);
     Playlist currentPlaylist;
     CreateLinkList(&currentPlaylist);
-    char namafile;
+    Kalimat namafile;
+    namafile.Length = 0;
 
     while(valid){
         printf(">> ");
@@ -58,9 +59,8 @@ int main() {
             printf("2. LOAD -> Untuk memulai sesi berdasarkan file konfigurasi\n");
         } else if (isInputEqual(Input, "LOAD")) {
             ADVCommand() ;
-            Kalimat nama ;
-            nama = Directory(Input) ;
-            LOADFILE(&ls, LineToString(nama), &songQue, &songHist, &currentSong, &dp);
+            namafile = Directory(Input) ;
+            LOADFILE(&ls, LineToString(namafile), &songQue, &songHist, &currentSong, &dp);
             valid = false;
         }
         else {
@@ -172,7 +172,12 @@ int main() {
             SAVEFILE(&ls, LineToString(namasave), &songQue, &songHist, &currentSong, &dp);
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit(&ls, &namafile ,&songQue, &songHist, &currentSong, &dp) ;
+            if (namafile.Length == 0){
+                printf("masukan nama file: ");
+                StartInput();
+                namafile = Directory(Input) ;
+            }
+            quit(&ls,LineToString(namafile) ,&songQue, &songHist, &currentSong, &dp) ;
         }
         else{
             InvalidCommand();
