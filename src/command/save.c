@@ -1,6 +1,6 @@
 #include "save.h"
 
-void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong) {
+void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong, DaftarPlaylist *daftar) {
     save = fopen(namafile, "w") ;
 
     fprintf(save, "%d\n", (*LP).NEff ) ;
@@ -24,6 +24,17 @@ void SAVEFILE(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayat
     fprintf(save, "%d\n", stackLength(*riwayatlagu)) ;
     for (int i = stackLength(*riwayatlagu)-1 ; i>= 0 ; i--) {
         fprintf(save, "%s;%s;%s\n", LineToString((*riwayatlagu).buffer[i].artistName), LineToString((*riwayatlagu).buffer[i].albumName), LineToString((*riwayatlagu).buffer[i].songName));
+    }
+
+    fprintf(save, "%d\n", (*daftar).Neff) ;
+    for (int i= 0 ; i< (*daftar).Neff; i++) {
+        fprintf(save,"%d ", NbElmt(daftar->List[i])) ;
+        fprintf(save, "%s\n", (*daftar).List[i].PlaylistName.TabLine) ;
+        addressNode P = daftar->List[i].First;
+        while(P!=NULL) {
+            fprintf(save, "%s;%s;%s\n", LineToString(P->song.artistName), LineToString(P->song.albumName), LineToString(P->song.songName ));
+            P = Next(P);
+        }
     }
     fclose(save) ;
 }

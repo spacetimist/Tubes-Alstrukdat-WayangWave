@@ -60,7 +60,7 @@ int main() {
             ADVCommand() ;
             Kalimat nama ;
             nama = Directory(Input) ;
-            LOADFILE(&ls, LineToString(nama), &songQue, &songHist, &currentSong);
+            LOADFILE(&ls, LineToString(nama), &songQue, &songHist, &currentSong, &dp);
             valid = false;
         }
         else {
@@ -169,10 +169,10 @@ int main() {
         else if (isInputEqual(Input, "SAVE")) {
             ADVCommand() ; Kalimat namasave ;
             namasave = Directory(Input) ;
-            SAVEFILE(&ls, LineToString(namasave), &songQue, &songHist, &currentSong);
+            SAVEFILE(&ls, LineToString(namasave), &songQue, &songHist, &currentSong, &dp);
         }
         else if (isInputEqual(Input, "QUIT")) {
-            quit(&ls, &namafile ,&songQue, &songHist, &currentSong) ;
+            quit(&ls, &namafile ,&songQue, &songHist, &currentSong, &dp) ;
         }
         else{
             InvalidCommand();

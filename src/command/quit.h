@@ -8,6 +8,6 @@
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../command/save.h"
 
-void quit(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong);
+void quit(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong, DaftarPlaylist *dp);
 
 #endif

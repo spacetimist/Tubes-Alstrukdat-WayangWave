@@ -1,6 +1,6 @@
 #include "load.h"
 
-void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu, SongDetails *currentsong) {
+void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayatlagu, SongDetails *currentsong, DaftarPlaylist *daftar) {
     STARTKALIMATFILE(namafile) ;
     Kalimat NamaPenyanyi;
     Kalimat NamaAlbum;
@@ -68,7 +68,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
   //  printf("Penyanyi lagu %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
   //  Kalimat NamaAlbum = Line ;
-    printf("Nama album %d : %s\n", i+1, LineToString(Line)) ;
+ //   printf("Nama album %d : %s\n", i+1, LineToString(Line)) ;
     ADVRecord() ;
    // printf("Nama lagu %d : %s\n", i+1, LineToString(Line)) ;
     Kalimat NamaLagu = Line ;
@@ -110,26 +110,26 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
   ADVKALIMAT() ;
   int jumlahpl = Line.TabLine[0] - 48 ;
   printf("\njumlah record playlist : %d\n", jumlahpl) ;
-
+  (*daftar).Neff = jumlahpl ;
   for (int i  = 0 ; i<jumlahpl ; i++) {
     ADVSATUKATA() ;
     int jumlahlagu = Line.TabLine[0] - 48 ;
     ADVKALIMAT() ;
+    Kalimat namapl = Line;
+    (*daftar).List[i].PlaylistName = namapl;
     // kurang fungsi masukin nama playlistnya 
     printf("Nama playlist ke-%d : %s\n", i+1, LineToString(Line) );
-
-    for (int j = 0 ; j<jumlahlagu ; j++) {
-        SongDetails infopl ;
-        ADVRecord() ;
-        infopl.artistName = Line ;
-        printf("Penyanyi ke-%d : %s\n", j+1, LineToString(Line)) ;
-        ADVRecord() ;
-        infopl.albumName = Line;
-        printf("Nama album %d : %s\n", j+1, LineToString(Line)) ;
-        ADVRecord() ;
-        infopl.songName = Line ;
-        printf("Nama lagu %d : %s\n", j+1, LineToString(Line)) ;
+    for (int j = 0 ; j <jumlahlagu ; j++) {
+      SongDetails temp ;
+      ADVRecord() ;
+      temp.artistName = Line ;
+      ADVRecord() ;
+      temp.albumName = Line ;
+      ADVRecord() ;
+      temp.songName = Line ;
+      InsVLast(&(daftar->List[i]), temp) ;
     }
+    PrintPlaylistSong((*daftar).List[i]) ;
   }
   } else {
     printf("Save file tidak ditemukan. WayangWave gagal dijalankan.\n") ;
