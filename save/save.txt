@@ -31,14 +31,13 @@ BLACKPINK;BORN PINK;Pink Venom
 BLACKPINK;THE ALBUM;How You Like That
 BLACKPINK;BORN PINK;Typa Girl
 BLACKPINK;BORN PINK;Pink Venom
-3
+2
 5 Arctic Monkeys My Top 5
 Arctic Monkeys;AM;R U Mine?
 Arctic Monkeys;AM;Do I Wanna Know?
 Arctic Monkeys;AM;Arabella
 Arctic Monkeys;Favourite Worst Nightmare;505
 Arctic Monkeys;Humbug;Pretty Visitors
-0 Mixed Playlist
 4 coba
 BLACKPINK;THE ALBUM;Bet You Wanna (Feat. Cardi B)
 Arctic Monkeys;AM;Do I Wanna Know?
