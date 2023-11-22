@@ -14,7 +14,7 @@ void STARTREAD(ListPenyanyi * LP){
   Kalimat NamaLagu;
 
   int jumlah = Line.TabLine[0] - 48;
-  printf("\nJumlah Penyanyi: %d\n", jumlah);
+//  printf("\nJumlah Penyanyi: %d\n", jumlah);
 
 
   for (int i = 0; i < jumlah; i++){
@@ -26,10 +26,10 @@ void STARTREAD(ListPenyanyi * LP){
     AddPenyanyi(LP, Line);
     NamaPenyanyi = NamaPenyanyiNow(LP);
 
-    printf("\nNama Penyanyi ke-%d: %s\n", i+1, NamaPenyanyi.TabLine);
-    printf("\n");
-    printf("Jumlah Album: %d\n", album);
-    printf("\n");
+   // printf("\nNama Penyanyi ke-%d: %s\n", i+1, NamaPenyanyi.TabLine);
+  //  printf("\n");
+   // printf("Jumlah Album: %d\n", album);
+   // printf("\n");
 
 
     for (int j = 0; j < album; j++){
@@ -41,8 +41,8 @@ void STARTREAD(ListPenyanyi * LP){
       AddAlbum(LP, Line);
       NamaAlbum = NamaAlbumNow(LP);
 
-      printf("Nama Album: %s\n", NamaAlbum.TabLine);
-      printf("\n");
+     // printf("Nama Album: %s\n", NamaAlbum.TabLine);
+     // printf("\n");
       for (int k = 0; k < lagu; k++)
       {
         ADVKALIMAT();
@@ -50,10 +50,10 @@ void STARTREAD(ListPenyanyi * LP){
         AddLagu(LP, Line);
         NamaLagu = NamaLaguNow(LP);
 
-        printf("Nama Lagu %d: %s\n", k+1, NamaLagu.TabLine);
+       // printf("Nama Lagu %d: %s\n", k+1, NamaLagu.TabLine);
     
       }
-      printf("\n");
+    //  printf("\n");
     }
 
   }
