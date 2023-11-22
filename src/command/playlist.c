@@ -153,34 +153,34 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
     }
 }
 
-void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y)
-{
-    int count;
-
-    // Mencari address x
-    count = 0;
-    addressNode addressX = ((*daftar).List[id-1]).First;
-    while (count < x)
+void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
+    addressNode P = First(daftar->List[id-1]);
+    int h1 = 0;
+    while (P != NULL)
     {
-        count++;
-        addressX = (((*daftar).List[id-1]).First)->Next;
+        h1++;
+        if(h1 == x){
+            break;
+        } 
+        P = Next(P);
     }
 
-    // Mencari address y
-    count = 0;
-    addressNode addressY = ((*daftar).List[id-1]).First;
-    while (count < y)
+    addressNode Q = First(daftar->List[id-1]);
+    int h2 = 0;
+    while (Q != NULL)
     {
-        count++;
-        addressY = (((*daftar).List[id-1]).First)->Next;
+        h2++;
+        if(h2 == y){
+            break;
+        } 
+        Q = Next(Q);
     }
 
-    SongDetails temp = addressX->song;
-    addressX->song = addressY->song;
-    addressY->song = temp;
-
+    SongDetails temp = Info(P);
+    Info(P) = Info(Q);
+    Info(Q) = temp;
     PrintPlaylistSong(((*daftar).List[id-1]));
-}
+}    
 
 void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
 {
