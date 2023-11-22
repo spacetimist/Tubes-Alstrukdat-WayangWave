@@ -8,15 +8,14 @@
 // #include "../ADT/mesin/mesinkarakter.h"
 // #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
-// #include "../ADT/word/word.h"
-// #include "../ADT/listlinier/listlinier.h"
+#include "../ADT/listlinier/listlinier.h"
 // #include "../ADT/list/list.h"
 #include "../ADT/queue/queue.h"
-//#include "../ADT/set/set.h"
 // #include "./command/start.h"
 // #include "./list.h"
 //#include "./command/console.h"
 #include "../ADT/SongDetails.h"
+#include "../ADT/listDin/listDin.h"
 
 
 void QueueSong(Queue *songQue, ListPenyanyi LP);
