@@ -155,3 +155,41 @@ int NbElmt (Playlist L){
     }
     return count;
 }
+
+// addressNode SearchPlaylist(Playlist L, SongDetails X)
+// /* Mencari apakah ada elemen Playlist dengan Info(P)= X */
+// /* Jika ada, mengirimkan addressNode elemen tersebut. */
+// /* Jika tidak ada, mengirimkan Nil */
+// {
+//     addressNode P;
+//     boolean bFound = false;
+
+//     if (!IsLinkListEmpty(L))
+//     {
+//         P = First(L);
+//         while (!bFound && P != Nil)
+//         {
+//             if (X == Info(P))
+//             {
+//                 bFound = true;
+//             }
+//             else
+//             {
+//                 P = Next(P);
+//             }
+//         }
+
+//         if (bFound)
+//         {
+//             return P;
+//         }
+//         else
+//         {
+//             return Nil;
+//         }
+//     }
+//     else
+//     {
+//         return Nil;
+//     }
+// }
