@@ -9,6 +9,6 @@ void quit(ListPenyanyi * LP, char namafile[] ,Queue *songQue, Stack *riwayatlagu
         SAVEFILE(LP, namafile, songQue, riwayatlagu, currentSong);
     }else if(isInputEqual(Input, "N")){
         printf("Kamu keluar dari WayangWave.\nDadah ^_^/\n\n");
-        exit(0);
     }
+    exit(0);
 }
