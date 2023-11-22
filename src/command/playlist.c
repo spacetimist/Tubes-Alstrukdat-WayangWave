@@ -9,20 +9,16 @@ void createPlaylist(DaftarPlaylist *playlist){
     StartInput();
     Playlist currentPlaylist;
     CreateLinkList(&currentPlaylist);
-    currentPlaylist.PlaylistName = Input;
-        // menghitung banyak karakter
-        // for (int i = 0; i < EOP; i++){
-        //     count++;
-        // }
-        // if (count < 3) {
-        //     printf("Minimal terdapat 3 karakter selain whitespace dalam nama playlist. Silakan coba lagi.");
-        //     sesuai = true;
-        // }
-        // else sesuai = false;
 
-    // = currentWord
-    // printWord(namaplaylist)
-    // playlist bisa dibuat
+    //validasi 3 karakter non blank
+    while(lengthNoBlanks(LineToString(Input)) < 3){
+        printf("Length: %d\n", lengthNoBlanks(LineToString(Input)));
+        printf("Minimal terdapat 3 karakter selain whitespace dalam nama playlist. Silakan coba lagi.\n");
+        printf("Masukkan nama playlist yang ingin dibuat : ");
+        StartInput();
+    }
+
+    currentPlaylist.PlaylistName = Input;
     printf("\n");
     printf("Playlist %s berhasil dibuat!\n", currentPlaylist.PlaylistName.TabLine);
     InsVLastDaftarPlaylist(playlist, currentPlaylist);
