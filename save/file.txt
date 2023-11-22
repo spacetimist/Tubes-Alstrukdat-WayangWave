@@ -25,22 +25,25 @@ Pretty Visitors
 Do I Wanna Know?
 R U Mine?
 Arabella
-BLACKPINK;BORN PINK;Pink Venom
-0
-3
-BLACKPINK;THE ALBUM;How You Like That
-BLACKPINK;BORN PINK;Typa Girl
-BLACKPINK;BORN PINK;Pink Venom
-3
-5 Arctic Monkeys My Top 5
 Arctic Monkeys;AM;R U Mine?
+5
+BLACKPINK;AM;Typa Girl
+BLACKPINK;AM;How You Like That
 Arctic Monkeys;AM;Do I Wanna Know?
+BLACKPINK;AM;Shut Down
 Arctic Monkeys;AM;Arabella
+2
 Arctic Monkeys;Favourite Worst Nightmare;505
-Arctic Monkeys;Humbug;Pretty Visitors
+BLACKPINK;BORN PINK;Pink Venom
+3
+3 BLACKPINK My Top Three
+BLACKPINK:THE ALBUM:How You Like That
+BLACKPINK:BORN PINK:Typa Girl
+BLACKPINK:BORN PINK:Pink Venom
+5 Arctic Monkeys My Top 5
+Arctic Monkeys:AM:R U Mine?
+Arctic Monkeys:AM:Do I Wanna Know?
+Arctic Monkeys:AM:Arabella
+Arctic Monkeys:Favourite Worst Nightmare:505
+Arctic Monkeys:Humbug:Pretty Visitors
 0 Mixed Playlist
-4 coba
-BLACKPINK;THE ALBUM;Bet You Wanna (Feat. Cardi B)
-Arctic Monkeys;AM;Do I Wanna Know?
-Arctic Monkeys;AM;R U Mine?
-Arctic Monkeys;AM;Arabella
