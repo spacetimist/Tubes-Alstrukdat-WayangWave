@@ -31,7 +31,7 @@ void ListDefault(ListPenyanyi LP){
                 }
 		    }
             else {
-       //         printf("\nArtis tidak dikenali. Silahkan coba lagi!\n");
+                printf("\nArtis tidak dikenali. Silahkan coba lagi!\n\n");
             }
         }
         // printf("%d\n", indexPenyanyi);

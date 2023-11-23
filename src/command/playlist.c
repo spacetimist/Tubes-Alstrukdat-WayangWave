@@ -4,7 +4,6 @@
 
 // ---------------------------------------------- PLAYLIST ------------------------------------------------------------
 void createPlaylist(DaftarPlaylist *playlist){
-    // playlist belum bisa dibuat
     printf("Masukkan nama playlist yang ingin dibuat : ");
     StartInput();
     Playlist currentPlaylist;
@@ -23,7 +22,7 @@ void createPlaylist(DaftarPlaylist *playlist){
     printf("Playlist %s berhasil dibuat!\n", currentPlaylist.PlaylistName.TabLine);
     InsVLastDaftarPlaylist(playlist, currentPlaylist);
     ListPlaylist(*playlist);
-    printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n");
+    printf("Silakan masukan lagu-lagu artis terkini kesayangan Anda!\n\n");
 }
 
 void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
@@ -39,9 +38,6 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexPenyanyi;
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-        // Penyanyi.Length--;  (ini kayaknya gaperlu lagi, soalnya udah dikurangin di fungsi start)
-        // printf("%d\n",Penyanyi.Length);
-        // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, Penyanyi)){
             indexPenyanyi = i;
             ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
@@ -50,6 +46,11 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
                 MapLagu album = DaftarAlbum.AlbumLagu[j];
                 printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
             }
+            break;
+        }
+        if(!isKalimatEqual(Input, Penyanyi) && i == (LP.NEff)-1){
+            printf("Penyanyi %s tidak ada dalam daftar. Silakan coba lagi.\n\n", Input.TabLine);
+            return;
         }
     
     }
@@ -60,9 +61,6 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
 
     for(int j=0; j<DaftarAlbum.NEff; j++){
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-    //    album.Length--;
-        // printf("%d\n",album.Length);
-        // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, album)){
             indexAlbum = j;
             SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
@@ -72,6 +70,11 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
             Kalimat lagu = DaftarLagu.JudulLagu[k];
                 printf("    %d. %s\n", k+1, lagu.TabLine);
             }
+            break;
+        }
+        if(!isKalimatEqual(Input, album) && j == (DaftarAlbum.NEff)-1){
+            printf("Album %s tidak ada dalam daftar. Silakan coba lagi.\n\n", Input.TabLine);
+            return;
         }
     }
 
@@ -84,15 +87,19 @@ void PlaylistAddSong(DaftarPlaylist *daftar, ListPenyanyi LP)
         printf("Masukkan ID Playlist yang dipilih: ");
         StartInput();
         int indexPlaylist = Input.TabLine[0] - 48 - 1;
-        if (indexPlaylist < daftar->Neff)
-        {
-            SongDetails X;
-            X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
-            X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
-            X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
-            InsVLast(&((*daftar).List[indexPlaylist]), X);
-            PrintPlaylistSong((*daftar).List[indexPlaylist]);
+        if(indexPlaylist >= daftar->Neff){
+            printf("ID Playlist tidak terdaftar!\n\n");
+            return;
         }
+        SongDetails X;
+        X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[indexLagu];
+        X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
+        X.artistName = LP.PenyanyiAlbum[indexPenyanyi].NamaPenyanyi;
+        InsVLast(&((*daftar).List[indexPlaylist]), X);
+        printf("Lagu dengan judul “%s” pada album %s oleh penyanyi %s berhasil ditambahkan ke dalam playlist %s.\n\n", LineToString(X.songName), LineToString(X.albumName), LineToString(X.artistName), LineToString((*daftar).List[indexPlaylist].PlaylistName));
+    }else{
+        printf("ID lagu tidak terdaftar! Silakan coba lagi.\n\n");
+        return;
     }
 }
 
@@ -108,9 +115,6 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
     StartInput();
     for (int i = 0; i < LP.NEff; i++){
         Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
-  //      Penyanyi.Length--;
-        // printf("%d\n",Penyanyi.Length);
-        // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, Penyanyi)){
             indexPenyanyi = i;
             ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
@@ -119,6 +123,11 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
                 MapLagu album = DaftarAlbum.AlbumLagu[j];
                 printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
             }
+            break;
+        }
+        if(!isKalimatEqual(Input, Penyanyi) && i == (LP.NEff)-1){
+            printf("Penyanyi %s tidak ada dalam daftar. Silakan coba lagi.\n\n", Input.TabLine);
+            return;
         }
     
     }
@@ -128,9 +137,6 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
     int indexAlbum;
     for(int j=0; j<DaftarAlbum.NEff; j++){
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
-    //    album.Length--;
-        // printf("%d\n",album.Length);
-        // printf("%d\n",Input.Length);
         if (isKalimatEqual(Input, album)){
             indexAlbum = j;
             SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
@@ -138,7 +144,10 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
             printf("Masukkan ID Playlist yang dipilih: ");
             StartInput();
             int indexPlaylist = Input.TabLine[0] - 48 - 1;
-            if (indexPlaylist < daftar->Neff)
+            if(indexPlaylist >= daftar->Neff){
+            printf("ID Playlist tidak terdaftar!\n\n");
+            return;
+            }else
             {
                 SongDetails X;
                 X.albumName = DaftarAlbum.AlbumLagu[indexAlbum].NamaAlbum;
@@ -147,13 +156,22 @@ void PlaylistAddAlbum(DaftarPlaylist *daftar, ListPenyanyi LP)
                     X.songName = DaftarAlbum.AlbumLagu[indexAlbum].IsiLagu.JudulLagu[k];    
                     InsVLast(&((*daftar).List[indexPlaylist]), X);
                 }
-                PrintPlaylistSong((*daftar).List[indexPlaylist]);
+                printf("Album dengan judul “%s” berhasil ditambahkan ke dalam pada playlist pengguna “%s”.\n\n", LineToString(X.albumName), LineToString((*daftar).List[indexPlaylist].PlaylistName));
             }
+            break;
+        }
+        if(!isKalimatEqual(Input, album) && j == (DaftarAlbum.NEff)-1){
+            printf("Album %s tidak ada dalam daftar. Silakan coba lagi.\n\n", Input.TabLine);
+            return;
         }
     }
 }
 
 void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
+    if(id > daftar->Neff){
+        printf("Tidak ada playlist dengan playlist ID %d.\n\n", id);
+        return;
+    }
     addressNode P = First(daftar->List[id-1]);
     int h1 = 0;
     while (P != NULL)
@@ -161,6 +179,9 @@ void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
         h1++;
         if(h1 == x){
             break;
+        }else if(Next(P) == NULL && h1 != x){
+            printf("Tidak ada lagu dengan urutan %d di playlist “%s”.\n\n", x, LineToString(daftar->List[id-1].PlaylistName));
+            return;
         } 
         P = Next(P);
     }
@@ -172,6 +193,9 @@ void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
         h2++;
         if(h2 == y){
             break;
+        }else if(Next(Q) == NULL && h2 != y){
+            printf("Tidak ada lagu dengan urutan %d di playlist “%s”.\n\n", y, LineToString(daftar->List[id-1].PlaylistName));
+            return;
         } 
         Q = Next(Q);
     }
@@ -179,11 +203,15 @@ void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
     SongDetails temp = Info(P);
     Info(P) = Info(Q);
     Info(Q) = temp;
-    PrintPlaylistSong(((*daftar).List[id-1]));
+    printf("Berhasil menukar lagu dengan nama “%s” dengan “%s” di playlist “%s”.\n\n", LineToString(Info(Q).songName), LineToString(Info(P).songName), LineToString(daftar->List[id-1].PlaylistName));
 }    
 
 void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
 {
+    if(id > daftar->Neff){
+        printf("Tidak ada playlist dengan playlist ID %d.\n\n", id);
+        return;
+    }
     int count;
 
     // Mencari address x
@@ -203,7 +231,8 @@ void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
     {
         ((*daftar).List[id-1]).First = (((*daftar).List[id-1]).First)->Next;
     }
-    PrintPlaylistSong(((*daftar).List[id-1]));
+    Playlist playlist = (*daftar).List[id];
+    printf("Lagu dengan urutan %d telah dihapus dari playlist “%s”!\n\n", n, LineToString(playlist.PlaylistName));
 }
 
 void PlaylistDelete(DaftarPlaylist *daftar)
@@ -211,11 +240,17 @@ void PlaylistDelete(DaftarPlaylist *daftar)
     printf("Masukkan ID Playlist yang dipilih: ");
     StartInput();
     int id = Input.TabLine[0] - 48 - 1;
+    if(id >= daftar->Neff){
+        printf("Tidak ada playlist dengan playlist ID %d.\n\n", id);
+        return;
+    }
+    Kalimat playlistName = (*daftar).List[id].PlaylistName;
     int j;
     for (j = id; j < daftar -> Neff; j++) {
         daftar -> List[j] = daftar -> List [j+1];
     }
-    daftar -> Neff -= 1;    
+    daftar -> Neff -= 1;  
+    printf("Playlist dengan judul “%s” berhasil dihapus.\n\n", LineToString(playlistName)); 
 }
 
 void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value)
