@@ -4,7 +4,7 @@ void songNext(Queue *songQue, Stack *songHist, SongDetails *currentSong){
     //check if songQue is empty
     if (isQueueEmpty(*songQue)){
         printf("No song in queue\n");
-        printf("Memutar kembali “%s”", LineToString(currentSong->songName));
+        printf("Memutar kembali “%s” ", LineToString(currentSong->songName));
         printf(" oleh %s\n", LineToString(currentSong->artistName));
     } else {
         //check if songHist is full
@@ -22,7 +22,7 @@ void songNext(Queue *songQue, Stack *songHist, SongDetails *currentSong){
         dequeue(songQue, currentSong);
         //print current song
         printf("Memutar lagu selanjutnya \n");
-        printf("Memutar “%s”",LineToString(currentSong->songName));
+        printf("Memutar “%s” ",LineToString(currentSong->songName));
         printf(" oleh %s\n",LineToString(currentSong->artistName));
     }
 }
@@ -31,7 +31,7 @@ void songPrev(Queue *songQue, Stack *songHist, SongDetails *currentSong){
     //check if songHist is empty
     if (isStackEmpty(*songHist)){
         printf("No song in history\n");
-        printf("Memutar kembali “%s”",LineToString(currentSong->songName));
+        printf("Memutar kembali “%s” ",LineToString(currentSong->songName));
         printf(" oleh %s\n",LineToString(currentSong->artistName));
     } else {
         //check if songQue is full
@@ -50,7 +50,7 @@ void songPrev(Queue *songQue, Stack *songHist, SongDetails *currentSong){
         pop(songHist, currentSong);
         //print current song
         printf("Memutar lagu sebelumnya \n");
-        printf("Memutar “%s”", LineToString(currentSong->songName));
+        printf("Memutar “%s” ", LineToString(currentSong->songName));
         printf(" oleh %s\n",LineToString(currentSong->artistName));
     }
 }
