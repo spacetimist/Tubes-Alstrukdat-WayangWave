@@ -109,7 +109,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
 
   ADVKALIMAT() ;
   int jumlahpl = Line.TabLine[0] - 48 ;
-  printf("\njumlah record playlist : %d\n", jumlahpl) ;
+ // printf("\njumlah record playlist : %d\n", jumlahpl) ;
   (*daftar).Neff = jumlahpl ;
   for (int i  = 0 ; i<jumlahpl ; i++) {
     ADVSATUKATA() ;
@@ -118,7 +118,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
     Kalimat namapl = Line;
     (*daftar).List[i].PlaylistName = namapl;
     // kurang fungsi masukin nama playlistnya 
-    printf("Nama playlist ke-%d : %s\n", i+1, LineToString(Line) );
+ //   printf("Nama playlist ke-%d : %s\n", i+1, LineToString(Line) );
     for (int j = 0 ; j <jumlahlagu ; j++) {
       SongDetails temp ;
       ADVRecord() ;
@@ -129,7 +129,7 @@ void LOADFILE(ListPenyanyi * LP, char namafile[], Queue *songQue, Stack *riwayat
       temp.songName = Line ;
       InsVLast(&(daftar->List[i]), temp) ;
     }
-    PrintPlaylistSong((*daftar).List[i]) ;
+ //   PrintPlaylistSong((*daftar).List[i]) ;
   }
   } else {
     printf("Save file tidak ditemukan. WayangWave gagal dijalankan.\n") ;
