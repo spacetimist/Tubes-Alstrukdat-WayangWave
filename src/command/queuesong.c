@@ -136,11 +136,12 @@ void QueueRemove(Queue *songQue, int id) {
             displayQueue(*songQue);
         }
         else {
+            printf("Lagu %s oleh %s telah dihapus dari queue\n", LineToString((*songQue).buffer[id-1].songName), LineToString((*songQue).buffer[id-1].artistName));
             for (int i = id -1; i< IDX_TAIL(*songQue) ; i++) {
                 (*songQue).buffer[i] = (*songQue).buffer[i+1];
             }
             IDX_TAIL(*songQue) -- ;
-            printf("Lagu %s oleh %s telah dihapus dari queue\n", LineToString((*songQue).buffer[id-1].songName), LineToString((*songQue).buffer[id-1].artistName));
+           // printf("Lagu %s oleh %s telah dihapus dari queue\n", LineToString((*songQue).buffer[id-1].songName), LineToString((*songQue).buffer[id-1].artistName));
             displayQueue(*songQue) ;
         }
     }
