@@ -123,7 +123,7 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
         //check if user input N
         else if (isInputEqual(Input, "N")){
             //remove song
-            DelAfter(&playlist, &temp, &Prec[i]);
+            DelAfter(&playlist, &temp, Prec[i]);
             //print message
             printf("\nLagu berhasil dihapus dari playlist\n");
         }

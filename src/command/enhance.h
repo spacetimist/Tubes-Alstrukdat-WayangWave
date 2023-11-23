@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "playlist.h"
 
-void enchance(DaftarPlaylist DP, ListPenyanyi LP);
+void enhance(DaftarPlaylist DP, ListPenyanyi LP);
 /*I.S. DP dan LP terdefinisi
 F.S. Playlist berisi lagu yang di enhance apabila di add oleh user.*/
 

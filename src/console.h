@@ -15,6 +15,7 @@
 #include "./command/song.h"
 #include "./command/status.h"
 #include "./command/load.h"
+#include "./command/enhance.h"
 //#include "./command/playlist.h"
 
 void banner();

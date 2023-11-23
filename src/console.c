@@ -178,7 +178,7 @@ int main() {
             quit(&ls,LineToString(namafile) ,&songQue, &songHist, &currentSong, &dp) ;
         }
         else if (isInputEqual(Input, "ENHANCE")) {
-            enhance(&dp, &ls);
+            enhance(dp, ls);
         }
         else{
             InvalidCommand();
