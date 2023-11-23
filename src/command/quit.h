@@ -10,4 +10,4 @@
 
 void quit(ListPenyanyi * LP, char namafile [] ,Queue *songQue, Stack *riwayatlagu, SongDetails *currentSong, DaftarPlaylist *dp);
 
-#endifs
+#endif
