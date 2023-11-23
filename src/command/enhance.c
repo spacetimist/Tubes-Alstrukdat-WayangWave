@@ -34,7 +34,7 @@ void insertRandomtoPlaylist(Playlist *P, SongDetails S, addressNode *prec){
     int random = rand() % NbElmt(*P);
     addressNode Pn = P->First;
     int i = 0;
-    while (i < random){
+    while (i <= random){
         *prec = Pn;
         Pn = Pn->Next;
         i++;
@@ -78,7 +78,8 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
     int precCount = 0;
     addressNode Prec[100];
     SongDetails song;
-    for (i = 0; i<(NbElmt(playlist)/3); i++){
+    int n = (NbElmt(playlist)/3);
+    for (i = 0; i<n; i++){
         //get random song
         getRandomSong(LP, &song);
         //check if song exist in playlist
