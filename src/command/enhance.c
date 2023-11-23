@@ -84,7 +84,7 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
         //check if song exist in playlist
         limit = 50;
         count = 0;
-        while (isSongExist(playlist, song) || count < limit) {
+        while (isSongExist(playlist, song) && count < limit) {
             getRandomSong(LP, &song);
             count++;
         }
