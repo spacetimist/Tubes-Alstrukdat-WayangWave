@@ -1,5 +1,3 @@
-#include "../ADT/mesin/mesinkata.h"
-#include "../ADT/mesin/mesinkarakter.h"
 #include "../ADT/mesin/mesinkalimat.h"
 #include "../ADT/map2/map2.h"
 #include "../ADT/listlinier/listlinier.h"

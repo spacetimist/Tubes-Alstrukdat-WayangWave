@@ -10,7 +10,7 @@
 #define AlbumMax 100
 #define Undefined -999
 
-// typedef int bool;
+
 typedef int idAlbum;
 typedef int address;
 
@@ -24,7 +24,7 @@ typedef struct
 
 typedef struct {
 	Kalimat NamaAlbum;
-	SetLagu IsiLagu; // set Lagu dari suatu album
+	SetLagu IsiLagu; 
 } MapLagu;
 
 
@@ -37,7 +37,7 @@ typedef struct
 
 typedef struct {
 	Kalimat NamaPenyanyi;
-	ListAlbum ListAlbum; // array of ListAlbum yang dimiliki penyanyi
+	ListAlbum ListAlbum; 
 } MapAlbum;
 
 

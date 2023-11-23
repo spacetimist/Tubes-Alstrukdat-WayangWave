@@ -94,7 +94,7 @@ void PLAYPLAYLIST(Queue *songQue, Stack *songHist, DaftarPlaylist DP, SongDetail
     //put first element of playlist to currentSong
     SongDetails song = playlist.First->song;
     *currentSong = song;
-    *currentPlaylist = playlist; //IZIN NAMBAHIN PARAMETER CURRENT PLAYLIST - FIRA
+    *currentPlaylist = playlist; 
 
     //empty songQue and songHist
     CreateStack(songHist);
