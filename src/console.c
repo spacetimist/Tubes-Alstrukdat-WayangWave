@@ -175,11 +175,6 @@ int main() {
             SAVEFILE(&ls, LineToString(namasave), &songQue, &songHist, &currentSong, &dp);
         }
         else if (isInputEqual(Input, "QUIT")) {
-            if (namafile.Length == 0){
-                printf("masukan nama file: ");
-                StartInput();
-                namafile = Directory(Input) ;
-            }
             quit(&ls,LineToString(namafile) ,&songQue, &songHist, &currentSong, &dp) ;
         }
         else{
