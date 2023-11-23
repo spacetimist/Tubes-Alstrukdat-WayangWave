@@ -129,6 +129,9 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
         }
     }
 
+    //print song in playlist
+    PrintPlaylistSong(playlist);
+}
 
 
 
@@ -173,4 +176,4 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
     //         return;
     //     }
     // }
-}
+
