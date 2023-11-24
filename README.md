@@ -33,7 +33,7 @@ Tugas besar ini dirangkai menggunakan bahasa C. Program memanfaatkan struktur-st
    
     b. `./main`
 
-This command tells the compiler to compile the `main.c`, `console.c`, and all files in ../src/command and ../ADT and output an executable file named `main`.
+This command tells the compiler to compile the `main.c`, `console.c`, and all files in `../src/command` and `../ADT` and output an executable file named `main`.
 
 ### Makefile :
 Or write the code below in your terminal if you want to compile manually:
