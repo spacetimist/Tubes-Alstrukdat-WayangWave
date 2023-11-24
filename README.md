@@ -16,13 +16,13 @@ WayangWave merupakan pemutar lagu yang berbasis CLI (Command Line Interface). Te
 
  
 
-Tugas besar ini dirangkai menggunakan bahasa C. Program memanfaatkan struktur-struktur data yang dipelajari pada mata kuliah IF2111 Algoritma dan Struktur data STI, meliputi ADT List, ADT Mesin Karakter dan Mesin Kata, ADT Queue, ADT Stack, ADT Set dan Map, dan ADT List dengan Struktur Berkait. Selain itu, program WayangWave juga menggunakan library `stdio.h`, `stdlib.h`, `time.h`, dan `math.h`. 
+Tugas besar ini dirangkai menggunakan bahasa C. Program memanfaatkan struktur-struktur data yang dipelajari pada mata kuliah IF2111 Algoritma dan Struktur data STI, meliputi ADT List, ADT Mesin Karakter dan Mesin Kata, ADT Queue, ADT Stack, ADT Set dan Map, dan ADT List dengan Struktur Berkait. Selain itu, program WayangWave juga menggunakan library `stdio.h`, `stdlib.h`, dan `time.h`.
 
 ## How to Compile
 ### Prerequisites
 - Linux platform
 - A C compiler (minimal gcc 5.4.0)
-- The `stdio.h`, `stdlib.h`, `time.h`, `math.h` library
+- The `stdio.h`, `stdlib.h`, and `time.h` library
 
 ### Compilation Steps
 1. Open a terminal or command prompt.
