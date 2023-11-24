@@ -63,7 +63,7 @@ void ListDefault(ListPenyanyi LP){
             printf("\nPilih album untuk melihat lagu yang ada di album: ");
             StartInput();
             boolean cek = false; int j = 0;
-            while (j<LP.PenyanyiAlbum[indexPenyanyi].ListAlbum.NEff && (cek==false)) {
+            while (j<DaftarAlbum.NEff && (cek==false)) {
                 Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
                 if (isKalimatEqual(Input, album)) {
                     cek = true ;
