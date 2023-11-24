@@ -21,8 +21,8 @@ void ListDefault(ListPenyanyi LP){
             Kalimat Penyanyi = LP.PenyanyiAlbum[i].NamaPenyanyi;
             // printf("%d\n",Penyanyi.Length);
             // printf("%d\n",Input.Length);
+            indexPenyanyi = i;
             if (isKalimatEqual(Input, Penyanyi)){
-                indexPenyanyi = i;
                 ListAlbum DaftarAlbum = LP.PenyanyiAlbum[i].ListAlbum;
                 printf("\nDaftar Album oleh %s :\n", Input.TabLine);
                 for(int j=0; j<DaftarAlbum.NEff; j++){
@@ -30,8 +30,9 @@ void ListDefault(ListPenyanyi LP){
                     printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine);
                 }
 		    }
-            else {
+            else if(!isKalimatEqual(Input, Penyanyi) && i+1 == LP.NEff) {
                 printf("\nArtis tidak dikenali. Silahkan coba lagi!\n\n");
+                return;
             }
         }
         // printf("%d\n", indexPenyanyi);
@@ -46,8 +47,8 @@ void ListDefault(ListPenyanyi LP){
                 Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
                 // printf("%d\n",album.Length);
                 // printf("%d\n",Input.Length);
+                indexAlbum = j;
                 if (isKalimatEqual(Input, album)){
-                    indexAlbum = j;
                     SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu; 
                     printf("\nDaftar Lagu di");
                     printf(" %s :\n", Input.TabLine);
@@ -55,6 +56,9 @@ void ListDefault(ListPenyanyi LP){
                     Kalimat lagu = DaftarLagu.JudulLagu[k];
                         printf("    %d. %s\n", k+1, lagu.TabLine);
                     }
+                }else if(!isKalimatEqual(Input, album) && j+1 == DaftarAlbum.NEff) {
+                    printf("\nArtis tidak dikenali. Silahkan coba lagi!\n\n");
+                    return;
                 }
             }
             printf("\n");
