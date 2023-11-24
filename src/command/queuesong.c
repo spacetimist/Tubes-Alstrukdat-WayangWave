@@ -119,9 +119,9 @@ void QueueSwap(Queue *songQue, int id1, int id2)
             printf("Lagu %s berhasil ditukar dengan %s\n", LineToString((*songQue).buffer[id1-1].songName), LineToString((*songQue).buffer[id2-1].songName));
             displayQueue(*songQue) ;
         }
-        else printf("Lagu dengan urutan ke %d dan ke %d tidak terdapat dalam queue!\n", id1, id2) ;
+        else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!\n",id2) ;
     }
-    else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!", id1) ;
+    else printf("Lagu dengan urutan ke %d tidak terdapat dalam queue!\n", id1) ;
 }
 
 void QueueRemove(Queue *songQue, int id) {
