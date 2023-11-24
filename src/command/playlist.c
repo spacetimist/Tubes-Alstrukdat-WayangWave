@@ -207,13 +207,17 @@ void PlaylistSwap(DaftarPlaylist *daftar, int id, int x, int y){
     Info(P) = Info(Q);
     Info(Q) = temp;
     printf("Berhasil menukar lagu dengan nama “%s” dengan “%s” di playlist “%s”.\n\n", LineToString(Info(Q).songName), LineToString(Info(P).songName), LineToString(daftar->List[id-1].PlaylistName));
-    PrintPlaylistSong((*daftar).List[id]);
+    PrintPlaylistSong((*daftar).List[id-1]);
 }    
 
 void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
 {
     if(id > daftar->Neff){
         printf("Tidak ada playlist dengan playlist ID %d.\n\n", id);
+        return;
+    }
+    if(n > NbElmt((*daftar).List[id-1])){
+        printf("Tidak ada lagu dengan urutan %d.\n\n", n);
         return;
     }
     int count;
@@ -235,13 +239,14 @@ void PlaylistRemove(DaftarPlaylist *daftar, int id, int n)
     {
         ((*daftar).List[id-1]).First = (((*daftar).List[id-1]).First)->Next;
     }
-    Playlist playlist = (*daftar).List[id];
+    Playlist playlist = (*daftar).List[id-1];
     printf("Lagu dengan urutan %d telah dihapus dari playlist “%s”!\n\n", n, LineToString(playlist.PlaylistName));
-    PrintPlaylistSong((*daftar).List[id]);
+    PrintPlaylistSong((*daftar).List[id-1]);
 }
 
 void PlaylistDelete(DaftarPlaylist *daftar)
 {
+    ListPlaylist(*daftar);
     printf("Masukkan ID Playlist yang dipilih: ");
     StartInput();
     int id = Input.TabLine[0] - 48 - 1;
@@ -256,7 +261,7 @@ void PlaylistDelete(DaftarPlaylist *daftar)
     }
     daftar -> Neff -= 1;  
     printf("Playlist dengan judul “%s” berhasil dihapus.\n\n", LineToString(playlistName)); 
-    PrintPlaylistSong((*daftar).List[id]);
+
 }
 
 void InsVLastDaftarPlaylist(DaftarPlaylist *daftar, Playlist value)
