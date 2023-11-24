@@ -25,6 +25,11 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
                 MapLagu album = DaftarAlbum.AlbumLagu[j] ;
                 printf("    %d. %s\n", j+1, album.NamaAlbum.TabLine) ;
             }
+            break ;
+        }
+        if(!isKalimatEqual(Input, Penyanyi) && (i == (LP).NEff -1)) {
+            printf("Penanyi %s tidak ada dalam daftar. Silakan coba lagi!\n\n", Input.TabLine);
+            return ;
         }
     }
     printf("\nMasukkan Nama Album yang Dipilih :\n") ;
@@ -34,7 +39,6 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
     for (int j = 0; j<DaftarAlbum.NEff ; j++) {
         Kalimat album = DaftarAlbum.AlbumLagu[j].NamaAlbum;
    //     album.Length--;
-
         if (isKalimatEqual(Input, album)) {
             indexAlbum = j;
             SetLagu DaftarLagu = DaftarAlbum.AlbumLagu[j].IsiLagu ;
@@ -43,6 +47,11 @@ void QueueSong(Queue *songQue, ListPenyanyi LP){
                 Kalimat judul = DaftarLagu.JudulLagu[k] ;
                 printf("    %d. %s\n", k+1, judul.TabLine) ;
             }
+            break ;
+        }
+        if (! isKalimatEqual(Input, album) && (j== (DaftarAlbum.NEff)-1)) {
+            printf("Album %s tidak ada dalam daftar. Silakan coba lagi\n\n", Input.TabLine);
+            return ;
         }
     }
     printf("\nMasukkan ID Lagu yang Dipilih :\n") ;
