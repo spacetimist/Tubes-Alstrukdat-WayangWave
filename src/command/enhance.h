@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "playlist.h"
+#include <time.h>
 
 void enhance(DaftarPlaylist DP, ListPenyanyi LP);
 /*I.S. DP dan LP terdefinisi

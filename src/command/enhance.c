@@ -12,6 +12,8 @@ boolean isSongExist(Playlist P, SongDetails S){
 }
 
 void getRandomSong(ListPenyanyi LP, SongDetails *S){
+    //randomize seed
+    srand(time(NULL));
     //get random penyanyi
     int randomPenyanyi = rand() % LP.NEff;
     //get penyanyi
@@ -78,7 +80,7 @@ void enhance(DaftarPlaylist DP, ListPenyanyi LP){
     int precCount = 0;
     addressNode Prec[100];
     SongDetails song;
-    int n = (NbElmt(playlist)/3);
+    int n = (NbElmt(playlist)/2);
     for (i = 0; i<n; i++){
         //get random song
         getRandomSong(LP, &song);
