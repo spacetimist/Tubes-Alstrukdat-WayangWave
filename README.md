@@ -28,12 +28,14 @@ Tugas besar ini dirangkai menggunakan bahasa C. Program memanfaatkan struktur-st
 1. Open a terminal or command prompt.
 2. Navigate to the directory containing src files.
 3. Run the following command to compile your program:
-    a. make main
-    b. ./main
+   
+    a. `make main`
+   
+    b. `./main`
 
 This command tells the compiler to compile the `main.c`, `console.c`, and all files in ../src/command and ../ADT and output an executable file named `main`.
 
 ### Makefile :
-CC = gcc
-main:
-	$(CC) -o main ../src/ADT/mesin/mesinkata.c ../src/ADT/mesin/mesinkalimat.c ../src/ADT/mesin/mesinkarakter.c ../src/ADT/map2/map2.c ../src/ADT/queue/queue.c ../src/ADT/stack/stack.c ../src/ADT/listlinier/listlinier.c ../src/ADT/listDin/listDin.c ../src/ADT/SongDetails.c ../src/command/start.c ../src/command/list.c ../src/command/playlist.c ../src/command/queuesong.c ../src/command/quit.c ../src/command/play.c ../src/command/status.c ../src/command/save.c ../src/command/song.c ../src/command/load.c ../src/console.c ../src/command/enhance.c ../src/main.c
+Or write the code below if you want to compile manually:
+```
+gcc -o main ../src/ADT/mesin/mesinkata.c ../src/ADT/mesin/mesinkalimat.c ../src/ADT/mesin/mesinkarakter.c ../src/ADT/map2/map2.c ../src/ADT/queue/queue.c ../src/ADT/stack/stack.c ../src/ADT/listlinier/listlinier.c ../src/ADT/listDin/listDin.c ../src/ADT/SongDetails.c ../src/command/start.c ../src/command/list.c ../src/command/playlist.c ../src/command/queuesong.c ../src/command/quit.c ../src/command/play.c ../src/command/status.c ../src/command/save.c ../src/command/song.c ../src/command/load.c ../src/console.c ../src/command/enhance.c ../src/main.c
